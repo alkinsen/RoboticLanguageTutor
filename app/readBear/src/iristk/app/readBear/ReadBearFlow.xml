@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="ReadBearFlow" package="iristk.app.readBear" 
+	initial="Start"	xmlns="iristk.flow" xmlns:p="iristk.flow.param" xmlns:dialog="iristk.flow.DialogFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.flow.DialogFlow DialogFlow.xsd">
+
+	<state id="Start">
+		<onentry>
+			<dialog:say>Brown Bear, Brown Bear.
+Brown Bear, Brown Bear what do you see? I see a red bird looking at me.
+Red bird, red bird what do you see? I see a yellow duck looking at me.
+Yellow duck, yellow duck, what do you see? I see a blue horse looking at me.
+Blue horse, blue horse what do you see? I see a green frog looking at me.
+Green frog, green frog what do you see? I see a purple cat looking at me.
+Purple cat, purple cat what do you see? I see a white dog looking at me.
+White dog, white dog what do you see? I see a black sheep looking at me.
+Black sheep, black sheep what do you see? I see a gold fish looking at me.
+Gold fish, gold fish what do you see? I see children looking at me.
+Children, children what do you see? 
+We see a human looking at us.</dialog:say>
+		</onentry>
+	</state>
+	
+	<state id="Dialog">
+		<onevent name="sense.user.silence">
+			<dialog:say>I am sorry, I didn't hear anything.</dialog:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<dialog:say>I am sorry, I didn't get that.</dialog:say>
+			<reentry/>
+		</onevent>
+	</state>
+
+</flow>

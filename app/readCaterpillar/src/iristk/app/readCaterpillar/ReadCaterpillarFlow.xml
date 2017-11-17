@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="ReadCaterpillarFlow" package="iristk.app.readCaterpillar" 
+	initial="Start"	xmlns="iristk.flow" xmlns:p="iristk.flow.param" xmlns:dialog="iristk.flow.DialogFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.flow.DialogFlow DialogFlow.xsd">
+	
+<var name="name" type="String"/>
+
+	<state id="Start">
+		<onentry>
+			<dialog:say>The Very Hungry Caterpillar by Eric Carle</dialog:say>
+			<dialog:say>In the light of the moon a little egg lay on a leaf.</dialog:say>
+			<dialog:say>One Sunday morning the warm sun came up and - pop! - out of the egg came a tiny and very hungry caterpillar.</dialog:say>
+			<dialog:say>He started to look for some food. I am so hungry!</dialog:say>
+			<dialog:say>On Monday he ate through 1 apple, but he was still hungry.</dialog:say>
+			<dialog:say>On Tuesday he ate through 2 pears, but he was still hungry.</dialog:say>
+			<dialog:say>On Wednesday he ate through 3 plums, but he was still hungry.</dialog:say>
+			<dialog:say>On Thursday he ate through 4 strawberries, but he was still hungry.</dialog:say>
+			<dialog:say>On Friday he ate through 5 oranges, but he was still hungry.</dialog:say>
+			<dialog:say>On Saturday he ate through 1 piece of chocolate cake,</dialog:say>
+			<dialog:say>1 icecream cone,</dialog:say>
+			<dialog:say>1 pickle,</dialog:say>
+			<dialog:say>One slice of Swiss cheese,</dialog:say>
+			<dialog:say>1 slice of salami,</dialog:say>
+			<dialog:say>1 lollipop,</dialog:say>
+			<dialog:say>1 piece of cherry pie,</dialog:say>
+			<dialog:say>1 sausage,</dialog:say>
+			<dialog:say>1 cupcake,</dialog:say>
+			<dialog:say>And 1 slice of watermelon. That night he had a stomach ache!</dialog:say>
+			<dialog:say>The very hungry caterpillar then ate through one green leaf. He started to feel better.</dialog:say>
+			<dialog:say>Now, the caterpillar was no longer small. He was a big, fat caterpillar.</dialog:say>
+			<dialog:say>He built a small house, called a cocoon around himself. He stayed inside for more than 2 weeks. Then he nibbled a small hole in the cocoon, pushed his way out and...</dialog:say>
+			<dialog:say>He was a beautiful butterfly!</dialog:say>
+		</onentry>
+	</state>
+	
+	<state id="Dialog">
+		<onevent name="sense.user.silence">
+			<dialog:say>I am sorry, I didn't hear anything.</dialog:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<dialog:say>I am sorry, I didn't get that.</dialog:say>
+			<reentry/>
+		</onevent>
+	</state>
+	
+
+</flow>

@@ -8,7 +8,7 @@
  * Contributors:
  *     Gabriel Skantze - initial API and implementation
  ******************************************************************************/
-package iristk.app.guess;
+package iristk.app.readPigs;
 
 import iristk.speech.SpeechGrammarContext;
 import iristk.speech.Voice.Gender;
@@ -20,9 +20,9 @@ import iristk.util.Language;
 import iristk.cfg.SRGSGrammar;
 import iristk.flow.FlowModule;
 
-public class GuessSystem {
+public class ReadPigsSystem {
 
-	public GuessSystem() throws Exception {
+	public ReadPigsSystem() throws Exception {
 		// Create the system
 		SimpleDialogSystem system = new SimpleDialogSystem(this.getClass());
 		
@@ -34,8 +34,7 @@ public class GuessSystem {
 		
 		// Set up the GUI
 		system.setupGUI();
-		system.connectToBroker("furhat", "172.23.122.232");
-
+		
 		// Add the recognizer to the system
 		system.setupRecognizer(new WindowsRecognizerFactory());
 		
@@ -43,17 +42,17 @@ public class GuessSystem {
 		system.setupSynthesizer(new WindowsSynthesizer(), Gender.FEMALE);
 		
 		// Add the flow
-		system.addModule(new FlowModule(new GuessFlow()));
+		system.addModule(new FlowModule(new ReadPigsFlow()));
 		
 		// Load a grammar in the recognizer
-		system.loadContext("default", new SpeechGrammarContext(new SRGSGrammar(system.getPackageFile("GuessGrammar.xml"))));
+		system.loadContext("default", new SpeechGrammarContext(new SRGSGrammar(system.getPackageFile("ReadPigsGrammar.xml"))));
 		
 		// Start the interaction
 		system.sendStartSignal();
 	}
 
 	public static void main(String[] args) throws Exception {
-		new GuessSystem();
+		new ReadPigsSystem();
 	}
 
 }

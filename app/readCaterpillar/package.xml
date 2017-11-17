@@ -1,0 +1,8 @@
+<package name="readCaterpillar" version="0.1.0">
+	<run>
+		<command name="readCaterpillar" class="iristk.app.readCaterpillar.ReadCaterpillarSystem"/>
+	</run>
+	<classpath>
+		<src path="src" output="bin"/>
+	</classpath>
+</package>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="ReadMoonFlow" package="iristk.app.readMoon" 
+	initial="Start"	xmlns="iristk.flow" xmlns:p="iristk.flow.param" xmlns:dialog="iristk.flow.DialogFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.flow.DialogFlow DialogFlow.xsd">
+	
+	<state id="Start">
+		<onentry>
+			<dialog:say>Goodnight Moon by Margaret Wise Brown.
+In the great green room, There was a telephone. And a red balloon. And a picture of, the cow jumping over the moon.
+And there were three little bears sitting on chairs. And two little kittens. And a pair of mittens. And a little toy house.
+And a young mouse. And a comb and a brush and a bowl full of mush. And a quiet old lady who was whispering, hush.
+Goodnight room. Goodnight moon. Goodnight cow jumping over the moon. Goodnight light. And the red balloon.
+Goodnight bears. Goodnight chairs. Goodnight kittens. And goodnight mittens. Goodnight clocks. And goodnight socks. 
+Goodnight little house. And goodnight mouse. Goodnight comb. And goodnight brush. Goodnight nobody. Goodnight mush. 
+And goodnight to the old lady whispering, hush . Goodnight stars. Goodnight air. Good night noises everywhere.</dialog:say>
+		</onentry>
+	</state>
+	
+
+	<state id="Dialog">
+		<onevent name="sense.user.silence">
+			<dialog:say>I am sorry, I didn't hear anything.</dialog:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<dialog:say>I am sorry, I didn't get that.</dialog:say>
+			<reentry/>
+		</onevent>
+	</state>
+	
+
+</flow>

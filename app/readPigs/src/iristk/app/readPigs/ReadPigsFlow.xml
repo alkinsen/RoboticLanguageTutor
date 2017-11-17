@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="ReadPigsFlow" package="iristk.app.readPigs" 
+	initial="Start"	xmlns="iristk.flow" xmlns:p="iristk.flow.param" xmlns:dialog="iristk.flow.DialogFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.flow.DialogFlow DialogFlow.xsd">
+	
+	<state id="Start">
+		<onentry>
+			<dialog:say>The Three Little Pigs.
+Once upon a time, there lived three little pigs.
+Each little pig built a house. The first little pig built a straw house.
+A wolf knocked on the door.
+Let me come in, said the wolf.
+No!, said the little pig.
+Then I will blow your house in!, said the wolf.
+The wolf blew the house in.
+The little pig ran to his brothers house.
+The second little pig built a house of sticks.
+He was not afraid of the wolf.
+Let me come in, said the wolf.
+No!, yelled the pigs.
+The wolf blew the house in.
+The little pigs ran to their brothers house.
+The third little pig built a brick house.
+His brothers warned him about the wolf.
+Let me come in, yelled the wolf.
+No!, shouted the little pigs.
+The wolf huffed and puffed.
+But the wolf could not blow down the brick house.
+The three little pigs lived happily ever after.</dialog:say>
+		</onentry>
+	</state>
+
+<state id="Dialog">
+		<onevent name="sense.user.silence">
+			<dialog:say>I am sorry, I didn't hear anything.</dialog:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<dialog:say>I am sorry, I didn't get that.</dialog:say>
+			<reentry/>
+		</onevent>
+	</state>
+	
+</flow>
