@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="LearnColorsFlow" package="iristk.app.learnColors" 
+	initial="Start"	xmlns="iristk.flow" xmlns:p="iristk.flow.param" xmlns:dialog="iristk.flow.DialogFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.flow.DialogFlow DialogFlow.xsd">
+	
+	<state id="Start" extends="Dialog">
+		<onentry>
+			<dialog:say>Hello there, do you want to learn or play a game?</dialog:say>
+			<dialog:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:learn">
+			<goto state="Learn"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:play">
+			<goto state="Play"/>
+		</onevent>
+		
+	</state>
+	
+	<state id="Play" extends="Dialog">
+		<onentry>
+			<dialog:say>Let's have some fun. Which subject would you like to play with?</dialog:say>
+			<dialog:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:animal">
+			<exec>System.out.println("Hayvan kartlarinin oldugu desteyi aliniz ve cocugun onune rastgele diziniz.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>Great choice. I love animals. Let's wait for the caretaker to finish. </dialog:say>
+		</onevent>
+	</state>
+	
+	
+
+	
+	<state id="Learn" extends="Dialog">
+		<onentry>
+			<dialog:say>Let's start learning. What do you want to learn about?</dialog:say>
+			<dialog:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:color">
+			<exec>System.out.println("Renk kartlarinin oldugu desteyi aliniz.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>Okay, let's learn about colors.</dialog:say>
+			<goto state="TeachRed"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:animal">
+			<exec>System.out.println("Hayvan kartlarinin oldugu desteyi aliniz.")</exec>
+			<dialog:say>Okay, let's learn about animals.</dialog:say>
+			<goto state="TeachAnimals"/>
+		</onevent>
+	</state>
+	
+	
+	
+	<state id="TeachAnimals">
+		<onentry>
+			<exec>System.out.println("Kopek oyuncagini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>This is a dog. The dog says woof. The dog has 4 legs.</dialog:say>
+			
+			<exec>System.out.println("Kedi oyuncagini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>This is a cat. The says meow. The cat also has 4 legs like dog.</dialog:say>
+			
+			<exec>System.out.println("At oyuncagini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>This is a horse. The horse can run very fast.</dialog:say>
+		</onentry>
+	</state>
+	
+	
+	<state id="TeachRed">
+		<onentry>
+			<exec>System.out.println("Kirmizi renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>This is red.</dialog:say>
+			
+			<exec>System.out.println("kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve dil fotosunu parmaginizla gosterin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>Firetrucks, stop signs and fire are all red.</dialog:say>
+			<goto state="TeachBlue"/>
+		</onentry>
+	</state>
+	
+	<state id="TeachBlue">
+		<onentry>
+			<exec>System.out.println("Mavi renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>This is blue. </dialog:say>
+			
+			<exec>System.out.println("Mavi karti çevirip sirayla denizi, gokyuzu ve dil fotosuna isaret edin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>The sea, the sky and the ball are all blue. Blue</dialog:say>
+			<goto state="TeachGreen"/>
+		</onentry>
+	</state>
+	
+	<state id="TeachGreen">
+		<onentry>
+			<exec>System.out.println("Yesil renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>This is green.</dialog:say>
+			
+			<exec>System.out.println("Yesil karti cevirip sirayla cimen, agac ve elma fotosuna işaret edin.")</exec>
+			<wait msec="3000"/>
+			<dialog:say>The grass, the tree and the apple are all green. Green</dialog:say>
+			<goto state="CheckAgain"/>
+		</onentry>
+	</state>
+	
+	<state id="CheckAgain" extends="Dialog">
+		<onentry>
+			<dialog:say>Do you want to continue?</dialog:say>
+			<dialog:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<dialog:say>Okay, let's play again.</dialog:say>
+			<goto state="Start"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<dialog:say>Okay, goodbye</dialog:say>
+			<exec>System.exit(0)</exec>
+		</onevent>		
+	</state>
+	
+	<state id="Dialog">
+		<onevent name="sense.user.silence">
+			<dialog:say>I am sorry, I didn't hear anything.</dialog:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<dialog:say>I am sorry, I didn't get that.</dialog:say>
+			<reentry/>
+		</onevent>
+	</state>
+	
+
+</flow>
