@@ -12,7 +12,7 @@
 		  <item>learn<tag>out.learn=1</tag></item>
           <item>color<tag>out.color=</tag></item>
           <item>animal<tag>out.animal=1</tag></item>
-          <item>number<tag>out.number=1</tag></item>
+          <item>body<tag>out.body=1</tag></item>
       </one-of>
   	</rule>
   
