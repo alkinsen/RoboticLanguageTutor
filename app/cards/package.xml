@@ -1,0 +1,11 @@
+<package name="cards" version="0.1.0">
+	<run>
+		<command name="cards" class="iristk.app.cards.CardsSystem"/>
+	</run>
+	<provide>
+		<class type="iristk.furhat.skill.Skill" name="iristk.app.cards.CardsSkill" />
+	</provide>
+	<classpath>
+		<src path="src" output="bin"/>
+	</classpath>
+</package>

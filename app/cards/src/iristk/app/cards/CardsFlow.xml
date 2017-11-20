@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="CardsFlow" package="iristk.app.cards" 
+	initial="Start" xmlns:this="iristk.app.cards.CardsFlow" xmlns="iristk.flow" 
+	xmlns:p="iristk.flow.param" xmlns:agent="iristk.situated.SystemAgentFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.situated.SystemAgentFlow SystemAgentFlow.xsd">
+	
+	<import class="iristk.situated.Location"/>
+	
+	<param name="agent" type="iristk.situated.SystemAgentFlow"/>
+	
+	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
+	
+	 
+	<state id="Start" extends="Dialog">
+		<onentry>
+			<agent:say>Hello there, do you want to learn or play a game?</agent:say>
+			<call state="lookCaretaker"/>
+			<call state="lookChild"/>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:learn">
+			<goto state="Learn"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:play">
+			<goto state="Play"/>
+		</onevent>
+	</state>
+	
+	
+	
+	<state id="Play" extends="Dialog">
+		<onentry>
+			<agent:say>Let's have some fun. Which subject would you like to play with?</agent:say>
+			<agent:listen/>
+		</onentry>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:animal">
+			<goto state="PlayAnimals"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:color">
+			<goto state="PlayColors"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:body">
+			<goto state="PlayBody"/>
+		</onevent>
+		
+	</state>
+	
+	<state id="PlayBody">
+		<onentry>
+			<agent:say>Alright. Let's see if you have learned the colors.</agent:say>
+		</onentry>
+	</state>
+	
+	<state id="PlayColors">
+		<onentry>
+			<exec>System.out.println("Renk kartlarinin oldugu desteyi aliniz ve cocugun onune rastgele diziniz.")</exec>
+			<wait msec="3000"/>
+			<agent:say>Alright. Let's see if you have learned the colors.</agent:say>
+		</onentry>
+	</state>
+	
+	
+	<state id="PlayAnimals">
+		<onentry>
+			<agent:say>Great choice. I love animals. </agent:say>
+			<wait msec="3000"/>
+			<exec>System.out.println("Hayvan kartlarinin oldugu desteyi aliniz ve rastgele diziniz. Dizme bitince OKEY diyin.")</exec>
+			<call state="lookCaretaker"/>
+			<agent:say>Would you please distribute the cards to the board?</agent:say>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:okay">
+			<agent:say>Let's start the game.</agent:say>
+			
+			
+		</onevent>
+	</state>
+	
+	
+	<state id="Learn" extends="Dialog">
+		<onentry>
+			<agent:say>Let's start learning. What do you want to learn about?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:color">
+			<exec>System.out.println("Renk kartlarinin oldugu desteyi aliniz.")</exec>
+			<wait msec="3000"/>
+			<agent:say>Okay, let's learn about colors.</agent:say>
+			<goto state="TeachRed"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:animal">
+			<exec>System.out.println("Hayvan kartlarinin oldugu desteyi aliniz.")</exec>
+			<agent:say>Okay, let's learn about animals.</agent:say>
+			<goto state="TeachAnimals"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:body">
+			<agent:say>Okay, let's learn about body parts.</agent:say>
+			<goto state="TeachBody"/>
+		</onevent>
+	</state>
+	
+	<!-- STATES ABOUT TEACHING BODY PARTS -->
+	<state id="TeachBody">
+		<onentry>
+			<agent:say audio="'iristk://app/cards/bodysong.wav'">SMILE</agent:say>
+			<agent:say>Let's learn about our body parts.</agent:say>
+			
+			<exec>System.out.println("Kafanizi, sonra bebegin kafasini isaret edin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is your head.</agent:say>
+			
+			<exec>System.out.println("Omuzlariniza, sonra bebegin omuzlarina dokunun.")</exec>
+			<wait msec="3000"/>
+			<agent:say>These are your shoulders.</agent:say>
+
+			<exec>System.out.println("Dizlerinize, daha sonra bebegin dizlerine dokunun.")</exec>
+			<wait msec="3000"/>
+			<agent:say>These are your knees.</agent:say>
+
+			<exec>System.out.println("Ayaklariniza, daha sonra bebegin ayaklarina dokunun.")</exec>
+			<wait msec="3000"/>
+			<agent:say>These are your toes.</agent:say>
+
+			<exec>System.out.println("Gozlerinizi, daha sonra bebegin gozlerini isaret edin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>These are your eyes.</agent:say>
+			<exec>System.out.println("Iki parmaginizi gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>We have two eyes. Two eyes.</agent:say>
+
+			<exec>System.out.println("Kulaklariniza, daha sonra bebegin kulaklarina dokunun.")</exec>
+			<wait msec="3000"/>
+			<agent:say>These are your ears.</agent:say>
+			<exec>System.out.println("Iki parmaginizi gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>We have two ears. Two ears.</agent:say>
+
+			<exec>System.out.println("Bebege opucuk atin ve agizinizi gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is your mouth.</agent:say>
+			<exec>System.out.println("Bir parmaginizi kaldirin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>We have one mouth. One mouth.</agent:say>
+
+			<exec>System.out.println("Burnunuza, sonra bebegin burnuna dokunun.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is your nose.</agent:say>
+			<exec>System.out.println("Bir parmaginizi kaldirin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>We have one nose. One nose.</agent:say>
+
+			<exec>System.out.println("Iki elinizi bebege dogru sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>These are our hands.</agent:say>
+			<exec>System.out.println("Iki elinizi gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>We have two hands. Two hands.</agent:say>
+
+			<exec>System.out.println("Parmaklarinizi bebegin onunde hareket ettirin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>These are our fingers.</agent:say>
+			<exec>System.out.println("On parmaginizi gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>We have ten fingers. Ten fingers.</agent:say>
+
+			<agent:say>That was fun. Now, let's listen to the song again.</agent:say>
+			<agent:say audio="'iristk://app/learnColors/bodysong.wav'">SMILE</agent:say>
+			
+		</onentry>
+	</state>
+	<!-- STATES ABOUT TEACHING BODY PARTS -->
+	
+	<!-- STATES ABOUT TEACHING ANIMALS -->
+	<state id="TeachAnimals">
+		<onentry>
+			<exec>System.out.println("Kopek kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a dog. The dog says woof. The dog has 4 legs.</agent:say>
+			
+			<exec>System.out.println("Kedi kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a cat. The cat says meow. The cat also has 4 legs like dog.</agent:say>
+			
+			<exec>System.out.println("Balik kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a fish. The fish lives under the sea.</agent:say>
+
+			<exec>System.out.println("Kus kartini gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a bird. The bird can fly in the sky.</agent:say>
+			<exec>System.out.println("Ucan kus gibi kollarinizi cirpin ve FILAY diyin bir kaç kez.")</exec>
+			<wait msec="5000"/>
+			
+			<exec>System.out.println("Ordek kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a duck. The duck says quack. The duck can swim.</agent:say>
+
+			<exec>System.out.println("Kurbaga kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a frog. The frog has a very long tongue.</agent:say>
+
+			<exec>System.out.println("Koyun kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a sheep. The sheep eat grass.</agent:say>
+
+			<exec>System.out.println("At kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a horse. The horse can run very fast.</agent:say>
+
+			<exec>System.out.println("Ayi kartini gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is a bear. The bear is very big.</agent:say>
+		</onentry>
+	</state>
+	<!-- STATES ABOUT TEACHING ANIMALS -->
+	
+	<!-- STATES ABOUT TEACHING COLORS -->
+	<state id="TeachColors">
+		<onentry>
+			<call state="TeachRed"/>
+			<call state="TeachBlue"/>
+			<call state="TeachGreen"/>
+			<call state="TeachYellow"/>
+			<call state="TeachOrange"/>
+			<call state="TeachPurple"/>
+		</onentry>
+	</state>
+	
+	
+	<state id="TeachRed">
+		<onentry>
+			<exec>System.out.println("Kirmizi renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is red.</agent:say>
+			
+			<exec>System.out.println("kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve dil fotosunu parmaginizla gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>Firetrucks, stop signs and fire are all red.</agent:say>
+			<return/>
+		</onentry>
+	</state>
+	
+	<state id="TeachBlue">
+		<onentry>
+			<exec>System.out.println("Mavi renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is blue. </agent:say>
+			
+			<exec>System.out.println("Mavi karti cevirip sirayla denizi, gokyuzu ve top fotosuna isaret edin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The sea, the sky and the ball are all blue. Blue</agent:say>
+			<return/>
+		</onentry>
+	</state>
+	
+	<state id="TeachGreen">
+		<onentry>
+			<exec>System.out.println("Yesil renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is green.</agent:say>
+			
+			<exec>System.out.println("Yesil karti cevirip sirayla cimen, agac ve elma fotosuna isaret edin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The grass, the tree and the apple are all green. Green</agent:say>
+			<return/>
+		</onentry>
+	</state>
+	
+	<state id="TeachYellow">
+		<onentry>
+			<exec>System.out.println("Sari renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is yellow.</agent:say>
+			
+			<exec>System.out.println("Sari karti cevirip sirayla limon, ordek ve muz resimlerine isaret edin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The lemon, the duck and the banana are all yellow. Yellow</agent:say>
+			<return/>
+		</onentry>
+	</state>
+	
+	<state id="TeachOrange">
+		<onentry>
+			<exec>System.out.println("Turuncu renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is orange.</agent:say>
+			
+			<exec>System.out.println("Turunucu karti cevirip sirayla portakal, havuc ve top resimlerine isaret edin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The orange, the carrot and the ball are all orange. Orange</agent:say>
+			<return/>
+		</onentry>
+	</state>
+
+	<state id="TeachPurple">
+		<onentry>
+			<exec>System.out.println("Mor renkli karti gosterin ve sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>This is purple.</agent:say>
+			
+			<exec>System.out.println("Mor karti cevirip sirayla uzum, patlican ve bot resimlerine isaret edin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The grapes, the eggplant and the boots are all purple. Purple</agent:say>
+			<return/>
+		</onentry>
+	</state>
+	<!-- STATES ABOUT TEACHING COLORS -->
+	
+	
+	<!-- CHECK TO CONTINUE OR EXIT -->
+	<state id="CheckAgain" extends="Dialog">
+		<onentry>
+			<agent:say>Do you want to continue?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<agent:say>Okay, let's play again.</agent:say>
+			<goto state="Start"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<agent:say>Okay, goodbye</agent:say>
+			<exec>System.exit(0)</exec>
+		</onevent>		
+	</state>
+	
+	<state id="Dialog">
+		<onevent name="sense.user.silence">
+			<agent:say>I am sorry, I didn't hear anything.</agent:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<agent:say>I am sorry, I didn't get that.</agent:say>
+			<reentry/>
+		</onevent>
+	</state>
+	
+	<!-- CONTROLLING FURHAT GAZE -->
+	<state id="lookAround">
+		<param name="degx" type="float" default="0.0" />
+		<param name="degy" type="float" default="0.0" />
+		<param name="degz" type="float" default="0.0" />
+		<onentry>
+			<send event="action.gaze" p:location="new Location(degx, degy, degz)" />
+			<return />
+		</onentry>
+	</state>
+
+	<state id="lookCaretaker">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(-1, 0, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
+	<state id="lookChild">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(1, 0, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
+	<state id="lookBoard">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(0, -1, 1)" />
+			<return />
+		</onentry>
+	</state>
+	<!-- CONTROLLING FURHAT GAZE -->	
+	
+</flow>

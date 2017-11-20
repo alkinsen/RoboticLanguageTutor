@@ -1,0 +1,11 @@
+<package name="read" version="0.1.0">
+	<run>
+		<command name="read" class="iristk.app.read.ReadSystem"/>
+	</run>
+	<provide>
+		<class type="iristk.furhat.skill.Skill" name="iristk.app.read.ReadSkill" />
+	</provide>
+	<classpath>
+		<src path="src" output="bin"/>
+	</classpath>
+</package>
