@@ -39,7 +39,7 @@ public class ReadSystem {
 		system.setupStereoMicrophones(new WindowsRecognizerFactory());
 		//system.setupKinectMicrophone(new KinectRecognizerFactory());
 				
-		//system.connectToBroker("furhat", "127.0.0.1");
+		system.connectToBroker("furhat", "172.23.122.232");
 		system.setupFace(new WindowsSynthesizer(), Gender.FEMALE);
 		
 		system.addModule(new FlowModule(new ReadFlow(systemAgentFlow)));

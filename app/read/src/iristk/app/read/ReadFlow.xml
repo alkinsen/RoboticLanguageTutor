@@ -1,129 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <flow name="ReadFlow" package="iristk.app.read" 
-	initial="Idle" xmlns:this="iristk.app.read.ReadFlow" xmlns="iristk.flow" 
+	initial="Start" xmlns:this="iristk.app.read.ReadFlow" xmlns="iristk.flow" 
 	xmlns:p="iristk.flow.param" xmlns:agent="iristk.situated.SystemAgentFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="iristk.flow flow.xsd iristk.situated.SystemAgentFlow SystemAgentFlow.xsd">
+	
+	<import class="iristk.situated.Location"/>
 	
 	<param name="agent" type="iristk.situated.SystemAgentFlow"/>
 	
 	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
 	 
-	<var name="number" type="Integer"/>
-	
-	<state id="Idle" extends="Dialog">
-		<onentry>
-			<if cond="system.hasUsers()">
-				<agent:attendRandom/>
-				<goto state="Greeting"/>
-			<else/>
-				<agent:attendNobody/>
-			</if>
-		</onentry>
-		<onevent name="sense.user.enter">
-			<agent:attend target="event:user"/>
-			<goto state="Greeting"/>
-		</onevent>
-	</state>
-	
-	<state id="Greeting" extends="Dialog">
-		<onentry>
-			<agent:say>Hi there, let's play a game</agent:say>
-			<goto state="Start"/>
-		</onentry>
-	</state>
-	
 	<state id="Start" extends="Dialog">
 		<onentry>
-			<exec>number = new java.util.Random().nextInt(10) + 1</exec>
-			<exec>system.putUsers("guesses", 0)</exec>
-			<agent:say>I am thinking of a number between 1 and 10.</agent:say>
-			<goto state="Guess"/>
+			<call state="lookChild"/>
+			<agent:say gesture="'smile'">Hello there! Which book would you like to read, Bear of Butterfly?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:bear">
+			<goto state="Bear"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:butterfly">
+			<goto state="Butterfly"/>
+		</onevent>
+	</state>
+	
+	<state id="Butterfly">
+		<onentry>
+			<call state="lookChild"/>
+			<agent:say gesture="'smile'">I love this book! It is called The Very Hungry Caterpillar by Eric Carle.</agent:say>
+			<exec>System.out.println("Hikaye icin yesil corabi ve yemek resimlerini hazirlayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say gesture="'smile'">Are you ready? Let's start.</agent:say>
+			<agent:say>In the light of the moon a little egg lay on a leaf.</agent:say>
+			<wait msec="1000"/>
+			<exec>System.out.println("Corabi kutusundan cikarin ve pop sesi cikarin. Corabi elinize gecirin.")</exec>
+			<agent:say>One Sunday morning the warm sun came up and - pop! - out of the egg came a tiny and very hungry caterpillar.</agent:say>
+			<call state="lookCaretaker"/>
+			<wait msec="4000"/>
+			<call state="lookChild"/>
+			<agent:say>He started to look for some food. I am so hungry!</agent:say>
+			<exec>System.out.println("- SO HUNGRY - sesi cikarin.")</exec>
+			<wait msec="3000"/>
+			<exec>System.out.println("Elinizle elmayi alin ve - nom nom - sesi cikarin.")</exec>
+			<agent:say>On Monday he ate through 1 apple</agent:say>
+			<wait msec="5000"/>
+			<call state="Hungry"/>
+			
+			
+			<exec>System.out.println("Elinizle armutlari alin ve - nom nom - sesi cikarin.")</exec>
+			<agent:say>On Tuesday he ate through 2 pears</agent:say>
+			<wait msec="5000"/>
+			<call state="Hungry"/>
+			
+			<exec>System.out.println("Elinizle erikleri alin ve - nom nom - sesi cikarin.")</exec>
+			<agent:say>On Wednesday he ate through 3 plums</agent:say>
+			<wait msec="5000"/>
+			<call state="Hungry"/>
+			
+			<exec>System.out.println("Elinizle cilekleri alin ve - nom nom - sesi cikarin.")</exec>
+			<agent:say>On Thursday he ate through 4 strawberries</agent:say>
+			<wait msec="5000"/>
+			<call state="Hungry"/>
+			
+			<exec>System.out.println("Elinizle portakallari alin ve - nom nom - sesi cikarin.")</exec>
+			<agent:say>On Friday he ate through 5 oranges</agent:say>
+			<wait msec="5000"/>
+			<call state="Hungry"/>
+			
+			
+			<agent:say>On Saturday he ate through 1 piece of chocolate cake,</agent:say>
+			<wait msec="1500"/>
+			<agent:say>1 icecream cone,</agent:say>
+			<wait msec="1500"/>
+			<agent:say>1 pickle,</agent:say>	
+			<wait msec="1500"/>
+			<agent:say>One slice of Swiss cheese,</agent:say>
+			<wait msec="1500"/>
+			<agent:say>1 slice of salami,</agent:say>
+			<wait msec="1500"/>
+			<agent:say>1 lollipop,</agent:say>	
+			<wait msec="1500"/>
+			<agent:say>1 piece of cherry pie,</agent:say>
+			<wait msec="1500"/>
+			<agent:say>1 sausage,</agent:say>
+			<wait msec="1500"/>
+			<agent:say>1 cupcake,</agent:say>
+			<wait msec="1500"/>
+			<agent:say>And 1 slice of watermelon. That night he had a stomach ache!</agent:say>
+			<exec>System.out.println("Karninizi ovalayin ve agri hissini canlandirin.")</exec>
+			<wait msec="3000"/>
+			<agent:say gesture="'smile'">The very hungry caterpillar then ate through one green leaf. He started to feel better.</agent:say>
+			<exec>System.out.println("Karninizi ovalayin ve iyi hissettiginizi gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>Now, the caterpillar was no longer small. He was a big, fat caterpillar.</agent:say>	
+			<exec>System.out.println("- Big - diyerek buyuklugunu vurgulayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>He built a small house, called a cocoon around himself. He stayed inside for more than 2 weeks. Then he nibbled a small hole in the cocoon, pushed his way out and </agent:say>
+			<exec>System.out.println("Sasirin!")</exec>	
+			<wait msec="3000"/>
+			<agent:say>He was a beautiful butterfly!</agent:say>
+			<exec>System.out.println("Kelebek oyuncagini cikarin.")</exec>
 		</onentry>
 	</state>
 	
-	<state id="Guess" extends="Dialog">
+	<state id="Hungry">
 		<onentry>
-			<agent:say>What is your guess?</agent:say>
-			<agent:listen/>
+			<agent:say> but he was still hungry.</agent:say>
+			<exec>System.out.println("So hungry! sesi cikarin.")</exec>
+			<wait msec="1500"/>
+			<return/>
 		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:number">
-			<if cond="system.isAttendingAll()">
-				<agent:attend target="event:user"/>
-			</if>
-			<exec>system.getCurrentUser().incrInteger("guesses")</exec>
-			<if cond="asInteger(event:sem:number) == number">
-				<agent:say>
-					<expr>event:sem:number</expr> 
-					is correct, you only needed 
-					<expr>system.getCurrentUser():guesses</expr>
-					guesses.
-				</agent:say>
-				<goto state="CheckAgain"/>
-			<else/>	
-				<if cond="asInteger(event:sem:number) &gt; number">
-					<agent:say><expr>event:sem:number</expr> is too high.</agent:say>
-					<else/>
-					<agent:say><expr>event:sem:number</expr> is too low.</agent:say>
-				</if>
-				<if cond="system.hasManyUsers()">	
-					<random>
-						<agent:attendOther/>
-						<agent:attendAll/>
-					</random>
-				</if>
-				<reentry/>
-			</if>
-		</onevent>
+		
+	</state>
+
+
+	<state id="Bear">
+		<onentry>
+			<agent:say>Brown Bear, Brown Bear.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Brown Bear, Brown Bear what do you see? I see a red bird looking at me. </agent:say>
+			<wait msec="2000"/>
+			<agent:say>Red bird, red bird what do you see? I see a yellow duck looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Yellow duck, yellow duck, what do you see? I see a blue horse looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Blue horse, blue horse what do you see? I see a green frog looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Green frog, green frog what do you see? I see a purple cat looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Purple cat, purple cat what do you see? I see a white dog looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>White dog, white dog what do you see? I see a black sheep looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Black sheep, black sheep what do you see? I see a gold fish looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Gold fish, gold fish what do you see? I see children looking at me.</agent:say>
+			<wait msec="2000"/>
+			<agent:say>Children, children what do you see? </agent:say>
+			<wait msec="2000"/>
+			<agent:say>We see a human looking at us.</agent:say>
+		</onentry>
 	</state>
 	
 	<state id="CheckAgain" extends="Dialog">
 		<onentry>
-			<agent:say>Do you want to play again?</agent:say>
+			<agent:say>Do you want to continue?</agent:say>
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:yes">
-			<agent:say>Okay, let's play again.</agent:say>
+			<agent:say>Okay, let's read again.</agent:say>
 			<goto state="Start"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:no">
 			<agent:say>Okay, goodbye</agent:say>
-			<goto state="Idle"/>
+			<exec>System.exit(0)</exec>
 		</onevent>		
 	</state>
-	
+
 	<state id="Dialog">
-		<onevent name="sense.user.speech.start" cond="system.isAttending(event) and eq(event:speakers, 1)">
-			<agent:gesture name="'smile'"/>
+		<onevent name="sense.user.silence">
+			<agent:say>I am sorry, I didn't hear anything.</agent:say>
+			<reentry/>
 		</onevent>
 		<onevent name="sense.user.speak">
-			<agent:say>Sorry, I didn't get that.</agent:say>
-			<reentry/>
-		</onevent>
-		<onevent name="sense.user.speak.side">
-			<agent:attendOther mode="'eyes'" />
-			<agent:say>I didn't ask you.</agent:say>
-			<agent:attendOther mode="'eyes'" />
-			<reentry/>
-		</onevent>
-		<onevent name="sense.user.speak.multi">
-			<agent:say>Don't speak at the same time.</agent:say>
-			<reentry/>
-		</onevent>
-		<onevent name="sense.user.silence">
-			<agent:say>Sorry, I didn't hear anything.</agent:say>
-			<reentry/>
-		</onevent>
-		<onevent name="sense.user.leave" cond="system.isAttending(event)">
-			<if cond="system.hasUsers()">
-				<agent:attendRandom/>
-				<goto state="Guess" />
-			<else />
-				<goto state="Idle"/>
-			</if>
-		</onevent>
-		<onevent name="repeat">
+			<agent:say>I am sorry, I didn't get that.</agent:say>
 			<reentry/>
 		</onevent>
 	</state>
+	
+	<!-- CONTROLLING FURHAT GAZE -->
+	<state id="lookAround">
+		<param name="degx" type="float" default="0.0" />
+		<param name="degy" type="float" default="0.0" />
+		<param name="degz" type="float" default="0.0" />
+		<onentry>
+			<send event="action.gaze" p:location="new Location(degx, degy, degz)" />
+			<return />
+		</onentry>
+	</state>
+
+	<state id="lookCaretaker">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(-1, 0, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
+	<state id="lookChild">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(1, 0, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
+	<state id="lookBoard">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(0, -1, 1)" />
+			<return />
+		</onentry>
+	</state>
+	<!-- CONTROLLING FURHAT GAZE -->	
 	
 </flow>

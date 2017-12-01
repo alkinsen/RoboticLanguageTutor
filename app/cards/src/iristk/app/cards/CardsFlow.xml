@@ -13,8 +13,8 @@
 	 
 	<state id="Start" extends="Dialog">
 		<onentry>
-			<agent:say>Hello there, do you want to learn or play a game?</agent:say>
 			<call state="lookCaretaker"/>
+			<agent:say>Hello there, do you want to learn or play a game?</agent:say>
 			<call state="lookChild"/>
 			<agent:listen/>
 		</onentry>
@@ -30,6 +30,7 @@
 	
 	<state id="Play" extends="Dialog">
 		<onentry>
+			<call state="lookChild"/>
 			<agent:say>Let's have some fun. Which subject would you like to play with?</agent:say>
 			<agent:listen/>
 		</onentry>
@@ -48,15 +49,56 @@
 	
 	<state id="PlayBody">
 		<onentry>
-			<agent:say>Alright. Let's see if you have learned the colors.</agent:say>
+			<agent:say>Alright. Let's see if you have learned your body.</agent:say>
 		</onentry>
 	</state>
 	
 	<state id="PlayColors">
 		<onentry>
-			<exec>System.out.println("Renk kartlarinin oldugu desteyi aliniz ve cocugun onune rastgele diziniz.")</exec>
+			<agent:say>Let's see if you have learned your colors.</agent:say>
 			<wait msec="3000"/>
-			<agent:say>Alright. Let's see if you have learned the colors.</agent:say>
+			<call state="lookCaretaker"/>
+			<call state="PlayPrepare"/>
+			
+			<agent:say>Let's start the game.</agent:say>
+			<exec>System.out.println("Oyuna basliyoruz.")</exec>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color red?</agent:say>
+			<exec>System.out.println("Cocuga kirmizi rengini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+		
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color purple?</agent:say>
+			<exec>System.out.println("Cocuga mor rengini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you first show me the color orange then yellow?</agent:say>
+			<exec>System.out.println("Cocuga once turuncu sonra sari rengini.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color of grass?</agent:say>
+			<exec>System.out.println("Cocuga yesil rengini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color of firetruck?</agent:say>
+			<exec>System.out.println("Cocuga kirmizi rengini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<goto state="CheckAgain"/>		
 		</onentry>
 	</state>
 	
@@ -65,14 +107,95 @@
 		<onentry>
 			<agent:say>Great choice. I love animals. </agent:say>
 			<wait msec="3000"/>
-			<exec>System.out.println("Hayvan kartlarinin oldugu desteyi aliniz ve rastgele diziniz. Dizme bitince OKEY diyin.")</exec>
 			<call state="lookCaretaker"/>
+			<call state="PlayPrepare"/>
+			
+			<agent:say>Let's start the game.</agent:say>
+			<exec>System.out.println("Oyuna basliyoruz.")</exec>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the dog on the board?</agent:say>
+			<exec>System.out.println("Cocuga kopek fotografini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+		
+			<call state="lookChild"/>
+			<agent:say>Can you show me the fish on the board?</agent:say>
+			<exec>System.out.println("Cocuktan balik fotografini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the animal that flies on the board?</agent:say>
+			<exec>System.out.println("Cocuga kus fotografini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the animals that have four legs?</agent:say>
+			<exec>System.out.println("Cocuga hem kedi hem de kopek fotografini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the animal that says meow?</agent:say>
+			<exec>System.out.println("Cocuga kedi fotografini gostermesini istedim.")</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<goto state="CheckAgain"/>			
+			
+		</onentry>
+	
+		
+		
+	</state>
+	
+	<state id="PlayPrepare" extends="Dialog">
+		<onentry>
+			<exec>System.out.println("Ilgili desteyi aliniz ve rastgele diziniz. Dizme bitince OKEY diyin.")</exec>
 			<agent:say>Would you please distribute the cards to the board?</agent:say>
+			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:okay">
-			<agent:say>Let's start the game.</agent:say>
-			
-			
+			<return/>
+		</onevent>
+	</state>
+	
+	<state id="Showing">
+		<onentry>
+			<call state="lookCaretaker"/>
+			<agent:say>Is that correct?</agent:say>
+			<exec>System.out.println("Eger dogru karti gosterdiyse yes sesi cikarin, yoksa no sesi cikarin")</exec>
+			<wait msec="4000"/>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<call state="lookChild"/>
+			<agent:say>Good Job. You are doing great.</agent:say>
+			<wait msec="3000"/>
+			<return/>
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<call state="lookChild"/>
+			<agent:say>It's alright. Let's see which one is the correct answer.</agent:say>
+			<call state="lookCaretaker"/>
+			<agent:say>Can you show me the correct answer please?</agent:say>
+			<exec>System.out.println("Dogru cevabi cocuga gosteriniz.")</exec>
+			<wait msec="4000"/>
+			<agent:say>Let's continue.</agent:say>
+			<return/>
+		</onevent>
+		
+		<onevent name="sense.user.speak">
+			<agent:say>I did not get that.</agent:say>
+			<goto state="Showing"/>
 		</onevent>
 	</state>
 	
@@ -86,7 +209,7 @@
 			<exec>System.out.println("Renk kartlarinin oldugu desteyi aliniz.")</exec>
 			<wait msec="3000"/>
 			<agent:say>Okay, let's learn about colors.</agent:say>
-			<goto state="TeachRed"/>
+			<goto state="TeachColors"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:animal">
 			<exec>System.out.println("Hayvan kartlarinin oldugu desteyi aliniz.")</exec>
@@ -102,9 +225,10 @@
 	<!-- STATES ABOUT TEACHING BODY PARTS -->
 	<state id="TeachBody">
 		<onentry>
-			<agent:say audio="'iristk://app/cards/bodysong.wav'">SMILE</agent:say>
-			<agent:say>Let's learn about our body parts.</agent:say>
+			<agent:say>Let's learn about our heads, shoulders, knees and toes.</agent:say>
 			
+			<call state="lookCaretaker"/>
+			<call state="lookChild"/>
 			<exec>System.out.println("Kafanizi, sonra bebegin kafasini isaret edin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is your head.</agent:say>
@@ -125,47 +249,46 @@
 			<wait msec="3000"/>
 			<agent:say>These are your eyes.</agent:say>
 			<exec>System.out.println("Iki parmaginizi gosterin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="2000"/>
 			<agent:say>We have two eyes. Two eyes.</agent:say>
 
 			<exec>System.out.println("Kulaklariniza, daha sonra bebegin kulaklarina dokunun.")</exec>
 			<wait msec="3000"/>
 			<agent:say>These are your ears.</agent:say>
 			<exec>System.out.println("Iki parmaginizi gosterin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="2000"/>
 			<agent:say>We have two ears. Two ears.</agent:say>
 
 			<exec>System.out.println("Bebege opucuk atin ve agizinizi gosterin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is your mouth.</agent:say>
 			<exec>System.out.println("Bir parmaginizi kaldirin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="2000"/>
 			<agent:say>We have one mouth. One mouth.</agent:say>
 
 			<exec>System.out.println("Burnunuza, sonra bebegin burnuna dokunun.")</exec>
-			<wait msec="3000"/>
+			<wait msec="4000"/>
 			<agent:say>This is your nose.</agent:say>
 			<exec>System.out.println("Bir parmaginizi kaldirin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="2000"/>
 			<agent:say>We have one nose. One nose.</agent:say>
 
 			<exec>System.out.println("Iki elinizi bebege dogru sallayin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="4000"/>
 			<agent:say>These are our hands.</agent:say>
 			<exec>System.out.println("Iki elinizi gosterin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="2000"/>
 			<agent:say>We have two hands. Two hands.</agent:say>
 
 			<exec>System.out.println("Parmaklarinizi bebegin onunde hareket ettirin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="4000"/>
 			<agent:say>These are our fingers.</agent:say>
 			<exec>System.out.println("On parmaginizi gosterin.")</exec>
-			<wait msec="3000"/>
+			<wait msec="2000"/>
 			<agent:say>We have ten fingers. Ten fingers.</agent:say>
 
 			<agent:say>That was fun. Now, let's listen to the song again.</agent:say>
-			<agent:say audio="'iristk://app/learnColors/bodysong.wav'">SMILE</agent:say>
-			
+			 
 		</onentry>
 	</state>
 	<!-- STATES ABOUT TEACHING BODY PARTS -->
@@ -173,36 +296,61 @@
 	<!-- STATES ABOUT TEACHING ANIMALS -->
 	<state id="TeachAnimals">
 		<onentry>
+			<call state="lookChild"/>
 			<exec>System.out.println("Kopek kartini gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a dog. The dog says woof. The dog has 4 legs.</agent:say>
+			<agent:say>This is a dog. The dog says woof. </agent:say>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("WUF WUF diyin bir kac kez ve sonraki sesle birlikte 4 parmak gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The dog has 4 legs.</agent:say>
 			
+			<call state="lookChild"/>
 			<exec>System.out.println("Kedi kartini gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a cat. The cat says meow. The cat also has 4 legs like dog.</agent:say>
+			<agent:say>This is a cat. The cat says meow. </agent:say>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("MIAV MIAV diyin bir kac kez ve sonra elinizle 4 parmak gosterin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The cat also has 4 legs like dog.</agent:say>
 			
+			<call state="lookChild"/>
 			<exec>System.out.println("Balik kartini gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a fish. The fish lives under the sea.</agent:say>
-
+			<agent:say>This is a fish. The fish lives under the sea and swims. </agent:say>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("Ellerinizi birlestirip balik gibi saga sola sallayin.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The fish have fins and a tail.</agent:say>
+			
+			<call state="lookChild"/>
 			<exec>System.out.println("Kus kartini gosterin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a bird. The bird can fly in the sky.</agent:say>
-			<exec>System.out.println("Ucan kus gibi kollarinizi cirpin ve FILAY diyin bir kaç kez.")</exec>
-			<wait msec="5000"/>
+			<agent:say>This is a bird. The bird flies in the sky.</agent:say>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("Ucan kus gibi kollarinizi cirpin ve FILAY diyin bir kac kez.")</exec>
+			<wait msec="3000"/>
+			<agent:say>The bird lays eggs in its nest.</agent:say>
 			
+			<call state="lookChild"/>
 			<exec>System.out.println("Ordek kartini gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a duck. The duck says quack. The duck can swim.</agent:say>
-
+			<agent:say>This is a duck. The duck says quack.</agent:say>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("VAK VAK diyin bir kac")</exec>
+			<wait msec="3000"/>
+			<agent:say>The duck can swim.</agent:say>
+			
+			<call state="lookChild"/>	
 			<exec>System.out.println("Kurbaga kartini gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a frog. The frog has a very long tongue.</agent:say>
-
-			<exec>System.out.println("Koyun kartini gosterin ve sallayin.")</exec>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("Dilinizi cikartin kisa bir sure.")</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a sheep. The sheep eat grass.</agent:say>
+			<agent:say>The frog lives in both water and land.</agent:say>
 
+			<call state="lookChild"/>	
 			<exec>System.out.println("At kartini gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a horse. The horse can run very fast.</agent:say>
@@ -210,6 +358,13 @@
 			<exec>System.out.println("Ayi kartini gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a bear. The bear is very big.</agent:say>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("Ellerinizi pence yapip, havaya kaldirin ve BIG BEIR diyin.")</exec>
+			<wait msec="3000"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Now you know your animals.</agent:say>
+			<goto state="CheckAgain"/>
 		</onentry>
 	</state>
 	<!-- STATES ABOUT TEACHING ANIMALS -->
@@ -223,55 +378,67 @@
 			<call state="TeachYellow"/>
 			<call state="TeachOrange"/>
 			<call state="TeachPurple"/>
+			
+			<wait msec="2000"/>
+			<agent:say>Now you know your colors.</agent:say>
+			<goto state="CheckAgain"/>
 		</onentry>
 	</state>
 	
 	
 	<state id="TeachRed">
 		<onentry>
+			<call state="lookChild"/>
 			<exec>System.out.println("Kirmizi renkli karti gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is red.</agent:say>
 			
-			<exec>System.out.println("kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve dil fotosunu parmaginizla gosterin.")</exec>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("Kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve elma resimlerine isaret edin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>Firetrucks, stop signs and fire are all red.</agent:say>
+			<agent:say>The firetruck, the stop sign and the apple are all red. Red</agent:say>
 			<return/>
 		</onentry>
 	</state>
 	
 	<state id="TeachBlue">
 		<onentry>
+			<call state="lookChild"/>
 			<exec>System.out.println("Mavi renkli karti gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is blue. </agent:say>
 			
-			<exec>System.out.println("Mavi karti cevirip sirayla denizi, gokyuzu ve top fotosuna isaret edin.")</exec>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("Mavi karti cevirip sirayla deniz, gokyuzu ve kelebek resimlerine isaret edin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>The sea, the sky and the ball are all blue. Blue</agent:say>
+			<agent:say>The sea, the sky and the butterfly are all blue. Blue</agent:say>
 			<return/>
 		</onentry>
 	</state>
 	
 	<state id="TeachGreen">
 		<onentry>
+			<call state="lookChild"/>
 			<exec>System.out.println("Yesil renkli karti gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is green.</agent:say>
 			
-			<exec>System.out.println("Yesil karti cevirip sirayla cimen, agac ve elma fotosuna isaret edin.")</exec>
+			<call state="lookCaretaker"/>
+			<exec>System.out.println("Yesil karti cevirip sirayla cimen, agac ve armut resimlerine isaret edin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>The grass, the tree and the apple are all green. Green</agent:say>
+			<agent:say>The grass, the tree and the pear are all green. Green</agent:say>
 			<return/>
 		</onentry>
 	</state>
-	
+
 	<state id="TeachYellow">
 		<onentry>
+			<call state="lookChild"/>
 			<exec>System.out.println("Sari renkli karti gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is yellow.</agent:say>
 			
+			<call state="lookCaretaker"/>
 			<exec>System.out.println("Sari karti cevirip sirayla limon, ordek ve muz resimlerine isaret edin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>The lemon, the duck and the banana are all yellow. Yellow</agent:say>
@@ -281,23 +448,27 @@
 	
 	<state id="TeachOrange">
 		<onentry>
+			<call state="lookChild"/>
 			<exec>System.out.println("Turuncu renkli karti gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is orange.</agent:say>
 			
+			<call state="lookCaretaker"/>
 			<exec>System.out.println("Turunucu karti cevirip sirayla portakal, havuc ve top resimlerine isaret edin.")</exec>
 			<wait msec="3000"/>
-			<agent:say>The orange, the carrot and the ball are all orange. Orange</agent:say>
+			<agent:say>The orange, the carrot and the basketball are all orange. Orange</agent:say>
 			<return/>
 		</onentry>
 	</state>
 
 	<state id="TeachPurple">
 		<onentry>
+			<call state="lookChild"/>
 			<exec>System.out.println("Mor renkli karti gosterin ve sallayin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>This is purple.</agent:say>
 			
+			<call state="lookCaretaker"/>
 			<exec>System.out.println("Mor karti cevirip sirayla uzum, patlican ve bot resimlerine isaret edin.")</exec>
 			<wait msec="3000"/>
 			<agent:say>The grapes, the eggplant and the boots are all purple. Purple</agent:say>
