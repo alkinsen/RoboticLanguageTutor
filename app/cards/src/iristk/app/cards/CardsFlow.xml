@@ -5,17 +5,22 @@
 	xsi:schemaLocation="iristk.flow flow.xsd iristk.situated.SystemAgentFlow SystemAgentFlow.xsd">
 	
 	<import class="iristk.situated.Location"/>
+	<import class="application.TextToSpeech"/>
+	
 	
 	<param name="agent" type="iristk.situated.SystemAgentFlow"/>
 	
 	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
-	
-	 
+	<var name="tts" type="application.TextToSpeech" value="new TextToSpeech()"/>
+
 	<state id="Start" extends="Dialog">
 		<onentry>
+			<exec>tts.setVoice("dfki-ot-hsmm");</exec>
 			<call state="lookCaretaker"/>
 			<agent:say>Hello there, do you want to learn or play a game?</agent:say>
 			<call state="lookChild"/>
+			<!-- (System.out.println\()(.*)(\)) -->
+			<exec>tts.speak("Oyun oynamak ister misiniz?", 1.0f, false, false);</exec>
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:learn">
@@ -61,39 +66,39 @@
 			<call state="PlayPrepare"/>
 			
 			<agent:say>Let's start the game.</agent:say>
-			<exec>System.out.println("Oyuna basliyoruz.")</exec>
+			<exec>tts.speak("Oyuna basliyoruz.", 1.0f, false, false);</exec>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color red?</agent:say>
-			<exec>System.out.println("Cocuga kirmizi rengini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga kirmizi rengini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 		
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color purple?</agent:say>
-			<exec>System.out.println("Cocuga mor rengini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga mor rengini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you first show me the color orange then yellow?</agent:say>
-			<exec>System.out.println("Cocuga once turuncu sonra sari rengini.")</exec>
+			<exec>tts.speak("Cocuga once turuncu sonra sari rengini.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color of grass?</agent:say>
-			<exec>System.out.println("Cocuga yesil rengini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga yesil rengini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color of firetruck?</agent:say>
-			<exec>System.out.println("Cocuga kirmizi rengini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga kirmizi rengini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
@@ -111,39 +116,39 @@
 			<call state="PlayPrepare"/>
 			
 			<agent:say>Let's start the game.</agent:say>
-			<exec>System.out.println("Oyuna basliyoruz.")</exec>
+			<exec>tts.speak("Oyuna basliyoruz.", 1.0f, false, false);</exec>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the dog on the board?</agent:say>
-			<exec>System.out.println("Cocuga kopek fotografini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga kopek fotografini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 		
 			<call state="lookChild"/>
 			<agent:say>Can you show me the fish on the board?</agent:say>
-			<exec>System.out.println("Cocuktan balik fotografini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuktan balik fotografini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the animal that flies on the board?</agent:say>
-			<exec>System.out.println("Cocuga kus fotografini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga kus fotografini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the animals that have four legs?</agent:say>
-			<exec>System.out.println("Cocuga hem kedi hem de kopek fotografini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga hem kedi hem de kopek fotografini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the animal that says meow?</agent:say>
-			<exec>System.out.println("Cocuga kedi fotografini gostermesini istedim.")</exec>
+			<exec>tts.speak("Cocuga kedi fotografini gostermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
@@ -158,7 +163,7 @@
 	
 	<state id="PlayPrepare" extends="Dialog">
 		<onentry>
-			<exec>System.out.println("Ilgili desteyi aliniz ve rastgele diziniz. Dizme bitince OKEY diyin.")</exec>
+			<exec>tts.speak("Ilgili desteyi aliniz ve rastgele diziniz. Dizme bitince OKEY diyin.", 1.0f, false, false);</exec>
 			<agent:say>Would you please distribute the cards to the board?</agent:say>
 			<agent:listen/>
 		</onentry>
@@ -171,7 +176,7 @@
 		<onentry>
 			<call state="lookCaretaker"/>
 			<agent:say>Is that correct?</agent:say>
-			<exec>System.out.println("Eger dogru karti gosterdiyse yes sesi cikarin, yoksa no sesi cikarin")</exec>
+			<exec>tts.speak("Eger dogru karti gosterdiyse yes sesi cikarin, yoksa no sesi cikarin", 1.0f, false, false);</exec>
 			<wait msec="4000"/>
 			<agent:listen/>
 		</onentry>
@@ -187,7 +192,7 @@
 			<agent:say>It's alright. Let's see which one is the correct answer.</agent:say>
 			<call state="lookCaretaker"/>
 			<agent:say>Can you show me the correct answer please?</agent:say>
-			<exec>System.out.println("Dogru cevabi cocuga gosteriniz.")</exec>
+			<exec>tts.speak("Dogru cevabi cocuga gosteriniz.", 1.0f, false, false);</exec>
 			<wait msec="4000"/>
 			<agent:say>Let's continue.</agent:say>
 			<return/>
@@ -206,13 +211,13 @@
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:color">
-			<exec>System.out.println("Renk kartlarinin oldugu desteyi aliniz.")</exec>
+			<exec>tts.speak("Renk kartlarinin oldugu desteyi aliniz.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>Okay, let's learn about colors.</agent:say>
 			<goto state="TeachColors"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:animal">
-			<exec>System.out.println("Hayvan kartlarinin oldugu desteyi aliniz.")</exec>
+			<exec>tts.speak("Hayvan kartlarinin oldugu desteyi aliniz.", 1.0f, false, false);</exec>
 			<agent:say>Okay, let's learn about animals.</agent:say>
 			<goto state="TeachAnimals"/>
 		</onevent>
@@ -229,61 +234,61 @@
 			
 			<call state="lookCaretaker"/>
 			<call state="lookChild"/>
-			<exec>System.out.println("Kafanizi, sonra bebegin kafasini isaret edin.")</exec>
+			<exec>tts.speak("Kafanizi, sonra bebegin kafasini isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is your head.</agent:say>
 			
-			<exec>System.out.println("Omuzlariniza, sonra bebegin omuzlarina dokunun.")</exec>
+			<exec>tts.speak("Omuzlariniza, sonra bebegin omuzlarina dokunun.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>These are your shoulders.</agent:say>
 
-			<exec>System.out.println("Dizlerinize, daha sonra bebegin dizlerine dokunun.")</exec>
+			<exec>tts.speak("Dizlerinize, daha sonra bebegin dizlerine dokunun.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>These are your knees.</agent:say>
 
-			<exec>System.out.println("Ayaklariniza, daha sonra bebegin ayaklarina dokunun.")</exec>
+			<exec>tts.speak("Ayaklariniza, daha sonra bebegin ayaklarina dokunun.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>These are your toes.</agent:say>
 
-			<exec>System.out.println("Gozlerinizi, daha sonra bebegin gozlerini isaret edin.")</exec>
+			<exec>tts.speak("Gozlerinizi, daha sonra bebegin gozlerini isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>These are your eyes.</agent:say>
-			<exec>System.out.println("Iki parmaginizi gosterin.")</exec>
+			<exec>tts.speak("Iki parmaginizi gosterin.", 1.0f, false, false);</exec>
 			<wait msec="2000"/>
 			<agent:say>We have two eyes. Two eyes.</agent:say>
 
-			<exec>System.out.println("Kulaklariniza, daha sonra bebegin kulaklarina dokunun.")</exec>
+			<exec>tts.speak("Kulaklariniza, daha sonra bebegin kulaklarina dokunun.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>These are your ears.</agent:say>
-			<exec>System.out.println("Iki parmaginizi gosterin.")</exec>
+			<exec>tts.speak("Iki parmaginizi gosterin.", 1.0f, false, false);</exec>
 			<wait msec="2000"/>
 			<agent:say>We have two ears. Two ears.</agent:say>
 
-			<exec>System.out.println("Bebege opucuk atin ve agizinizi gosterin.")</exec>
+			<exec>tts.speak("Bebege opucuk atin ve agizinizi gosterin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is your mouth.</agent:say>
-			<exec>System.out.println("Bir parmaginizi kaldirin.")</exec>
+			<exec>tts.speak("Bir parmaginizi kaldirin.", 1.0f, false, false);</exec>
 			<wait msec="2000"/>
 			<agent:say>We have one mouth. One mouth.</agent:say>
 
-			<exec>System.out.println("Burnunuza, sonra bebegin burnuna dokunun.")</exec>
+			<exec>tts.speak("Burnunuza, sonra bebegin burnuna dokunun.", 1.0f, false, false);</exec>
 			<wait msec="4000"/>
 			<agent:say>This is your nose.</agent:say>
-			<exec>System.out.println("Bir parmaginizi kaldirin.")</exec>
+			<exec>tts.speak("Bir parmaginizi kaldirin.", 1.0f, false, false);</exec>
 			<wait msec="2000"/>
 			<agent:say>We have one nose. One nose.</agent:say>
 
-			<exec>System.out.println("Iki elinizi bebege dogru sallayin.")</exec>
+			<exec>tts.speak("Iki elinizi bebege dogru sallayin.", 1.0f, false, false);</exec>
 			<wait msec="4000"/>
 			<agent:say>These are our hands.</agent:say>
-			<exec>System.out.println("Iki elinizi gosterin.")</exec>
+			<exec>tts.speak("Iki elinizi gosterin.", 1.0f, false, false);</exec>
 			<wait msec="2000"/>
 			<agent:say>We have two hands. Two hands.</agent:say>
 
-			<exec>System.out.println("Parmaklarinizi bebegin onunde hareket ettirin.")</exec>
+			<exec>tts.speak("Parmaklarinizi bebegin onunde hareket ettirin.", 1.0f, false, false);</exec>
 			<wait msec="4000"/>
 			<agent:say>These are our fingers.</agent:say>
-			<exec>System.out.println("On parmaginizi gosterin.")</exec>
+			<exec>tts.speak("On parmaginizi gosterin.", 1.0f, false, false);</exec>
 			<wait msec="2000"/>
 			<agent:say>We have ten fingers. Ten fingers.</agent:say>
 
@@ -297,69 +302,69 @@
 	<state id="TeachAnimals">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>System.out.println("Kopek kartini gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Kopek kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a dog. The dog says woof. </agent:say>
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("WUF WUF diyin bir kac kez ve sonraki sesle birlikte 4 parmak gosterin.")</exec>
+			<exec>tts.speak("WUF WUF diyin bir kac kez ve sonraki sesle birlikte 4 parmak gosterin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The dog has 4 legs.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>System.out.println("Kedi kartini gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Kedi kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a cat. The cat says meow. </agent:say>
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("MIAV MIAV diyin bir kac kez ve sonra elinizle 4 parmak gosterin.")</exec>
+			<exec>tts.speak("MIAV MIAV diyin bir kac kez ve sonra elinizle 4 parmak gosterin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The cat also has 4 legs like dog.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>System.out.println("Balik kartini gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Balik kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a fish. The fish lives under the sea and swims. </agent:say>
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Ellerinizi birlestirip balik gibi saga sola sallayin.")</exec>
+			<exec>tts.speak("Ellerinizi birlestirip balik gibi saga sola sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The fish have fins and a tail.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>System.out.println("Kus kartini gosterin.")</exec>
+			<exec>tts.speak("Kus kartini gosterin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a bird. The bird flies in the sky.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Ucan kus gibi kollarinizi cirpin ve FILAY diyin bir kac kez.")</exec>
+			<exec>tts.speak("Ucan kus gibi kollarinizi cirpin ve FILAY diyin bir kac kez.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The bird lays eggs in its nest.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>System.out.println("Ordek kartini gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Ordek kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a duck. The duck says quack.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("VAK VAK diyin bir kac")</exec>
+			<exec>tts.speak("VAK VAK diyin bir kac", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The duck can swim.</agent:say>
 			
 			<call state="lookChild"/>	
-			<exec>System.out.println("Kurbaga kartini gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Kurbaga kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a frog. The frog has a very long tongue.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Dilinizi cikartin kisa bir sure.")</exec>
+			<exec>tts.speak("Dilinizi cikartin kisa bir sure.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The frog lives in both water and land.</agent:say>
 
 			<call state="lookChild"/>	
-			<exec>System.out.println("At kartini gosterin ve sallayin.")</exec>
+			<exec>tts.speak("At kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a horse. The horse can run very fast.</agent:say>
 
-			<exec>System.out.println("Ayi kartini gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Ayi kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a bear. The bear is very big.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Ellerinizi pence yapip, havaya kaldirin ve BIG BEIR diyin.")</exec>
+			<exec>tts.speak("Ellerinizi pence yapip, havaya kaldirin ve BIG BEIR diyin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			
 			<call state="lookChild"/>
@@ -389,12 +394,12 @@
 	<state id="TeachRed">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>System.out.println("Kirmizi renkli karti gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Kirmizi renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is red.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve elma resimlerine isaret edin.")</exec>
+			<exec>tts.speak("Kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve elma resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The firetruck, the stop sign and the apple are all red. Red</agent:say>
 			<return/>
@@ -404,12 +409,12 @@
 	<state id="TeachBlue">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>System.out.println("Mavi renkli karti gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Mavi renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is blue. </agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Mavi karti cevirip sirayla deniz, gokyuzu ve kelebek resimlerine isaret edin.")</exec>
+			<exec>tts.speak("Mavi karti cevirip sirayla deniz, gokyuzu ve kelebek resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The sea, the sky and the butterfly are all blue. Blue</agent:say>
 			<return/>
@@ -419,12 +424,12 @@
 	<state id="TeachGreen">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>System.out.println("Yesil renkli karti gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Yesil renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is green.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Yesil karti cevirip sirayla cimen, agac ve armut resimlerine isaret edin.")</exec>
+			<exec>tts.speak("Yesil karti cevirip sirayla cimen, agac ve armut resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The grass, the tree and the pear are all green. Green</agent:say>
 			<return/>
@@ -434,12 +439,12 @@
 	<state id="TeachYellow">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>System.out.println("Sari renkli karti gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Sari renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is yellow.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Sari karti cevirip sirayla limon, ordek ve muz resimlerine isaret edin.")</exec>
+			<exec>tts.speak("Sari karti cevirip sirayla limon, ordek ve muz resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The lemon, the duck and the banana are all yellow. Yellow</agent:say>
 			<return/>
@@ -449,12 +454,12 @@
 	<state id="TeachOrange">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>System.out.println("Turuncu renkli karti gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Turuncu renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is orange.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Turunucu karti cevirip sirayla portakal, havuc ve top resimlerine isaret edin.")</exec>
+			<exec>tts.speak("Turunucu karti cevirip sirayla portakal, havuc ve top resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The orange, the carrot and the basketball are all orange. Orange</agent:say>
 			<return/>
@@ -464,12 +469,12 @@
 	<state id="TeachPurple">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>System.out.println("Mor renkli karti gosterin ve sallayin.")</exec>
+			<exec>tts.speak("Mor renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is purple.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>System.out.println("Mor karti cevirip sirayla uzum, patlican ve bot resimlerine isaret edin.")</exec>
+			<exec>tts.speak("Mor karti cevirip sirayla uzum, patlican ve bot resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The grapes, the eggplant and the boots are all purple. Purple</agent:say>
 			<return/>

@@ -23,7 +23,7 @@ import iristk.flow.FlowModule;
 
 public class CardsSystem {
 		
-	public CardsSystem() throws Exception {
+    public CardsSystem() throws Exception {
 		SituatedDialogSystem system = new SituatedDialogSystem(this.getClass());
 		SystemAgentFlow systemAgentFlow = system.addSystemAgent();
 	
@@ -39,8 +39,8 @@ public class CardsSystem {
 		system.setupStereoMicrophones(new WindowsRecognizerFactory());
 		//system.setupKinectMicrophone(new KinectRecognizerFactory());
 				
-		system.connectToBroker("furhat", "172.23.122.232");
-		system.setupFace(new WindowsSynthesizer(), Gender.FEMALE);
+		//system.connectToBroker("furhat", "172.23.122.232");
+		system.setupFace(new WindowsSynthesizer(), Gender.MALE);
 		
 		system.addModule(new FlowModule(new CardsFlow(systemAgentFlow)));
 		system.loadContext("default", new SpeechGrammarContext(new SRGSGrammar(system.getPackageFile("CardsGrammar.xml"))));
