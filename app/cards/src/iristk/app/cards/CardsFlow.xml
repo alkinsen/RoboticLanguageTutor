@@ -12,19 +12,21 @@
 	
 	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
 	<var name="tts" type="application.TextToSpeech" value="new TextToSpeech()"/>
+	<var name="audioplayer" type="AudioPlayer" value="new AudioPlayer()"/>
 
 	<state id="Start" extends="Dialog">
 		<onentry>
 			<call state="lookCaretaker"/>
 			<exec>tts.setVoice("dfki-ot-hsmm");</exec>
-			<exec>tts.speak("bir, iki, üç seviyelerin birini sırasıyla van, tu, tri seslerinden birini çıkararak seçin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/StartLevel.wav");</exec>
 			<call state="lookChild"/>
-			<agent:say>Hello there, which level do you want to play?</agent:say>
-			<call state="lookCaretaker"/>
-			<agent:listen/>
+			<wait msec="3000"/>
+			<agent:say>Hello there I am Furhat, which level do you want to play?</agent:say>
+			<goto state="Play"/>
+			
+			<!--  call state="lookCaretaker"/>
+			< gent:listen/-->
 		</onentry>
-		
-		
 		
 		<onevent name="sense.user.speak" cond="event?:sem:one">
 			<goto state="EasyLearn"/>
@@ -505,6 +507,7 @@
 	<state id="Play" extends="Dialog">
 		<onentry>
 			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlaySubject.wav");</exec>
 			<agent:say>Let's have some fun. Which subject would you like to play with?</agent:say>
 			<agent:listen/>
 		</onentry>
@@ -577,40 +580,40 @@
 			<call state="lookCaretaker"/>
 			<call state="PlayPrepare"/>
 			
+			<exec>audioplayer.playSound("audio/PlayAnimalStart.wav");</exec>
 			<agent:say>Let's start the game.</agent:say>
-			<exec>tts.speak("Oyuna başlıyoruz.", 1.0f, false, false);</exec>
 			
 			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalDog.wav");</exec>
 			<agent:say>Can you show me the dog on the board?</agent:say>
-			<exec>tts.speak("Cocuğa köpek fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 		
 			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalFish.wav");</exec>
 			<agent:say>Can you show me the fish on the board?</agent:say>
-			<exec>tts.speak("Cocuğa balık fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalBird.wav");</exec>
 			<agent:say>Can you show me the animal that flies on the board?</agent:say>
-			<exec>tts.speak("Cocuğa kuş fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalCatDog.wav");</exec>
 			<agent:say>Can you show me the animals that have four legs?</agent:say>
-			<exec>tts.speak("Cocuğa hem kedi hem de köpek fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalCat.wav");</exec>
 			<agent:say>Can you show me the animal that says meow?</agent:say>
-			<exec>tts.speak("Cocuğa kedi fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
@@ -625,8 +628,9 @@
 	
 	<state id="PlayPrepare" extends="Dialog">
 		<onentry>
-			<exec>tts.speak("Ilgili desteyi alınız ve rastgele diziniz. Dizme bitince OKEY sesi çıkarın.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/PlayPrepareDistribute.wav");</exec>
 			<agent:say>Would you please distribute the cards to the board?</agent:say>
+			<wait msec="2000"/>
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:okay">
@@ -634,12 +638,13 @@
 		</onevent>
 	</state>
 	
-	<state id="Showing">
+	<state id="Showing" extends="Dialog">
 		<onentry>
 			<call state="lookCaretaker"/>
+			<exec>audioplayer.playSound("audio/ShowingCheck.wav");</exec>
+			<wait msec="1000"/>
 			<agent:say>Is that correct?</agent:say>
-			<exec>tts.speak("Eğer çocuk doğru kartı gösterdiyse YES sesi çıkarın, yanlış göstediyse NO sesi çıkarın.", 1.0f, false, false);</exec>
-			<wait msec="4000"/>
+			<wait msec="3000"/>
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:yes">
@@ -651,24 +656,96 @@
 		
 		<onevent name="sense.user.speak" cond="event?:sem:no">
 			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/ShowingCorrect.wav");</exec>
 			<agent:say>It's alright. Let's see which one is the correct answer.</agent:say>
 			<call state="lookCaretaker"/>
 			<agent:say>Can you show me the correct answer please?</agent:say>
-			<exec>tts.speak("Doğru cevabı cocuğa gösteriniz.", 1.0f, false, false);</exec>
 			<wait msec="4000"/>
 			<agent:say>Let's continue.</agent:say>
 			<return/>
-		</onevent>
-		
-		<onevent name="sense.user.speak">
-			<agent:say>I did not get that.</agent:say>
-			<goto state="Showing"/>
 		</onevent>
 	</state>
 	
 	<state id="PlayObjects" extends="Dialog">
 		<onentry>
+			<agent:say>Great choice. This is going to be fun! </agent:say>
+			<wait msec="1000"/>
+			<call state="lookCaretaker"/>
+			<agent:say>Let's start the game.</agent:say>
+			
+			<exec>audioplayer.playSound("audio/PlayObjectsHat.wav");</exec>
+			<call state="FindObject" p:object="'hat'"/>
+			<exec>audioplayer.playSound("audio/PlayObjectsChair.wav");</exec>
+			<call state="FindObject" p:object="'chair'"/>
+			<exec>audioplayer.playSound("audio/PlayObjectsTomato.wav");</exec>
+			<call state="FindObject" p:object="'tomato'"/>
+			<exec>audioplayer.playSound("audio/PlayObjectsCar.wav");</exec>
+			<call state="FindObject" p:object="'car'"/>
+			<exec>audioplayer.playSound("audio/PlayObjectsButterfly.wav");</exec>
+			<call state="FindObject" p:object="'butterfly'"/>
+			
+			<goto state="CheckAgain"/>			
+			
 		</onentry>
+	</state>
+	
+	<state id="FindObject" extends="Dialog">
+		<param name="object" type="String" default="''"/>
+		<onentry>
+			<call state="lookChild"/>
+			<wait msec="1000"/>
+			<agent:say>Look around you and try to find a <expr>object</expr>.</agent:say>
+			<call state="lookUp"/>
+			<wait msec="1000"/>
+			<exec>audioplayer.playSound("audio/FindObjectExplain.wav");</exec>
+			<call state="lookCaretaker"/>
+			<wait msec="1500"/>
+			<call state="lookChild"/>
+			<wait msec="1500"/>
+			
+			<agent:say>Could you find it?</agent:say>
+			<agent:listen/>
+		</onentry>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<call state="lookChild"/>
+			<agent:say>Great job! You found it.</agent:say>
+			<wait msec="1000"/>		
+			<return/>
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<call state="lookChild"/>
+			<agent:say>Where could it be?</agent:say>
+			<wait msec="2000"/>
+			<call state="lookCaretaker"/>
+			<exec>audioplayer.playSound("audio/FindObjectCaretakerQuestion.wav");</exec>
+			<agent:say>Hmmm... Do you see the <expr> object </expr></agent:say>
+			<wait msec="2000"/>
+			<call state="ShowObject" p:object="object"/>
+			<return/>
+		</onevent>
+	</state>
+	
+	<state id="ShowObject" extends="Dialog">
+		<param name="object" type="String" default="''"/>
+		<onentry>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<call state="lookChild"/>
+			<agent:say>Ahhh... There it is. That's a <expr> object </expr></agent:say>
+			<wait msec="1000"/>
+			<return/>
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<call state="lookChild"/>
+			<agent:say>I can't see a <expr> object </expr></agent:say>
+			<agent:say>Let's find something else.</agent:say>
+			<wait msec="2000"/>
+			<return/>
+		</onevent>
 	</state>
 	
 	
@@ -731,6 +808,14 @@
 			<return />
 		</onentry>
 	</state>
+	
+	<state id="lookUp">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(0, 1, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
 	<!-- CONTROLLING FURHAT GAZE -->	
 	
 </flow>

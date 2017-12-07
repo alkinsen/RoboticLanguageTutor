@@ -32,9 +32,6 @@ public class CardsSystem {
     public CardsSystem() throws Exception {
 		SituatedDialogSystem system = new SituatedDialogSystem(this.getClass());
 		SystemAgentFlow systemAgentFlow = system.addSystemAgent();
-		
-		AudioPlayer audioplayer = new AudioPlayer();
-		audioplayer.playSound("hello.wav");
 	
 		system.setLanguage(Language.ENGLISH_US);
 	
