@@ -15,226 +15,280 @@
 
 	<state id="Start" extends="Dialog">
 		<onentry>
-			<exec>tts.setVoice("dfki-ot-hsmm");</exec>
 			<call state="lookCaretaker"/>
-			<agent:say>Hello there, do you want to learn or play a game?</agent:say>
+			<exec>tts.setVoice("dfki-ot-hsmm");</exec>
+			<exec>tts.speak("bir, iki, üç seviyelerin birini sırasıyla van, tu, tri seslerinden birini çıkararak seçin.", 1.0f, false, false);</exec>
 			<call state="lookChild"/>
-			<!-- (System.out.println\()(.*)(\)) -->
-			<exec>tts.speak("Oyun oynamak ister misiniz?", 1.0f, false, false);</exec>
+			<agent:say>Hello there, which level do you want to play?</agent:say>
+			<call state="lookCaretaker"/>
 			<agent:listen/>
 		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:learn">
+		
+		
+		
+		<onevent name="sense.user.speak" cond="event?:sem:one">
+			<goto state="EasyLearn"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:two">
 			<goto state="Learn"/>
 		</onevent>
-		<onevent name="sense.user.speak" cond="event?:sem:play">
+		<onevent name="sense.user.speak" cond="event?:sem:three">
 			<goto state="Play"/>
 		</onevent>
 	</state>
 	
-	
-	
-	<state id="Play" extends="Dialog">
+	<!-- EASY EASY EASY -->
+	<state id="EasyLearn" extends="Dialog">
 		<onentry>
 			<call state="lookChild"/>
-			<agent:say>Let's have some fun. Which subject would you like to play with?</agent:say>
+			<agent:say>Which subject would you like to learn about?</agent:say>
 			<agent:listen/>
 		</onentry>
 		
 		<onevent name="sense.user.speak" cond="event?:sem:animal">
-			<goto state="PlayAnimals"/>
+			<goto state="EasyLearnAnimals"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:color">
-			<goto state="PlayColors"/>
+			<goto state="EasyLearnColors"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:body">
-			<goto state="PlayBody"/>
+			<goto state="EasyLearnBody"/>
 		</onevent>
-		
 	</state>
 	
-	<state id="PlayBody">
-		<onentry>
-			<agent:say>Alright. Let's see if you have learned your body.</agent:say>
-		</onentry>
-	</state>
 	
-	<state id="PlayColors">
+	<state id="EasyLearnAnimals">
 		<onentry>
-			<agent:say>Let's see if you have learned your colors.</agent:say>
+			<agent:say>Let's read a book. The book is Brown Bear, Brown Bear.</agent:say>
 			<wait msec="3000"/>
-			<call state="lookCaretaker"/>
-			<call state="PlayPrepare"/>
 			
-			<agent:say>Let's start the game.</agent:say>
-			<exec>tts.speak("Oyuna basliyoruz.", 1.0f, false, false);</exec>
+			<exec>tts.speak("Ayıyı gösterin.", 1.0f, false, false);</exec>
+			<agent:say>Brown bear, brown bear, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Kuşu gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a red bird looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Red bird, red bird, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Ördeği gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a yellow duck looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Yellow duck, yellow duck, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Atı gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a blue horse looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Blue horse, blue horse, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Kurbağayı gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a green frog looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Green frog, green frog, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Kediyi gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a purple cat looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Purple cat, purple cat, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Köpeği gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a white dog looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>White dog, white dog, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Kuzuyu gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a black sheep looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Black sheep, black sheep what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Balığı gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a gold fish looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Gold fish, gold fish, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Kendinizi gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a nanny looking at me.</agent:say>
+			<wait msec="1000"/>
+			<agent:say>Nanny, nanny, what do you see?</agent:say>
+			<wait msec="1000"/>
+			<exec>tts.speak("Bebeği gösterin.", 1.0f, false, false);</exec>
+			<agent:say>I see a baby looking at me.</agent:say>
+			<wait msec="1000"/>
 			
-			<call state="lookChild"/>
-			<agent:say>Can you show me the color red?</agent:say>
-			<exec>tts.speak("Cocuga kirmizi rengini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-		
-			<call state="lookChild"/>
-			<agent:say>Can you show me the color purple?</agent:say>
-			<exec>tts.speak("Cocuga mor rengini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<call state="lookChild"/>
-			<agent:say>Can you first show me the color orange then yellow?</agent:say>
-			<exec>tts.speak("Cocuga once turuncu sonra sari rengini.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<call state="lookChild"/>
-			<agent:say>Can you show me the color of grass?</agent:say>
-			<exec>tts.speak("Cocuga yesil rengini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<call state="lookChild"/>
-			<agent:say>Can you show me the color of firetruck?</agent:say>
-			<exec>tts.speak("Cocuga kirmizi rengini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<goto state="CheckAgain"/>		
+			<agent:say>Well done! I love this book!</agent:say>
 		</onentry>
 	</state>
-	
-	
-	<state id="PlayAnimals">
+	<state id="EasyLearnColors">
 		<onentry>
-			<agent:say>Great choice. I love animals. </agent:say>
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Kırmızı kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
-			<call state="lookCaretaker"/>
-			<call state="PlayPrepare"/>
-			
-			<agent:say>Let's start the game.</agent:say>
-			<exec>tts.speak("Oyuna basliyoruz.", 1.0f, false, false);</exec>
+			<agent:say>This is red.</agent:say>
 			
 			<call state="lookChild"/>
-			<agent:say>Can you show me the dog on the board?</agent:say>
-			<exec>tts.speak("Cocuga kopek fotografini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-		
-			<call state="lookChild"/>
-			<agent:say>Can you show me the fish on the board?</agent:say>
-			<exec>tts.speak("Cocuktan balik fotografini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<call state="lookChild"/>
-			<agent:say>Can you show me the animal that flies on the board?</agent:say>
-			<exec>tts.speak("Cocuga kus fotografini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<call state="lookChild"/>
-			<agent:say>Can you show me the animals that have four legs?</agent:say>
-			<exec>tts.speak("Cocuga hem kedi hem de kopek fotografini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<call state="lookChild"/>
-			<agent:say>Can you show me the animal that says meow?</agent:say>
-			<exec>tts.speak("Cocuga kedi fotografini gostermesini istedim.", 1.0f, false, false);</exec>
-			<call state="lookBoard"/>
-			<wait msec="4000"/>
-			<call state="Showing"/>
-			
-			<goto state="CheckAgain"/>			
-			
-		</onentry>
-	
-		
-		
-	</state>
-	
-	<state id="PlayPrepare" extends="Dialog">
-		<onentry>
-			<exec>tts.speak("Ilgili desteyi aliniz ve rastgele diziniz. Dizme bitince OKEY diyin.", 1.0f, false, false);</exec>
-			<agent:say>Would you please distribute the cards to the board?</agent:say>
-			<agent:listen/>
-		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:okay">
-			<return/>
-		</onevent>
-	</state>
-	
-	<state id="Showing">
-		<onentry>
-			<call state="lookCaretaker"/>
-			<agent:say>Is that correct?</agent:say>
-			<exec>tts.speak("Eger dogru karti gosterdiyse yes sesi cikarin, yoksa no sesi cikarin", 1.0f, false, false);</exec>
-			<wait msec="4000"/>
-			<agent:listen/>
-		</onentry>
-		<onevent name="sense.user.speak" cond="event?:sem:yes">
-			<call state="lookChild"/>
-			<agent:say>Good Job. You are doing great.</agent:say>
+			<exec>tts.speak("Kırmızı kartı çevirip elmaya işaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
-			<return/>
-		</onevent>
-		
-		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<agent:say>What is red? Apple is red. Apple is red.</agent:say>
+			
 			<call state="lookChild"/>
-			<agent:say>It's alright. Let's see which one is the correct answer.</agent:say>
+			<exec>tts.speak("Mavi kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>This is blue. </agent:say>
+			
 			<call state="lookCaretaker"/>
-			<agent:say>Can you show me the correct answer please?</agent:say>
-			<exec>tts.speak("Dogru cevabi cocuga gosteriniz.", 1.0f, false, false);</exec>
-			<wait msec="4000"/>
-			<agent:say>Let's continue.</agent:say>
-			<return/>
-		</onevent>
-		
-		<onevent name="sense.user.speak">
-			<agent:say>I did not get that.</agent:say>
-			<goto state="Showing"/>
-		</onevent>
+			<exec>tts.speak("Mavi kartı çevirip gök yüzüne işaret edin.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>What is blue? The sky is blue. The sky is blue.</agent:say>
+			
+			<call state="lookChild"/>
+			<exec>tts.speak("Yeşil kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>This is green.</agent:say>
+			
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Yeşil kartı çevirip çimene işaret edin.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>What is green? The grass is green. The grass is green.</agent:say>
+			
+			<call state="lookChild"/>
+			<exec>tts.speak("Sarı kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>This is yellow.</agent:say>
+			
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Sarı kartı çevirip limona işaret edin.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>What is yellow? Lemon is yellow. Lemon is yellow.</agent:say>
+			
+			<call state="lookChild"/>
+			<exec>tts.speak("Turuncu kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>This is orange.</agent:say>
+			
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Turunucu kartı çevirip havuca işaret edin.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>What is orange? Carrot is orange. Carrot is orange.</agent:say>
+			
+			<call state="lookChild"/>
+			<exec>tts.speak("Kahverengi kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>This is brown.</agent:say>
+			
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Kahverengi kartı çevirip ayıya işaret edin.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>What is brown? Bear is brown. Bear is brown.</agent:say>
+			
+			<call state="lookChild"/>
+			<exec>tts.speak("Mor renkli kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>This is purple.</agent:say>
+			
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Mor kartı çevirip patlıcana işaret edin.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>What is purple? Eggplant is purple. Eggplant is purple.</agent:say>
+			
+			<call state="lookChild"/>
+			<exec>tts.speak("Beyaz kartı gösterin ve sallayın.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>This is white.</agent:say>
+			
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Beyaz kartı çevirip kara işaret edin.", 1.0f, false, false);</exec>
+			<wait msec="3000"/>
+			<agent:say>What is white? Snow is white. Snow is white.</agent:say>
+		</onentry>
 	</state>
 	
+	<state id="EasyLearnBody">
+		<onentry>
+		<agent:say>Let's learn a song.</agent:say>
+			<wait msec="3000"/>
+			
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Ellerinizi çırpın.", 1.0f, false, false);</exec>
+			<agent:say>Clap your hands.</agent:say>
+			<call state="lookChild"/>
+			<wait msec="3000"/>
+			<exec>tts.speak("Bebeğin ellerini çırpın.", 1.0f, false, false);</exec>
+			<agent:say>Clap your hands.</agent:say>
+			<wait msec="3000"/>
+
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Ellerinizi sallayın.", 1.0f, false, false);</exec>
+			<agent:say>Wave hello.</agent:say>
+			<call state="lookChild"/>
+			<wait msec="3000"/>
+			<exec>tts.speak("Bebeğin ellerini sallayın.", 1.0f, false, false);</exec>
+			<agent:say>Wave hello.</agent:say>
+			<wait msec="3000"/>
+
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Ayağa kalkın.", 1.0f, false, false);</exec>
+			<agent:say>Stand up.</agent:say>
+			<call state="lookChild"/>
+			<wait msec="3000"/>
+			<exec>tts.speak("Bebeği ayağa kaldırın.", 1.0f, false, false);</exec>
+			<agent:say>Stand up.</agent:say>
+			<wait msec="3000"/>
+
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Oturun.", 1.0f, false, false);</exec>
+			<agent:say>Sit down.</agent:say>
+			<call state="lookChild"/>
+			<wait msec="3000"/>
+			<exec>tts.speak("Bebeği oturtun.", 1.0f, false, false);</exec>
+			<agent:say>Sit down.</agent:say>
+			<wait msec="3000"/>
+
+			<call state="lookCaretaker"/>
+			<exec>tts.speak("Ellerinizi yürür gibi hareket ettirin.", 1.0f, false, false);</exec>
+			<agent:say>Let's go.</agent:say>
+			<call state="lookChild"/>
+			<wait msec="3000"/>
+			<exec>tts.speak("Bebeğin ellerini çırpın.", 1.0f, false, false);</exec>
+			<agent:say>Let's go.</agent:say>
+			<wait msec="3000"/>
+
+			<agent:say>That was fun! Great job!</agent:say>
+		</onentry>
+	</state>
+	<!-- EASY EASY EASY -->
 	
+	<!-- MEDIUM MEDIUM MEDIUM -->
 	<state id="Learn" extends="Dialog">
 		<onentry>
 			<agent:say>Let's start learning. What do you want to learn about?</agent:say>
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:color">
-			<exec>tts.speak("Renk kartlarinin oldugu desteyi aliniz.", 1.0f, false, false);</exec>
+			<exec>tts.speak("Renk kartlarının olduğu desteyi alınız.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>Okay, let's learn about colors.</agent:say>
-			<goto state="TeachColors"/>
+			<goto state="LearnColors"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:animal">
-			<exec>tts.speak("Hayvan kartlarinin oldugu desteyi aliniz.", 1.0f, false, false);</exec>
+			<exec>tts.speak("Hayvan kartlarının olduğu desteyi alınız.", 1.0f, false, false);</exec>
 			<agent:say>Okay, let's learn about animals.</agent:say>
-			<goto state="TeachAnimals"/>
+			<goto state="LearnAnimals"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:body">
 			<agent:say>Okay, let's learn about body parts.</agent:say>
-			<goto state="TeachBody"/>
+			<goto state="LearnBody"/>
 		</onevent>
 	</state>
 	
-	<!-- STATES ABOUT TEACHING BODY PARTS -->
-	<state id="TeachBody">
+	
+		<!-- STATES ABOUT TEACHING BODY PARTS -->
+	<state id="LearnBody">
 		<onentry>
 			<agent:say>Let's learn about our heads, shoulders, knees and toes.</agent:say>
+	
 			
 			<call state="lookCaretaker"/>
 			<call state="lookChild"/>
-			<exec>tts.speak("Kafanizi, sonra bebegin kafasini isaret edin.", 1.0f, false, false);</exec>
+			<exec>tts.speak("Kafanıza, sonra çoçuğun kafasına yavaşça dokunun.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>This is your head.</agent:say>
 			
@@ -299,7 +353,7 @@
 	<!-- STATES ABOUT TEACHING BODY PARTS -->
 	
 	<!-- STATES ABOUT TEACHING ANIMALS -->
-	<state id="TeachAnimals">
+	<state id="LearnAnimals">
 		<onentry>
 			<call state="lookChild"/>
 			<exec>tts.speak("Kopek kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
@@ -375,23 +429,7 @@
 	<!-- STATES ABOUT TEACHING ANIMALS -->
 	
 	<!-- STATES ABOUT TEACHING COLORS -->
-	<state id="TeachColors">
-		<onentry>
-			<call state="TeachRed"/>
-			<call state="TeachBlue"/>
-			<call state="TeachGreen"/>
-			<call state="TeachYellow"/>
-			<call state="TeachOrange"/>
-			<call state="TeachPurple"/>
-			
-			<wait msec="2000"/>
-			<agent:say>Now you know your colors.</agent:say>
-			<goto state="CheckAgain"/>
-		</onentry>
-	</state>
-	
-	
-	<state id="TeachRed">
+	<state id="LearnColors">
 		<onentry>
 			<call state="lookChild"/>
 			<exec>tts.speak("Kirmizi renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
@@ -402,12 +440,7 @@
 			<exec>tts.speak("Kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve elma resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The firetruck, the stop sign and the apple are all red. Red</agent:say>
-			<return/>
-		</onentry>
-	</state>
-	
-	<state id="TeachBlue">
-		<onentry>
+			
 			<call state="lookChild"/>
 			<exec>tts.speak("Mavi renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
@@ -417,12 +450,7 @@
 			<exec>tts.speak("Mavi karti cevirip sirayla deniz, gokyuzu ve kelebek resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The sea, the sky and the butterfly are all blue. Blue</agent:say>
-			<return/>
-		</onentry>
-	</state>
-	
-	<state id="TeachGreen">
-		<onentry>
+			
 			<call state="lookChild"/>
 			<exec>tts.speak("Yesil renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
@@ -432,12 +460,7 @@
 			<exec>tts.speak("Yesil karti cevirip sirayla cimen, agac ve armut resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The grass, the tree and the pear are all green. Green</agent:say>
-			<return/>
-		</onentry>
-	</state>
-
-	<state id="TeachYellow">
-		<onentry>
+			
 			<call state="lookChild"/>
 			<exec>tts.speak("Sari renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
@@ -447,12 +470,7 @@
 			<exec>tts.speak("Sari karti cevirip sirayla limon, ordek ve muz resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The lemon, the duck and the banana are all yellow. Yellow</agent:say>
-			<return/>
-		</onentry>
-	</state>
-	
-	<state id="TeachOrange">
-		<onentry>
+			
 			<call state="lookChild"/>
 			<exec>tts.speak("Turuncu renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
@@ -462,12 +480,7 @@
 			<exec>tts.speak("Turunucu karti cevirip sirayla portakal, havuc ve top resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The orange, the carrot and the basketball are all orange. Orange</agent:say>
-			<return/>
-		</onentry>
-	</state>
-
-	<state id="TeachPurple">
-		<onentry>
+		
 			<call state="lookChild"/>
 			<exec>tts.speak("Mor renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
@@ -477,10 +490,187 @@
 			<exec>tts.speak("Mor karti cevirip sirayla uzum, patlican ve bot resimlerine isaret edin.", 1.0f, false, false);</exec>
 			<wait msec="3000"/>
 			<agent:say>The grapes, the eggplant and the boots are all purple. Purple</agent:say>
-			<return/>
+			
+			<wait msec="2000"/>
+			<agent:say>Now you know your colors.</agent:say>
+			<goto state="CheckAgain"/>
 		</onentry>
 	</state>
 	<!-- STATES ABOUT TEACHING COLORS -->
+	
+	<!-- MEDIUM MEDIUM MEDIUM -->
+	
+	
+	<!-- HARD HARD HARD -->
+	<state id="Play" extends="Dialog">
+		<onentry>
+			<call state="lookChild"/>
+			<agent:say>Let's have some fun. Which subject would you like to play with?</agent:say>
+			<agent:listen/>
+		</onentry>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:animal">
+			<goto state="PlayAnimals"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:color">
+			<goto state="PlayColors"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:object">
+			<goto state="PlayObjects"/>
+		</onevent>
+	</state>
+	
+	<state id="PlayColors">
+		<onentry>
+			<agent:say>Let's see if you have learned your colors.</agent:say>
+			<wait msec="3000"/>
+			<call state="lookCaretaker"/>
+			<call state="PlayPrepare"/>
+			
+			<agent:say>Let's start the game.</agent:say>
+			<exec>tts.speak("Oyuna başlıyoruz.", 1.0f, false, false);</exec>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color red?</agent:say>
+			<exec>tts.speak("Cocuğa kırmızı rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+		
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color purple?</agent:say>
+			<exec>tts.speak("Cocuğa mor rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you first show me the color orange then yellow?</agent:say>
+			<exec>tts.speak("Cocuğa önce turuncu sonra sari rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color of grass?</agent:say>
+			<exec>tts.speak("Cocuğa yeşil rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the color of firetruck?</agent:say>
+			<exec>tts.speak("Cocuğa kırmızı rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<goto state="CheckAgain"/>		
+		</onentry>
+	</state>
+	
+	
+	<state id="PlayAnimals">
+		<onentry>
+			<agent:say>Great choice. I love animals. </agent:say>
+			<wait msec="3000"/>
+			<call state="lookCaretaker"/>
+			<call state="PlayPrepare"/>
+			
+			<agent:say>Let's start the game.</agent:say>
+			<exec>tts.speak("Oyuna başlıyoruz.", 1.0f, false, false);</exec>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the dog on the board?</agent:say>
+			<exec>tts.speak("Cocuğa köpek fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+		
+			<call state="lookChild"/>
+			<agent:say>Can you show me the fish on the board?</agent:say>
+			<exec>tts.speak("Cocuğa balık fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the animal that flies on the board?</agent:say>
+			<exec>tts.speak("Cocuğa kuş fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the animals that have four legs?</agent:say>
+			<exec>tts.speak("Cocuğa hem kedi hem de köpek fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<agent:say>Can you show me the animal that says meow?</agent:say>
+			<exec>tts.speak("Cocuğa kedi fotoğrafını göstermesini istedim.", 1.0f, false, false);</exec>
+			<call state="lookBoard"/>
+			<wait msec="4000"/>
+			<call state="Showing"/>
+			
+			<goto state="CheckAgain"/>			
+			
+		</onentry>
+	
+		
+		
+	</state>
+	
+	<state id="PlayPrepare" extends="Dialog">
+		<onentry>
+			<exec>tts.speak("Ilgili desteyi alınız ve rastgele diziniz. Dizme bitince OKEY sesi çıkarın.", 1.0f, false, false);</exec>
+			<agent:say>Would you please distribute the cards to the board?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:okay">
+			<return/>
+		</onevent>
+	</state>
+	
+	<state id="Showing">
+		<onentry>
+			<call state="lookCaretaker"/>
+			<agent:say>Is that correct?</agent:say>
+			<exec>tts.speak("Eğer çocuk doğru kartı gösterdiyse YES sesi çıkarın, yanlış göstediyse NO sesi çıkarın.", 1.0f, false, false);</exec>
+			<wait msec="4000"/>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<call state="lookChild"/>
+			<agent:say>Good Job. You are doing great.</agent:say>
+			<wait msec="3000"/>
+			<return/>
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<call state="lookChild"/>
+			<agent:say>It's alright. Let's see which one is the correct answer.</agent:say>
+			<call state="lookCaretaker"/>
+			<agent:say>Can you show me the correct answer please?</agent:say>
+			<exec>tts.speak("Doğru cevabı cocuğa gösteriniz.", 1.0f, false, false);</exec>
+			<wait msec="4000"/>
+			<agent:say>Let's continue.</agent:say>
+			<return/>
+		</onevent>
+		
+		<onevent name="sense.user.speak">
+			<agent:say>I did not get that.</agent:say>
+			<goto state="Showing"/>
+		</onevent>
+	</state>
+	
+	<state id="PlayObjects" extends="Dialog">
+		<onentry>
+		</onentry>
+	</state>
+	
 	
 	
 	<!-- CHECK TO CONTINUE OR EXIT -->

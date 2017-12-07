@@ -18,6 +18,12 @@ import iristk.speech.windows.WindowsRecognizerFactory;
 import iristk.speech.windows.WindowsSynthesizer;
 import iristk.system.IrisUtils;
 import iristk.util.Language;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import application.Main;
 import iristk.cfg.SRGSGrammar;
 import iristk.flow.FlowModule;
 
@@ -26,6 +32,9 @@ public class CardsSystem {
     public CardsSystem() throws Exception {
 		SituatedDialogSystem system = new SituatedDialogSystem(this.getClass());
 		SystemAgentFlow systemAgentFlow = system.addSystemAgent();
+		
+		AudioPlayer audioplayer = new AudioPlayer();
+		audioplayer.playSound("hello.wav");
 	
 		system.setLanguage(Language.ENGLISH_US);
 	
@@ -39,8 +48,8 @@ public class CardsSystem {
 		system.setupStereoMicrophones(new WindowsRecognizerFactory());
 		//system.setupKinectMicrophone(new KinectRecognizerFactory());
 				
-		//system.connectToBroker("furhat", "172.23.122.232");
-		system.setupFace(new WindowsSynthesizer(), Gender.MALE);
+		system.connectToBroker("furhat", "172.23.122.232");
+		//system.setupFace(new WindowsSynthesizer(), Gender.MALE);
 		
 		system.addModule(new FlowModule(new CardsFlow(systemAgentFlow)));
 		system.loadContext("default", new SpeechGrammarContext(new SRGSGrammar(system.getPackageFile("CardsGrammar.xml"))));
@@ -52,5 +61,6 @@ public class CardsSystem {
 	public static void main(String[] args) throws Exception {
 		new CardsSystem();
 	}
+
 
 }
