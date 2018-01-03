@@ -1,0 +1,11 @@
+<package name="quizgame" version="0.1.0">
+	<run>
+		<command name="quizgame" class="iristk.app.quizgame.QuizgameSystem"/>
+	</run>
+	<provide>
+		<class type="iristk.furhat.skill.Skill" name="iristk.app.quizgame.QuizgameSkill" />
+	</provide>
+	<classpath>
+		<src path="src" output="bin"/>
+	</classpath>
+</package>

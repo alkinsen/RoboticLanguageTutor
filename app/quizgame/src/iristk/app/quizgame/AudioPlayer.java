@@ -1,4 +1,4 @@
-package iristk.app.cards;
+package iristk.app.quizgame;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;

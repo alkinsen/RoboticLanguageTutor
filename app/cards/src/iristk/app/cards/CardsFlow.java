@@ -97,19 +97,17 @@ public class CardsFlow extends iristk.flow.Flow {
 						break EXECUTION;
 					}
 					// Line: 20
-					tts.setVoice("dfki-ot-hsmm");
-					// Line: 21
 					audioplayer.playSound("audio/StartLevel.wav");
-					// Line: 22
+					// Line: 21
 					lookChild state1 = new lookChild();
-					if (!flowThread.callState(state1, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 22, 29)))) {
+					if (!flowThread.callState(state1, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 21, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 23
+					// Line: 22
 					iristk.flow.DialogFlow.wait waitState2 = new iristk.flow.DialogFlow.wait();
 					waitState2.setMsec(3000);
-					if (!flowThread.callState(waitState2, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 23, 23)))) {
+					if (!flowThread.callState(waitState2, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 22, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -121,11 +119,17 @@ public class CardsFlow extends iristk.flow.Flow {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 25
-					Play state5 = new Play();
-					flowThread.gotoState(state5, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 25, 24)));
-					eventResult = EVENT_ABORTED;
-					break EXECUTION;
+					// Line: 24
+					lookCaretaker state5 = new lookCaretaker();
+					if (!flowThread.callState(state5, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 24, 33)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.listen state6 = agent.new listen();
+					if (!flowThread.callState(state6, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 18, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 				}
 			} catch (Exception e) {
 				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 18, 12));
@@ -136,17 +140,37 @@ public class CardsFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 31
+			// Line: 28
 			try {
-				count = getCount(245565335) + 1;
+				count = getCount(1940447180) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:one")) {
-						incrCount(245565335);
+						incrCount(1940447180);
+						eventResult = EVENT_CONSUMED;
+						EXECUTION: {
+							// Line: 29
+							EasyLearn state7 = new EasyLearn();
+							flowThread.gotoState(state7, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 29, 29)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+						if (eventResult != EVENT_IGNORED) return eventResult;
+					}
+				}
+			} catch (Exception e) {
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 28, 58));
+			}
+			// Line: 31
+			try {
+				count = getCount(2121744517) + 1;
+				if (event.triggers("sense.user.speak")) {
+					if (event.has("sem:two")) {
+						incrCount(2121744517);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 32
-							EasyLearn state6 = new EasyLearn();
-							flowThread.gotoState(state6, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 32, 29)));
+							Learn state8 = new Learn();
+							flowThread.gotoState(state8, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 32, 25)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -158,15 +182,15 @@ public class CardsFlow extends iristk.flow.Flow {
 			}
 			// Line: 34
 			try {
-				count = getCount(1066376662) + 1;
+				count = getCount(183264084) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:two")) {
-						incrCount(1066376662);
+					if (event.has("sem:three")) {
+						incrCount(183264084);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 35
-							Learn state7 = new Learn();
-							flowThread.gotoState(state7, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 35, 25)));
+							Play state9 = new Play();
+							flowThread.gotoState(state9, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 35, 24)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -174,27 +198,7 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 34, 58));
-			}
-			// Line: 37
-			try {
-				count = getCount(476402209) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:three")) {
-						incrCount(476402209);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 38
-							Play state8 = new Play();
-							flowThread.gotoState(state8, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 38, 24)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 37, 60));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 34, 60));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -220,33 +224,33 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 44
+			// Line: 41
 			try {
 				EXECUTION: {
-					int count = getCount(1919892312) + 1;
-					incrCount(1919892312);
-					// Line: 45
-					lookChild state9 = new lookChild();
-					if (!flowThread.callState(state9, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 45, 29)))) {
+					int count = getCount(460332449) + 1;
+					incrCount(460332449);
+					// Line: 42
+					lookChild state10 = new lookChild();
+					if (!flowThread.callState(state10, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 42, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state10 = agent.new say();
-					StringCreator string11 = new StringCreator();
-					string11.append("Which subject would you like to learn about?");
-					state10.setText(string11.toString());
-					if (!flowThread.callState(state10, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 44, 12)))) {
+					iristk.situated.SystemAgentFlow.say state11 = agent.new say();
+					StringCreator string12 = new StringCreator();
+					string12.append("Which subject would you like to learn about?");
+					state11.setText(string12.toString());
+					if (!flowThread.callState(state11, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 41, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.listen state12 = agent.new listen();
-					if (!flowThread.callState(state12, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 44, 12)))) {
+					iristk.situated.SystemAgentFlow.listen state13 = agent.new listen();
+					if (!flowThread.callState(state13, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 41, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 44, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 41, 12));
 			}
 		}
 
@@ -254,17 +258,37 @@ public class CardsFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 50
+			// Line: 47
 			try {
-				count = getCount(250075633) + 1;
+				count = getCount(1143839598) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:animal")) {
-						incrCount(250075633);
+						incrCount(1143839598);
+						eventResult = EVENT_CONSUMED;
+						EXECUTION: {
+							// Line: 48
+							EasyLearnAnimals state14 = new EasyLearnAnimals();
+							flowThread.gotoState(state14, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 48, 36)));
+							eventResult = EVENT_ABORTED;
+							break EXECUTION;
+						}
+						if (eventResult != EVENT_IGNORED) return eventResult;
+					}
+				}
+			} catch (Exception e) {
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 47, 61));
+			}
+			// Line: 50
+			try {
+				count = getCount(358699161) + 1;
+				if (event.triggers("sense.user.speak")) {
+					if (event.has("sem:color")) {
+						incrCount(358699161);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 51
-							EasyLearnAnimals state13 = new EasyLearnAnimals();
-							flowThread.gotoState(state13, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 51, 36)));
+							EasyLearnColors state15 = new EasyLearnColors();
+							flowThread.gotoState(state15, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 51, 35)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -272,19 +296,19 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 50, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 50, 60));
 			}
 			// Line: 53
 			try {
-				count = getCount(517938326) + 1;
+				count = getCount(914424520) + 1;
 				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:color")) {
-						incrCount(517938326);
+					if (event.has("sem:body")) {
+						incrCount(914424520);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 54
-							EasyLearnColors state14 = new EasyLearnColors();
-							flowThread.gotoState(state14, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 54, 35)));
+							EasyLearnBody state16 = new EasyLearnBody();
+							flowThread.gotoState(state16, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 54, 33)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -292,27 +316,7 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 53, 60));
-			}
-			// Line: 56
-			try {
-				count = getCount(110718392) + 1;
-				if (event.triggers("sense.user.speak")) {
-					if (event.has("sem:body")) {
-						incrCount(110718392);
-						eventResult = EVENT_CONSUMED;
-						EXECUTION: {
-							// Line: 57
-							EasyLearnBody state15 = new EasyLearnBody();
-							flowThread.gotoState(state15, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 57, 33)));
-							eventResult = EVENT_ABORTED;
-							break EXECUTION;
-						}
-						if (eventResult != EVENT_IGNORED) return eventResult;
-					}
-				}
-			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 56, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 53, 59));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -338,359 +342,359 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 63
+			// Line: 60
 			try {
 				EXECUTION: {
-					int count = getCount(1100439041) + 1;
-					incrCount(1100439041);
-					iristk.situated.SystemAgentFlow.say state16 = agent.new say();
-					StringCreator string17 = new StringCreator();
-					string17.append("Let's read a book. The book is Brown Bear, Brown Bear.");
-					state16.setText(string17.toString());
-					if (!flowThread.callState(state16, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					int count = getCount(2143192188) + 1;
+					incrCount(2143192188);
+					iristk.situated.SystemAgentFlow.say state17 = agent.new say();
+					StringCreator string18 = new StringCreator();
+					string18.append("Let's read a book. The book is Brown Bear, Brown Bear.");
+					state17.setText(string18.toString());
+					if (!flowThread.callState(state17, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 65
-					iristk.flow.DialogFlow.wait waitState18 = new iristk.flow.DialogFlow.wait();
-					waitState18.setMsec(3000);
-					if (!flowThread.callState(waitState18, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 65, 23)))) {
+					// Line: 62
+					iristk.flow.DialogFlow.wait waitState19 = new iristk.flow.DialogFlow.wait();
+					waitState19.setMsec(3000);
+					if (!flowThread.callState(waitState19, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 62, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 64
+					tts.speak("Ayıyı gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state20 = agent.new say();
+					StringCreator string21 = new StringCreator();
+					string21.append("Brown bear, brown bear, what do you see?");
+					state20.setText(string21.toString());
+					if (!flowThread.callState(state20, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 66
+					iristk.flow.DialogFlow.wait waitState22 = new iristk.flow.DialogFlow.wait();
+					waitState22.setMsec(1000);
+					if (!flowThread.callState(waitState22, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 66, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 67
-					tts.speak("Ayıyı gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state19 = agent.new say();
-					StringCreator string20 = new StringCreator();
-					string20.append("Brown bear, brown bear, what do you see?");
-					state19.setText(string20.toString());
-					if (!flowThread.callState(state19, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Kuşu gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state23 = agent.new say();
+					StringCreator string24 = new StringCreator();
+					string24.append("I see a red bird looking at me.");
+					state23.setText(string24.toString());
+					if (!flowThread.callState(state23, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 69
-					iristk.flow.DialogFlow.wait waitState21 = new iristk.flow.DialogFlow.wait();
-					waitState21.setMsec(1000);
-					if (!flowThread.callState(waitState21, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 69, 23)))) {
+					iristk.flow.DialogFlow.wait waitState25 = new iristk.flow.DialogFlow.wait();
+					waitState25.setMsec(1000);
+					if (!flowThread.callState(waitState25, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 69, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 70
-					tts.speak("Kuşu gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state22 = agent.new say();
-					StringCreator string23 = new StringCreator();
-					string23.append("I see a red bird looking at me.");
-					state22.setText(string23.toString());
-					if (!flowThread.callState(state22, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state26 = agent.new say();
+					StringCreator string27 = new StringCreator();
+					string27.append("Red bird, red bird, what do you see?");
+					state26.setText(string27.toString());
+					if (!flowThread.callState(state26, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 71
+					iristk.flow.DialogFlow.wait waitState28 = new iristk.flow.DialogFlow.wait();
+					waitState28.setMsec(1000);
+					if (!flowThread.callState(waitState28, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 71, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 72
-					iristk.flow.DialogFlow.wait waitState24 = new iristk.flow.DialogFlow.wait();
-					waitState24.setMsec(1000);
-					if (!flowThread.callState(waitState24, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 72, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state25 = agent.new say();
-					StringCreator string26 = new StringCreator();
-					string26.append("Red bird, red bird, what do you see?");
-					state25.setText(string26.toString());
-					if (!flowThread.callState(state25, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Ördeği gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state29 = agent.new say();
+					StringCreator string30 = new StringCreator();
+					string30.append("I see a yellow duck looking at me.");
+					state29.setText(string30.toString());
+					if (!flowThread.callState(state29, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 74
-					iristk.flow.DialogFlow.wait waitState27 = new iristk.flow.DialogFlow.wait();
-					waitState27.setMsec(1000);
-					if (!flowThread.callState(waitState27, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 74, 23)))) {
+					iristk.flow.DialogFlow.wait waitState31 = new iristk.flow.DialogFlow.wait();
+					waitState31.setMsec(1000);
+					if (!flowThread.callState(waitState31, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 74, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 75
-					tts.speak("Ördeği gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state28 = agent.new say();
-					StringCreator string29 = new StringCreator();
-					string29.append("I see a yellow duck looking at me.");
-					state28.setText(string29.toString());
-					if (!flowThread.callState(state28, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state32 = agent.new say();
+					StringCreator string33 = new StringCreator();
+					string33.append("Yellow duck, yellow duck, what do you see?");
+					state32.setText(string33.toString());
+					if (!flowThread.callState(state32, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 76
+					iristk.flow.DialogFlow.wait waitState34 = new iristk.flow.DialogFlow.wait();
+					waitState34.setMsec(1000);
+					if (!flowThread.callState(waitState34, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 76, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 77
-					iristk.flow.DialogFlow.wait waitState30 = new iristk.flow.DialogFlow.wait();
-					waitState30.setMsec(1000);
-					if (!flowThread.callState(waitState30, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 77, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state31 = agent.new say();
-					StringCreator string32 = new StringCreator();
-					string32.append("Yellow duck, yellow duck, what do you see?");
-					state31.setText(string32.toString());
-					if (!flowThread.callState(state31, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Atı gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state35 = agent.new say();
+					StringCreator string36 = new StringCreator();
+					string36.append("I see a blue horse looking at me.");
+					state35.setText(string36.toString());
+					if (!flowThread.callState(state35, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 79
-					iristk.flow.DialogFlow.wait waitState33 = new iristk.flow.DialogFlow.wait();
-					waitState33.setMsec(1000);
-					if (!flowThread.callState(waitState33, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 79, 23)))) {
+					iristk.flow.DialogFlow.wait waitState37 = new iristk.flow.DialogFlow.wait();
+					waitState37.setMsec(1000);
+					if (!flowThread.callState(waitState37, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 79, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 80
-					tts.speak("Atı gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state34 = agent.new say();
-					StringCreator string35 = new StringCreator();
-					string35.append("I see a blue horse looking at me.");
-					state34.setText(string35.toString());
-					if (!flowThread.callState(state34, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state38 = agent.new say();
+					StringCreator string39 = new StringCreator();
+					string39.append("Blue horse, blue horse, what do you see?");
+					state38.setText(string39.toString());
+					if (!flowThread.callState(state38, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 81
+					iristk.flow.DialogFlow.wait waitState40 = new iristk.flow.DialogFlow.wait();
+					waitState40.setMsec(1000);
+					if (!flowThread.callState(waitState40, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 81, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 82
-					iristk.flow.DialogFlow.wait waitState36 = new iristk.flow.DialogFlow.wait();
-					waitState36.setMsec(1000);
-					if (!flowThread.callState(waitState36, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 82, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state37 = agent.new say();
-					StringCreator string38 = new StringCreator();
-					string38.append("Blue horse, blue horse, what do you see?");
-					state37.setText(string38.toString());
-					if (!flowThread.callState(state37, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Kurbağayı gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state41 = agent.new say();
+					StringCreator string42 = new StringCreator();
+					string42.append("I see a green frog looking at me.");
+					state41.setText(string42.toString());
+					if (!flowThread.callState(state41, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 84
-					iristk.flow.DialogFlow.wait waitState39 = new iristk.flow.DialogFlow.wait();
-					waitState39.setMsec(1000);
-					if (!flowThread.callState(waitState39, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 84, 23)))) {
+					iristk.flow.DialogFlow.wait waitState43 = new iristk.flow.DialogFlow.wait();
+					waitState43.setMsec(1000);
+					if (!flowThread.callState(waitState43, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 84, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 85
-					tts.speak("Kurbağayı gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state40 = agent.new say();
-					StringCreator string41 = new StringCreator();
-					string41.append("I see a green frog looking at me.");
-					state40.setText(string41.toString());
-					if (!flowThread.callState(state40, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state44 = agent.new say();
+					StringCreator string45 = new StringCreator();
+					string45.append("Green frog, green frog, what do you see?");
+					state44.setText(string45.toString());
+					if (!flowThread.callState(state44, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 86
+					iristk.flow.DialogFlow.wait waitState46 = new iristk.flow.DialogFlow.wait();
+					waitState46.setMsec(1000);
+					if (!flowThread.callState(waitState46, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 86, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 87
-					iristk.flow.DialogFlow.wait waitState42 = new iristk.flow.DialogFlow.wait();
-					waitState42.setMsec(1000);
-					if (!flowThread.callState(waitState42, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 87, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state43 = agent.new say();
-					StringCreator string44 = new StringCreator();
-					string44.append("Green frog, green frog, what do you see?");
-					state43.setText(string44.toString());
-					if (!flowThread.callState(state43, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Kediyi gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state47 = agent.new say();
+					StringCreator string48 = new StringCreator();
+					string48.append("I see a purple cat looking at me.");
+					state47.setText(string48.toString());
+					if (!flowThread.callState(state47, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 89
-					iristk.flow.DialogFlow.wait waitState45 = new iristk.flow.DialogFlow.wait();
-					waitState45.setMsec(1000);
-					if (!flowThread.callState(waitState45, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 89, 23)))) {
+					iristk.flow.DialogFlow.wait waitState49 = new iristk.flow.DialogFlow.wait();
+					waitState49.setMsec(1000);
+					if (!flowThread.callState(waitState49, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 89, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 90
-					tts.speak("Kediyi gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state46 = agent.new say();
-					StringCreator string47 = new StringCreator();
-					string47.append("I see a purple cat looking at me.");
-					state46.setText(string47.toString());
-					if (!flowThread.callState(state46, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state50 = agent.new say();
+					StringCreator string51 = new StringCreator();
+					string51.append("Purple cat, purple cat, what do you see?");
+					state50.setText(string51.toString());
+					if (!flowThread.callState(state50, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 91
+					iristk.flow.DialogFlow.wait waitState52 = new iristk.flow.DialogFlow.wait();
+					waitState52.setMsec(1000);
+					if (!flowThread.callState(waitState52, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 91, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 92
-					iristk.flow.DialogFlow.wait waitState48 = new iristk.flow.DialogFlow.wait();
-					waitState48.setMsec(1000);
-					if (!flowThread.callState(waitState48, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 92, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state49 = agent.new say();
-					StringCreator string50 = new StringCreator();
-					string50.append("Purple cat, purple cat, what do you see?");
-					state49.setText(string50.toString());
-					if (!flowThread.callState(state49, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Köpeği gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state53 = agent.new say();
+					StringCreator string54 = new StringCreator();
+					string54.append("I see a white dog looking at me.");
+					state53.setText(string54.toString());
+					if (!flowThread.callState(state53, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 94
-					iristk.flow.DialogFlow.wait waitState51 = new iristk.flow.DialogFlow.wait();
-					waitState51.setMsec(1000);
-					if (!flowThread.callState(waitState51, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 94, 23)))) {
+					iristk.flow.DialogFlow.wait waitState55 = new iristk.flow.DialogFlow.wait();
+					waitState55.setMsec(1000);
+					if (!flowThread.callState(waitState55, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 94, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 95
-					tts.speak("Köpeği gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state52 = agent.new say();
-					StringCreator string53 = new StringCreator();
-					string53.append("I see a white dog looking at me.");
-					state52.setText(string53.toString());
-					if (!flowThread.callState(state52, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state56 = agent.new say();
+					StringCreator string57 = new StringCreator();
+					string57.append("White dog, white dog, what do you see?");
+					state56.setText(string57.toString());
+					if (!flowThread.callState(state56, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 96
+					iristk.flow.DialogFlow.wait waitState58 = new iristk.flow.DialogFlow.wait();
+					waitState58.setMsec(1000);
+					if (!flowThread.callState(waitState58, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 96, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 97
-					iristk.flow.DialogFlow.wait waitState54 = new iristk.flow.DialogFlow.wait();
-					waitState54.setMsec(1000);
-					if (!flowThread.callState(waitState54, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 97, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state55 = agent.new say();
-					StringCreator string56 = new StringCreator();
-					string56.append("White dog, white dog, what do you see?");
-					state55.setText(string56.toString());
-					if (!flowThread.callState(state55, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Kuzuyu gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state59 = agent.new say();
+					StringCreator string60 = new StringCreator();
+					string60.append("I see a black sheep looking at me.");
+					state59.setText(string60.toString());
+					if (!flowThread.callState(state59, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 99
-					iristk.flow.DialogFlow.wait waitState57 = new iristk.flow.DialogFlow.wait();
-					waitState57.setMsec(1000);
-					if (!flowThread.callState(waitState57, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 99, 23)))) {
+					iristk.flow.DialogFlow.wait waitState61 = new iristk.flow.DialogFlow.wait();
+					waitState61.setMsec(1000);
+					if (!flowThread.callState(waitState61, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 99, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 100
-					tts.speak("Kuzuyu gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state58 = agent.new say();
-					StringCreator string59 = new StringCreator();
-					string59.append("I see a black sheep looking at me.");
-					state58.setText(string59.toString());
-					if (!flowThread.callState(state58, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state62 = agent.new say();
+					StringCreator string63 = new StringCreator();
+					string63.append("Black sheep, black sheep what do you see?");
+					state62.setText(string63.toString());
+					if (!flowThread.callState(state62, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 101
+					iristk.flow.DialogFlow.wait waitState64 = new iristk.flow.DialogFlow.wait();
+					waitState64.setMsec(1000);
+					if (!flowThread.callState(waitState64, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 101, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 102
-					iristk.flow.DialogFlow.wait waitState60 = new iristk.flow.DialogFlow.wait();
-					waitState60.setMsec(1000);
-					if (!flowThread.callState(waitState60, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 102, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state61 = agent.new say();
-					StringCreator string62 = new StringCreator();
-					string62.append("Black sheep, black sheep what do you see?");
-					state61.setText(string62.toString());
-					if (!flowThread.callState(state61, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Balığı gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state65 = agent.new say();
+					StringCreator string66 = new StringCreator();
+					string66.append("I see a gold fish looking at me.");
+					state65.setText(string66.toString());
+					if (!flowThread.callState(state65, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 104
-					iristk.flow.DialogFlow.wait waitState63 = new iristk.flow.DialogFlow.wait();
-					waitState63.setMsec(1000);
-					if (!flowThread.callState(waitState63, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 104, 23)))) {
+					iristk.flow.DialogFlow.wait waitState67 = new iristk.flow.DialogFlow.wait();
+					waitState67.setMsec(1000);
+					if (!flowThread.callState(waitState67, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 104, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 105
-					tts.speak("Balığı gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state64 = agent.new say();
-					StringCreator string65 = new StringCreator();
-					string65.append("I see a gold fish looking at me.");
-					state64.setText(string65.toString());
-					if (!flowThread.callState(state64, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state68 = agent.new say();
+					StringCreator string69 = new StringCreator();
+					string69.append("Gold fish, gold fish, what do you see?");
+					state68.setText(string69.toString());
+					if (!flowThread.callState(state68, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 106
+					iristk.flow.DialogFlow.wait waitState70 = new iristk.flow.DialogFlow.wait();
+					waitState70.setMsec(1000);
+					if (!flowThread.callState(waitState70, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 106, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 107
-					iristk.flow.DialogFlow.wait waitState66 = new iristk.flow.DialogFlow.wait();
-					waitState66.setMsec(1000);
-					if (!flowThread.callState(waitState66, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 107, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state67 = agent.new say();
-					StringCreator string68 = new StringCreator();
-					string68.append("Gold fish, gold fish, what do you see?");
-					state67.setText(string68.toString());
-					if (!flowThread.callState(state67, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Kendinizi gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state71 = agent.new say();
+					StringCreator string72 = new StringCreator();
+					string72.append("I see a nanny looking at me.");
+					state71.setText(string72.toString());
+					if (!flowThread.callState(state71, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 109
-					iristk.flow.DialogFlow.wait waitState69 = new iristk.flow.DialogFlow.wait();
-					waitState69.setMsec(1000);
-					if (!flowThread.callState(waitState69, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 109, 23)))) {
+					iristk.flow.DialogFlow.wait waitState73 = new iristk.flow.DialogFlow.wait();
+					waitState73.setMsec(1000);
+					if (!flowThread.callState(waitState73, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 109, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 110
-					tts.speak("Kendinizi gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state70 = agent.new say();
-					StringCreator string71 = new StringCreator();
-					string71.append("I see a nanny looking at me.");
-					state70.setText(string71.toString());
-					if (!flowThread.callState(state70, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state74 = agent.new say();
+					StringCreator string75 = new StringCreator();
+					string75.append("Nanny, nanny, what do you see?");
+					state74.setText(string75.toString());
+					if (!flowThread.callState(state74, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 111
+					iristk.flow.DialogFlow.wait waitState76 = new iristk.flow.DialogFlow.wait();
+					waitState76.setMsec(1000);
+					if (!flowThread.callState(waitState76, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 111, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 112
-					iristk.flow.DialogFlow.wait waitState72 = new iristk.flow.DialogFlow.wait();
-					waitState72.setMsec(1000);
-					if (!flowThread.callState(waitState72, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 112, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state73 = agent.new say();
-					StringCreator string74 = new StringCreator();
-					string74.append("Nanny, nanny, what do you see?");
-					state73.setText(string74.toString());
-					if (!flowThread.callState(state73, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					tts.speak("Bebeği gösterin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state77 = agent.new say();
+					StringCreator string78 = new StringCreator();
+					string78.append("I see a baby looking at me.");
+					state77.setText(string78.toString());
+					if (!flowThread.callState(state77, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 114
-					iristk.flow.DialogFlow.wait waitState75 = new iristk.flow.DialogFlow.wait();
-					waitState75.setMsec(1000);
-					if (!flowThread.callState(waitState75, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 114, 23)))) {
+					iristk.flow.DialogFlow.wait waitState79 = new iristk.flow.DialogFlow.wait();
+					waitState79.setMsec(1000);
+					if (!flowThread.callState(waitState79, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 114, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 115
-					tts.speak("Bebeği gösterin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state76 = agent.new say();
-					StringCreator string77 = new StringCreator();
-					string77.append("I see a baby looking at me.");
-					state76.setText(string77.toString());
-					if (!flowThread.callState(state76, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 117
-					iristk.flow.DialogFlow.wait waitState78 = new iristk.flow.DialogFlow.wait();
-					waitState78.setMsec(1000);
-					if (!flowThread.callState(waitState78, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 117, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state79 = agent.new say();
-					StringCreator string80 = new StringCreator();
-					string80.append("Well done! I love this book!");
-					state79.setText(string80.toString());
-					if (!flowThread.callState(state79, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12)))) {
+					iristk.situated.SystemAgentFlow.say state80 = agent.new say();
+					StringCreator string81 = new StringCreator();
+					string81.append("Well done! I love this book!");
+					state80.setText(string81.toString());
+					if (!flowThread.callState(state80, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 63, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 60, 12));
 			}
 		}
 
@@ -722,382 +726,382 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 123
+			// Line: 120
 			try {
 				EXECUTION: {
-					int count = getCount(758529971) + 1;
-					incrCount(758529971);
-					// Line: 124
-					lookCaretaker state81 = new lookCaretaker();
-					if (!flowThread.callState(state81, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 124, 33)))) {
+					int count = getCount(305623748) + 1;
+					incrCount(305623748);
+					// Line: 121
+					lookCaretaker state82 = new lookCaretaker();
+					if (!flowThread.callState(state82, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 121, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 125
+					// Line: 122
 					tts.speak("Kırmızı kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 123
+					iristk.flow.DialogFlow.wait waitState83 = new iristk.flow.DialogFlow.wait();
+					waitState83.setMsec(3000);
+					if (!flowThread.callState(waitState83, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state84 = agent.new say();
+					StringCreator string85 = new StringCreator();
+					string85.append("This is red.");
+					state84.setText(string85.toString());
+					if (!flowThread.callState(state84, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 126
-					iristk.flow.DialogFlow.wait waitState82 = new iristk.flow.DialogFlow.wait();
-					waitState82.setMsec(3000);
-					if (!flowThread.callState(waitState82, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 126, 23)))) {
+					lookChild state86 = new lookChild();
+					if (!flowThread.callState(state86, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 126, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state83 = agent.new say();
-					StringCreator string84 = new StringCreator();
-					string84.append("This is red.");
-					state83.setText(string84.toString());
-					if (!flowThread.callState(state83, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 129
-					lookChild state85 = new lookChild();
-					if (!flowThread.callState(state85, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 129, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 130
+					// Line: 127
 					tts.speak("Kırmızı kartı çevirip elmaya işaret edin.", 1.0f, false, false);
+					// Line: 128
+					iristk.flow.DialogFlow.wait waitState87 = new iristk.flow.DialogFlow.wait();
+					waitState87.setMsec(3000);
+					if (!flowThread.callState(waitState87, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 128, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state88 = agent.new say();
+					StringCreator string89 = new StringCreator();
+					string89.append("What is red? Apple is red. Apple is red.");
+					state88.setText(string89.toString());
+					if (!flowThread.callState(state88, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 131
-					iristk.flow.DialogFlow.wait waitState86 = new iristk.flow.DialogFlow.wait();
-					waitState86.setMsec(3000);
-					if (!flowThread.callState(waitState86, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 131, 23)))) {
+					lookChild state90 = new lookChild();
+					if (!flowThread.callState(state90, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 131, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state87 = agent.new say();
-					StringCreator string88 = new StringCreator();
-					string88.append("What is red? Apple is red. Apple is red.");
-					state87.setText(string88.toString());
-					if (!flowThread.callState(state87, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 134
-					lookChild state89 = new lookChild();
-					if (!flowThread.callState(state89, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 134, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 135
+					// Line: 132
 					tts.speak("Mavi kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 133
+					iristk.flow.DialogFlow.wait waitState91 = new iristk.flow.DialogFlow.wait();
+					waitState91.setMsec(3000);
+					if (!flowThread.callState(waitState91, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 133, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state92 = agent.new say();
+					StringCreator string93 = new StringCreator();
+					string93.append("This is blue.");
+					state92.setText(string93.toString());
+					if (!flowThread.callState(state92, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 136
-					iristk.flow.DialogFlow.wait waitState90 = new iristk.flow.DialogFlow.wait();
-					waitState90.setMsec(3000);
-					if (!flowThread.callState(waitState90, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 136, 23)))) {
+					lookCaretaker state94 = new lookCaretaker();
+					if (!flowThread.callState(state94, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 136, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state91 = agent.new say();
-					StringCreator string92 = new StringCreator();
-					string92.append("This is blue.");
-					state91.setText(string92.toString());
-					if (!flowThread.callState(state91, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 139
-					lookCaretaker state93 = new lookCaretaker();
-					if (!flowThread.callState(state93, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 139, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 140
+					// Line: 137
 					tts.speak("Mavi kartı çevirip gök yüzüne işaret edin.", 1.0f, false, false);
+					// Line: 138
+					iristk.flow.DialogFlow.wait waitState95 = new iristk.flow.DialogFlow.wait();
+					waitState95.setMsec(3000);
+					if (!flowThread.callState(waitState95, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 138, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state96 = agent.new say();
+					StringCreator string97 = new StringCreator();
+					string97.append("What is blue? The sky is blue. The sky is blue.");
+					state96.setText(string97.toString());
+					if (!flowThread.callState(state96, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 141
-					iristk.flow.DialogFlow.wait waitState94 = new iristk.flow.DialogFlow.wait();
-					waitState94.setMsec(3000);
-					if (!flowThread.callState(waitState94, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 141, 23)))) {
+					lookChild state98 = new lookChild();
+					if (!flowThread.callState(state98, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 141, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state95 = agent.new say();
-					StringCreator string96 = new StringCreator();
-					string96.append("What is blue? The sky is blue. The sky is blue.");
-					state95.setText(string96.toString());
-					if (!flowThread.callState(state95, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 144
-					lookChild state97 = new lookChild();
-					if (!flowThread.callState(state97, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 144, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 145
+					// Line: 142
 					tts.speak("Yeşil kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 143
+					iristk.flow.DialogFlow.wait waitState99 = new iristk.flow.DialogFlow.wait();
+					waitState99.setMsec(3000);
+					if (!flowThread.callState(waitState99, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 143, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state100 = agent.new say();
+					StringCreator string101 = new StringCreator();
+					string101.append("This is green.");
+					state100.setText(string101.toString());
+					if (!flowThread.callState(state100, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 146
-					iristk.flow.DialogFlow.wait waitState98 = new iristk.flow.DialogFlow.wait();
-					waitState98.setMsec(3000);
-					if (!flowThread.callState(waitState98, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 146, 23)))) {
+					lookCaretaker state102 = new lookCaretaker();
+					if (!flowThread.callState(state102, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 146, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state99 = agent.new say();
-					StringCreator string100 = new StringCreator();
-					string100.append("This is green.");
-					state99.setText(string100.toString());
-					if (!flowThread.callState(state99, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 149
-					lookCaretaker state101 = new lookCaretaker();
-					if (!flowThread.callState(state101, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 149, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 150
+					// Line: 147
 					tts.speak("Yeşil kartı çevirip çimene işaret edin.", 1.0f, false, false);
+					// Line: 148
+					iristk.flow.DialogFlow.wait waitState103 = new iristk.flow.DialogFlow.wait();
+					waitState103.setMsec(3000);
+					if (!flowThread.callState(waitState103, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 148, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state104 = agent.new say();
+					StringCreator string105 = new StringCreator();
+					string105.append("What is green? The grass is green. The grass is green.");
+					state104.setText(string105.toString());
+					if (!flowThread.callState(state104, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 151
-					iristk.flow.DialogFlow.wait waitState102 = new iristk.flow.DialogFlow.wait();
-					waitState102.setMsec(3000);
-					if (!flowThread.callState(waitState102, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 151, 23)))) {
+					lookChild state106 = new lookChild();
+					if (!flowThread.callState(state106, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 151, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state103 = agent.new say();
-					StringCreator string104 = new StringCreator();
-					string104.append("What is green? The grass is green. The grass is green.");
-					state103.setText(string104.toString());
-					if (!flowThread.callState(state103, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 154
-					lookChild state105 = new lookChild();
-					if (!flowThread.callState(state105, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 154, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 155
+					// Line: 152
 					tts.speak("Sarı kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 153
+					iristk.flow.DialogFlow.wait waitState107 = new iristk.flow.DialogFlow.wait();
+					waitState107.setMsec(3000);
+					if (!flowThread.callState(waitState107, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 153, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state108 = agent.new say();
+					StringCreator string109 = new StringCreator();
+					string109.append("This is yellow.");
+					state108.setText(string109.toString());
+					if (!flowThread.callState(state108, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 156
-					iristk.flow.DialogFlow.wait waitState106 = new iristk.flow.DialogFlow.wait();
-					waitState106.setMsec(3000);
-					if (!flowThread.callState(waitState106, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 156, 23)))) {
+					lookCaretaker state110 = new lookCaretaker();
+					if (!flowThread.callState(state110, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 156, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state107 = agent.new say();
-					StringCreator string108 = new StringCreator();
-					string108.append("This is yellow.");
-					state107.setText(string108.toString());
-					if (!flowThread.callState(state107, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 159
-					lookCaretaker state109 = new lookCaretaker();
-					if (!flowThread.callState(state109, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 159, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 160
+					// Line: 157
 					tts.speak("Sarı kartı çevirip limona işaret edin.", 1.0f, false, false);
+					// Line: 158
+					iristk.flow.DialogFlow.wait waitState111 = new iristk.flow.DialogFlow.wait();
+					waitState111.setMsec(3000);
+					if (!flowThread.callState(waitState111, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 158, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state112 = agent.new say();
+					StringCreator string113 = new StringCreator();
+					string113.append("What is yellow? Lemon is yellow. Lemon is yellow.");
+					state112.setText(string113.toString());
+					if (!flowThread.callState(state112, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 161
-					iristk.flow.DialogFlow.wait waitState110 = new iristk.flow.DialogFlow.wait();
-					waitState110.setMsec(3000);
-					if (!flowThread.callState(waitState110, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 161, 23)))) {
+					lookChild state114 = new lookChild();
+					if (!flowThread.callState(state114, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 161, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state111 = agent.new say();
-					StringCreator string112 = new StringCreator();
-					string112.append("What is yellow? Lemon is yellow. Lemon is yellow.");
-					state111.setText(string112.toString());
-					if (!flowThread.callState(state111, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 164
-					lookChild state113 = new lookChild();
-					if (!flowThread.callState(state113, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 164, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 165
+					// Line: 162
 					tts.speak("Turuncu kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 163
+					iristk.flow.DialogFlow.wait waitState115 = new iristk.flow.DialogFlow.wait();
+					waitState115.setMsec(3000);
+					if (!flowThread.callState(waitState115, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 163, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state116 = agent.new say();
+					StringCreator string117 = new StringCreator();
+					string117.append("This is orange.");
+					state116.setText(string117.toString());
+					if (!flowThread.callState(state116, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 166
-					iristk.flow.DialogFlow.wait waitState114 = new iristk.flow.DialogFlow.wait();
-					waitState114.setMsec(3000);
-					if (!flowThread.callState(waitState114, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 166, 23)))) {
+					lookCaretaker state118 = new lookCaretaker();
+					if (!flowThread.callState(state118, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 166, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state115 = agent.new say();
-					StringCreator string116 = new StringCreator();
-					string116.append("This is orange.");
-					state115.setText(string116.toString());
-					if (!flowThread.callState(state115, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 169
-					lookCaretaker state117 = new lookCaretaker();
-					if (!flowThread.callState(state117, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 169, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 170
+					// Line: 167
 					tts.speak("Turunucu kartı çevirip havuca işaret edin.", 1.0f, false, false);
+					// Line: 168
+					iristk.flow.DialogFlow.wait waitState119 = new iristk.flow.DialogFlow.wait();
+					waitState119.setMsec(3000);
+					if (!flowThread.callState(waitState119, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 168, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state120 = agent.new say();
+					StringCreator string121 = new StringCreator();
+					string121.append("What is orange? Carrot is orange. Carrot is orange.");
+					state120.setText(string121.toString());
+					if (!flowThread.callState(state120, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 171
-					iristk.flow.DialogFlow.wait waitState118 = new iristk.flow.DialogFlow.wait();
-					waitState118.setMsec(3000);
-					if (!flowThread.callState(waitState118, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 171, 23)))) {
+					lookChild state122 = new lookChild();
+					if (!flowThread.callState(state122, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 171, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state119 = agent.new say();
-					StringCreator string120 = new StringCreator();
-					string120.append("What is orange? Carrot is orange. Carrot is orange.");
-					state119.setText(string120.toString());
-					if (!flowThread.callState(state119, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 174
-					lookChild state121 = new lookChild();
-					if (!flowThread.callState(state121, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 174, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 175
+					// Line: 172
 					tts.speak("Kahverengi kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 173
+					iristk.flow.DialogFlow.wait waitState123 = new iristk.flow.DialogFlow.wait();
+					waitState123.setMsec(3000);
+					if (!flowThread.callState(waitState123, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 173, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state124 = agent.new say();
+					StringCreator string125 = new StringCreator();
+					string125.append("This is brown.");
+					state124.setText(string125.toString());
+					if (!flowThread.callState(state124, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 176
-					iristk.flow.DialogFlow.wait waitState122 = new iristk.flow.DialogFlow.wait();
-					waitState122.setMsec(3000);
-					if (!flowThread.callState(waitState122, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 176, 23)))) {
+					lookCaretaker state126 = new lookCaretaker();
+					if (!flowThread.callState(state126, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 176, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state123 = agent.new say();
-					StringCreator string124 = new StringCreator();
-					string124.append("This is brown.");
-					state123.setText(string124.toString());
-					if (!flowThread.callState(state123, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 179
-					lookCaretaker state125 = new lookCaretaker();
-					if (!flowThread.callState(state125, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 179, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 180
+					// Line: 177
 					tts.speak("Kahverengi kartı çevirip ayıya işaret edin.", 1.0f, false, false);
+					// Line: 178
+					iristk.flow.DialogFlow.wait waitState127 = new iristk.flow.DialogFlow.wait();
+					waitState127.setMsec(3000);
+					if (!flowThread.callState(waitState127, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 178, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state128 = agent.new say();
+					StringCreator string129 = new StringCreator();
+					string129.append("What is brown? Bear is brown. Bear is brown.");
+					state128.setText(string129.toString());
+					if (!flowThread.callState(state128, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 181
-					iristk.flow.DialogFlow.wait waitState126 = new iristk.flow.DialogFlow.wait();
-					waitState126.setMsec(3000);
-					if (!flowThread.callState(waitState126, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 181, 23)))) {
+					lookChild state130 = new lookChild();
+					if (!flowThread.callState(state130, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 181, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state127 = agent.new say();
-					StringCreator string128 = new StringCreator();
-					string128.append("What is brown? Bear is brown. Bear is brown.");
-					state127.setText(string128.toString());
-					if (!flowThread.callState(state127, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 184
-					lookChild state129 = new lookChild();
-					if (!flowThread.callState(state129, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 184, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 185
+					// Line: 182
 					tts.speak("Mor renkli kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 183
+					iristk.flow.DialogFlow.wait waitState131 = new iristk.flow.DialogFlow.wait();
+					waitState131.setMsec(3000);
+					if (!flowThread.callState(waitState131, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 183, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state132 = agent.new say();
+					StringCreator string133 = new StringCreator();
+					string133.append("This is purple.");
+					state132.setText(string133.toString());
+					if (!flowThread.callState(state132, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 186
-					iristk.flow.DialogFlow.wait waitState130 = new iristk.flow.DialogFlow.wait();
-					waitState130.setMsec(3000);
-					if (!flowThread.callState(waitState130, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 186, 23)))) {
+					lookCaretaker state134 = new lookCaretaker();
+					if (!flowThread.callState(state134, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 186, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state131 = agent.new say();
-					StringCreator string132 = new StringCreator();
-					string132.append("This is purple.");
-					state131.setText(string132.toString());
-					if (!flowThread.callState(state131, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 189
-					lookCaretaker state133 = new lookCaretaker();
-					if (!flowThread.callState(state133, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 189, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 190
+					// Line: 187
 					tts.speak("Mor kartı çevirip patlıcana işaret edin.", 1.0f, false, false);
+					// Line: 188
+					iristk.flow.DialogFlow.wait waitState135 = new iristk.flow.DialogFlow.wait();
+					waitState135.setMsec(3000);
+					if (!flowThread.callState(waitState135, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 188, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state136 = agent.new say();
+					StringCreator string137 = new StringCreator();
+					string137.append("What is purple? Eggplant is purple. Eggplant is purple.");
+					state136.setText(string137.toString());
+					if (!flowThread.callState(state136, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 191
-					iristk.flow.DialogFlow.wait waitState134 = new iristk.flow.DialogFlow.wait();
-					waitState134.setMsec(3000);
-					if (!flowThread.callState(waitState134, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 191, 23)))) {
+					lookChild state138 = new lookChild();
+					if (!flowThread.callState(state138, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 191, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state135 = agent.new say();
-					StringCreator string136 = new StringCreator();
-					string136.append("What is purple? Eggplant is purple. Eggplant is purple.");
-					state135.setText(string136.toString());
-					if (!flowThread.callState(state135, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 194
-					lookChild state137 = new lookChild();
-					if (!flowThread.callState(state137, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 194, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 195
+					// Line: 192
 					tts.speak("Beyaz kartı gösterin ve sallayın.", 1.0f, false, false);
+					// Line: 193
+					iristk.flow.DialogFlow.wait waitState139 = new iristk.flow.DialogFlow.wait();
+					waitState139.setMsec(3000);
+					if (!flowThread.callState(waitState139, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 193, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state140 = agent.new say();
+					StringCreator string141 = new StringCreator();
+					string141.append("This is white.");
+					state140.setText(string141.toString());
+					if (!flowThread.callState(state140, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 196
-					iristk.flow.DialogFlow.wait waitState138 = new iristk.flow.DialogFlow.wait();
-					waitState138.setMsec(3000);
-					if (!flowThread.callState(waitState138, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 196, 23)))) {
+					lookCaretaker state142 = new lookCaretaker();
+					if (!flowThread.callState(state142, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 196, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state139 = agent.new say();
-					StringCreator string140 = new StringCreator();
-					string140.append("This is white.");
-					state139.setText(string140.toString());
-					if (!flowThread.callState(state139, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 199
-					lookCaretaker state141 = new lookCaretaker();
-					if (!flowThread.callState(state141, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 199, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 200
+					// Line: 197
 					tts.speak("Beyaz kartı çevirip kara işaret edin.", 1.0f, false, false);
-					// Line: 201
-					iristk.flow.DialogFlow.wait waitState142 = new iristk.flow.DialogFlow.wait();
-					waitState142.setMsec(3000);
-					if (!flowThread.callState(waitState142, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 201, 23)))) {
+					// Line: 198
+					iristk.flow.DialogFlow.wait waitState143 = new iristk.flow.DialogFlow.wait();
+					waitState143.setMsec(3000);
+					if (!flowThread.callState(waitState143, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 198, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state143 = agent.new say();
-					StringCreator string144 = new StringCreator();
-					string144.append("What is white? Snow is white. Snow is white.");
-					state143.setText(string144.toString());
-					if (!flowThread.callState(state143, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12)))) {
+					iristk.situated.SystemAgentFlow.say state144 = agent.new say();
+					StringCreator string145 = new StringCreator();
+					string145.append("What is white? Snow is white. Snow is white.");
+					state144.setText(string145.toString());
+					if (!flowThread.callState(state144, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 123, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 120, 12));
 			}
 		}
 
@@ -1129,267 +1133,267 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 207
+			// Line: 204
 			try {
 				EXECUTION: {
-					int count = getCount(607635164) + 1;
-					incrCount(607635164);
-					iristk.situated.SystemAgentFlow.say state145 = agent.new say();
-					StringCreator string146 = new StringCreator();
-					string146.append("Let's learn a song.");
-					state145.setText(string146.toString());
-					if (!flowThread.callState(state145, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					int count = getCount(116211441) + 1;
+					incrCount(116211441);
+					iristk.situated.SystemAgentFlow.say state146 = agent.new say();
+					StringCreator string147 = new StringCreator();
+					string147.append("Let's learn a song.");
+					state146.setText(string147.toString());
+					if (!flowThread.callState(state146, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 206
+					iristk.flow.DialogFlow.wait waitState148 = new iristk.flow.DialogFlow.wait();
+					waitState148.setMsec(3000);
+					if (!flowThread.callState(waitState148, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 206, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 208
+					lookCaretaker state149 = new lookCaretaker();
+					if (!flowThread.callState(state149, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 208, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 209
-					iristk.flow.DialogFlow.wait waitState147 = new iristk.flow.DialogFlow.wait();
-					waitState147.setMsec(3000);
-					if (!flowThread.callState(waitState147, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 209, 23)))) {
+					tts.speak("Ellerinizi çırpın.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state150 = agent.new say();
+					StringCreator string151 = new StringCreator();
+					string151.append("Clap your hands.");
+					state150.setText(string151.toString());
+					if (!flowThread.callState(state150, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 211
-					lookCaretaker state148 = new lookCaretaker();
-					if (!flowThread.callState(state148, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 211, 33)))) {
+					lookChild state152 = new lookChild();
+					if (!flowThread.callState(state152, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 211, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 212
-					tts.speak("Ellerinizi çırpın.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state149 = agent.new say();
-					StringCreator string150 = new StringCreator();
-					string150.append("Clap your hands.");
-					state149.setText(string150.toString());
-					if (!flowThread.callState(state149, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					iristk.flow.DialogFlow.wait waitState153 = new iristk.flow.DialogFlow.wait();
+					waitState153.setMsec(3000);
+					if (!flowThread.callState(waitState153, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 212, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 214
-					lookChild state151 = new lookChild();
-					if (!flowThread.callState(state151, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 214, 29)))) {
+					// Line: 213
+					tts.speak("Bebeğin ellerini çırpın.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state154 = agent.new say();
+					StringCreator string155 = new StringCreator();
+					string155.append("Clap your hands.");
+					state154.setText(string155.toString());
+					if (!flowThread.callState(state154, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 215
-					iristk.flow.DialogFlow.wait waitState152 = new iristk.flow.DialogFlow.wait();
-					waitState152.setMsec(3000);
-					if (!flowThread.callState(waitState152, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 215, 23)))) {
+					iristk.flow.DialogFlow.wait waitState156 = new iristk.flow.DialogFlow.wait();
+					waitState156.setMsec(3000);
+					if (!flowThread.callState(waitState156, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 215, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 216
-					tts.speak("Bebeğin ellerini çırpın.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state153 = agent.new say();
-					StringCreator string154 = new StringCreator();
-					string154.append("Clap your hands.");
-					state153.setText(string154.toString());
-					if (!flowThread.callState(state153, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					// Line: 217
+					lookCaretaker state157 = new lookCaretaker();
+					if (!flowThread.callState(state157, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 217, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 218
-					iristk.flow.DialogFlow.wait waitState155 = new iristk.flow.DialogFlow.wait();
-					waitState155.setMsec(3000);
-					if (!flowThread.callState(waitState155, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 218, 23)))) {
+					tts.speak("Ellerinizi sallayın.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state158 = agent.new say();
+					StringCreator string159 = new StringCreator();
+					string159.append("Wave hello.");
+					state158.setText(string159.toString());
+					if (!flowThread.callState(state158, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 220
-					lookCaretaker state156 = new lookCaretaker();
-					if (!flowThread.callState(state156, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 220, 33)))) {
+					lookChild state160 = new lookChild();
+					if (!flowThread.callState(state160, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 220, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 221
-					tts.speak("Ellerinizi sallayın.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state157 = agent.new say();
-					StringCreator string158 = new StringCreator();
-					string158.append("Wave hello.");
-					state157.setText(string158.toString());
-					if (!flowThread.callState(state157, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					iristk.flow.DialogFlow.wait waitState161 = new iristk.flow.DialogFlow.wait();
+					waitState161.setMsec(3000);
+					if (!flowThread.callState(waitState161, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 221, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 223
-					lookChild state159 = new lookChild();
-					if (!flowThread.callState(state159, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 223, 29)))) {
+					// Line: 222
+					tts.speak("Bebeğin ellerini sallayın.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state162 = agent.new say();
+					StringCreator string163 = new StringCreator();
+					string163.append("Wave hello.");
+					state162.setText(string163.toString());
+					if (!flowThread.callState(state162, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 224
-					iristk.flow.DialogFlow.wait waitState160 = new iristk.flow.DialogFlow.wait();
-					waitState160.setMsec(3000);
-					if (!flowThread.callState(waitState160, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 224, 23)))) {
+					iristk.flow.DialogFlow.wait waitState164 = new iristk.flow.DialogFlow.wait();
+					waitState164.setMsec(3000);
+					if (!flowThread.callState(waitState164, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 224, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 225
-					tts.speak("Bebeğin ellerini sallayın.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state161 = agent.new say();
-					StringCreator string162 = new StringCreator();
-					string162.append("Wave hello.");
-					state161.setText(string162.toString());
-					if (!flowThread.callState(state161, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					// Line: 226
+					lookCaretaker state165 = new lookCaretaker();
+					if (!flowThread.callState(state165, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 226, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 227
-					iristk.flow.DialogFlow.wait waitState163 = new iristk.flow.DialogFlow.wait();
-					waitState163.setMsec(3000);
-					if (!flowThread.callState(waitState163, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 227, 23)))) {
+					tts.speak("Ayağa kalkın.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state166 = agent.new say();
+					StringCreator string167 = new StringCreator();
+					string167.append("Stand up.");
+					state166.setText(string167.toString());
+					if (!flowThread.callState(state166, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 229
-					lookCaretaker state164 = new lookCaretaker();
-					if (!flowThread.callState(state164, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 229, 33)))) {
+					lookChild state168 = new lookChild();
+					if (!flowThread.callState(state168, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 229, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 230
-					tts.speak("Ayağa kalkın.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state165 = agent.new say();
-					StringCreator string166 = new StringCreator();
-					string166.append("Stand up.");
-					state165.setText(string166.toString());
-					if (!flowThread.callState(state165, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					iristk.flow.DialogFlow.wait waitState169 = new iristk.flow.DialogFlow.wait();
+					waitState169.setMsec(3000);
+					if (!flowThread.callState(waitState169, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 230, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 232
-					lookChild state167 = new lookChild();
-					if (!flowThread.callState(state167, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 232, 29)))) {
+					// Line: 231
+					tts.speak("Bebeği ayağa kaldırın.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state170 = agent.new say();
+					StringCreator string171 = new StringCreator();
+					string171.append("Stand up.");
+					state170.setText(string171.toString());
+					if (!flowThread.callState(state170, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 233
-					iristk.flow.DialogFlow.wait waitState168 = new iristk.flow.DialogFlow.wait();
-					waitState168.setMsec(3000);
-					if (!flowThread.callState(waitState168, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 233, 23)))) {
+					iristk.flow.DialogFlow.wait waitState172 = new iristk.flow.DialogFlow.wait();
+					waitState172.setMsec(3000);
+					if (!flowThread.callState(waitState172, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 233, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 234
-					tts.speak("Bebeği ayağa kaldırın.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state169 = agent.new say();
-					StringCreator string170 = new StringCreator();
-					string170.append("Stand up.");
-					state169.setText(string170.toString());
-					if (!flowThread.callState(state169, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					// Line: 235
+					lookCaretaker state173 = new lookCaretaker();
+					if (!flowThread.callState(state173, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 235, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 236
-					iristk.flow.DialogFlow.wait waitState171 = new iristk.flow.DialogFlow.wait();
-					waitState171.setMsec(3000);
-					if (!flowThread.callState(waitState171, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 236, 23)))) {
+					tts.speak("Oturun.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state174 = agent.new say();
+					StringCreator string175 = new StringCreator();
+					string175.append("Sit down.");
+					state174.setText(string175.toString());
+					if (!flowThread.callState(state174, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 238
-					lookCaretaker state172 = new lookCaretaker();
-					if (!flowThread.callState(state172, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 238, 33)))) {
+					lookChild state176 = new lookChild();
+					if (!flowThread.callState(state176, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 238, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 239
-					tts.speak("Oturun.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state173 = agent.new say();
-					StringCreator string174 = new StringCreator();
-					string174.append("Sit down.");
-					state173.setText(string174.toString());
-					if (!flowThread.callState(state173, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					iristk.flow.DialogFlow.wait waitState177 = new iristk.flow.DialogFlow.wait();
+					waitState177.setMsec(3000);
+					if (!flowThread.callState(waitState177, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 239, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 241
-					lookChild state175 = new lookChild();
-					if (!flowThread.callState(state175, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 241, 29)))) {
+					// Line: 240
+					tts.speak("Bebeği oturtun.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state178 = agent.new say();
+					StringCreator string179 = new StringCreator();
+					string179.append("Sit down.");
+					state178.setText(string179.toString());
+					if (!flowThread.callState(state178, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 242
-					iristk.flow.DialogFlow.wait waitState176 = new iristk.flow.DialogFlow.wait();
-					waitState176.setMsec(3000);
-					if (!flowThread.callState(waitState176, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 242, 23)))) {
+					iristk.flow.DialogFlow.wait waitState180 = new iristk.flow.DialogFlow.wait();
+					waitState180.setMsec(3000);
+					if (!flowThread.callState(waitState180, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 242, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 243
-					tts.speak("Bebeği oturtun.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state177 = agent.new say();
-					StringCreator string178 = new StringCreator();
-					string178.append("Sit down.");
-					state177.setText(string178.toString());
-					if (!flowThread.callState(state177, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					// Line: 244
+					lookCaretaker state181 = new lookCaretaker();
+					if (!flowThread.callState(state181, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 244, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 245
-					iristk.flow.DialogFlow.wait waitState179 = new iristk.flow.DialogFlow.wait();
-					waitState179.setMsec(3000);
-					if (!flowThread.callState(waitState179, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 245, 23)))) {
+					tts.speak("Ellerinizi yürür gibi hareket ettirin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state182 = agent.new say();
+					StringCreator string183 = new StringCreator();
+					string183.append("Let's go.");
+					state182.setText(string183.toString());
+					if (!flowThread.callState(state182, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 247
-					lookCaretaker state180 = new lookCaretaker();
-					if (!flowThread.callState(state180, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 247, 33)))) {
+					lookChild state184 = new lookChild();
+					if (!flowThread.callState(state184, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 247, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 248
-					tts.speak("Ellerinizi yürür gibi hareket ettirin.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state181 = agent.new say();
-					StringCreator string182 = new StringCreator();
-					string182.append("Let's go.");
-					state181.setText(string182.toString());
-					if (!flowThread.callState(state181, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					iristk.flow.DialogFlow.wait waitState185 = new iristk.flow.DialogFlow.wait();
+					waitState185.setMsec(3000);
+					if (!flowThread.callState(waitState185, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 248, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 250
-					lookChild state183 = new lookChild();
-					if (!flowThread.callState(state183, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 250, 29)))) {
+					// Line: 249
+					tts.speak("Bebeğin ellerini çırpın.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state186 = agent.new say();
+					StringCreator string187 = new StringCreator();
+					string187.append("Let's go.");
+					state186.setText(string187.toString());
+					if (!flowThread.callState(state186, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 251
-					iristk.flow.DialogFlow.wait waitState184 = new iristk.flow.DialogFlow.wait();
-					waitState184.setMsec(3000);
-					if (!flowThread.callState(waitState184, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 251, 23)))) {
+					iristk.flow.DialogFlow.wait waitState188 = new iristk.flow.DialogFlow.wait();
+					waitState188.setMsec(3000);
+					if (!flowThread.callState(waitState188, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 251, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 252
-					tts.speak("Bebeğin ellerini çırpın.", 1.0f, false, false);
-					iristk.situated.SystemAgentFlow.say state185 = agent.new say();
-					StringCreator string186 = new StringCreator();
-					string186.append("Let's go.");
-					state185.setText(string186.toString());
-					if (!flowThread.callState(state185, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 254
-					iristk.flow.DialogFlow.wait waitState187 = new iristk.flow.DialogFlow.wait();
-					waitState187.setMsec(3000);
-					if (!flowThread.callState(waitState187, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 254, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state188 = agent.new say();
-					StringCreator string189 = new StringCreator();
-					string189.append("That was fun! Great job!");
-					state188.setText(string189.toString());
-					if (!flowThread.callState(state188, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12)))) {
+					iristk.situated.SystemAgentFlow.say state189 = agent.new say();
+					StringCreator string190 = new StringCreator();
+					string190.append("That was fun! Great job!");
+					state189.setText(string190.toString());
+					if (!flowThread.callState(state189, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 207, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 204, 12));
 			}
 		}
 
@@ -1421,27 +1425,27 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 263
+			// Line: 260
 			try {
 				EXECUTION: {
-					int count = getCount(1476011703) + 1;
-					incrCount(1476011703);
-					iristk.situated.SystemAgentFlow.say state190 = agent.new say();
-					StringCreator string191 = new StringCreator();
-					string191.append("Let's start learning. What do you want to learn about?");
-					state190.setText(string191.toString());
-					if (!flowThread.callState(state190, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 263, 12)))) {
+					int count = getCount(1395089624) + 1;
+					incrCount(1395089624);
+					iristk.situated.SystemAgentFlow.say state191 = agent.new say();
+					StringCreator string192 = new StringCreator();
+					string192.append("Let's start learning. What do you want to learn about?");
+					state191.setText(string192.toString());
+					if (!flowThread.callState(state191, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 260, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.listen state192 = agent.new listen();
-					if (!flowThread.callState(state192, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 263, 12)))) {
+					iristk.situated.SystemAgentFlow.listen state193 = agent.new listen();
+					if (!flowThread.callState(state193, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 260, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 263, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 260, 12));
 			}
 		}
 
@@ -1449,34 +1453,25 @@ public class CardsFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 267
+			// Line: 264
 			try {
-				count = getCount(1603195447) + 1;
+				count = getCount(1476011703) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:color")) {
-						incrCount(1603195447);
+						incrCount(1476011703);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 268
-							tts.speak("Renk kartlarının olduğu desteyi alınız.", 1.0f, false, false);
-							// Line: 269
-							iristk.flow.DialogFlow.wait waitState193 = new iristk.flow.DialogFlow.wait();
-							waitState193.setMsec(3000);
-							if (!flowThread.callState(waitState193, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 269, 23)))) {
-								eventResult = EVENT_ABORTED;
-								break EXECUTION;
-							}
 							iristk.situated.SystemAgentFlow.say state194 = agent.new say();
 							StringCreator string195 = new StringCreator();
 							string195.append("Okay, let's learn about colors.");
 							state194.setText(string195.toString());
-							if (!flowThread.callState(state194, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 267, 60)))) {
+							if (!flowThread.callState(state194, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 264, 60)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 271
+							// Line: 266
 							LearnColors state196 = new LearnColors();
-							flowThread.gotoState(state196, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 271, 31)));
+							flowThread.gotoState(state196, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 266, 31)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1484,29 +1479,27 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 267, 60));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 264, 60));
 			}
-			// Line: 273
+			// Line: 268
 			try {
-				count = getCount(1761061602) + 1;
+				count = getCount(792791759) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:animal")) {
-						incrCount(1761061602);
+						incrCount(792791759);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 274
-							tts.speak("Hayvan kartlarının olduğu desteyi alınız.", 1.0f, false, false);
 							iristk.situated.SystemAgentFlow.say state197 = agent.new say();
 							StringCreator string198 = new StringCreator();
 							string198.append("Okay, let's learn about animals.");
 							state197.setText(string198.toString());
-							if (!flowThread.callState(state197, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 273, 61)))) {
+							if (!flowThread.callState(state197, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 268, 61)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 276
+							// Line: 270
 							LearnAnimals state199 = new LearnAnimals();
-							flowThread.gotoState(state199, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 276, 32)));
+							flowThread.gotoState(state199, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 270, 32)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1514,27 +1507,27 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 273, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 268, 61));
 			}
-			// Line: 278
+			// Line: 272
 			try {
-				count = getCount(59559151) + 1;
+				count = getCount(1094834071) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:body")) {
-						incrCount(59559151);
+						incrCount(1094834071);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							iristk.situated.SystemAgentFlow.say state200 = agent.new say();
 							StringCreator string201 = new StringCreator();
 							string201.append("Okay, let's learn about body parts.");
 							state200.setText(string201.toString());
-							if (!flowThread.callState(state200, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 278, 59)))) {
+							if (!flowThread.callState(state200, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 272, 59)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							// Line: 280
+							// Line: 274
 							LearnBody state202 = new LearnBody();
-							flowThread.gotoState(state202, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 280, 29)));
+							flowThread.gotoState(state202, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 274, 29)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -1542,7 +1535,7 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 278, 59));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 272, 59));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -1568,37 +1561,37 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 287
+			// Line: 281
 			try {
 				EXECUTION: {
-					int count = getCount(434176574) + 1;
-					incrCount(434176574);
+					int count = getCount(1279149968) + 1;
+					incrCount(1279149968);
 					iristk.situated.SystemAgentFlow.say state203 = agent.new say();
 					StringCreator string204 = new StringCreator();
 					string204.append("Let's learn about our heads, shoulders, knees and toes.");
 					state203.setText(string204.toString());
-					if (!flowThread.callState(state203, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state203, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 291
+					// Line: 285
 					lookCaretaker state205 = new lookCaretaker();
-					if (!flowThread.callState(state205, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 291, 33)))) {
+					if (!flowThread.callState(state205, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 285, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 292
+					// Line: 286
 					lookChild state206 = new lookChild();
-					if (!flowThread.callState(state206, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 292, 29)))) {
+					if (!flowThread.callState(state206, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 286, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 293
+					// Line: 287
 					tts.speak("Kafanıza, sonra çoçuğun kafasına yavaşça dokunun.", 1.0f, false, false);
-					// Line: 294
+					// Line: 288
 					iristk.flow.DialogFlow.wait waitState207 = new iristk.flow.DialogFlow.wait();
 					waitState207.setMsec(3000);
-					if (!flowThread.callState(waitState207, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 294, 23)))) {
+					if (!flowThread.callState(waitState207, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 288, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1606,16 +1599,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string209 = new StringCreator();
 					string209.append("This is your head.");
 					state208.setText(string209.toString());
-					if (!flowThread.callState(state208, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state208, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 297
+					// Line: 291
 					tts.speak("Omuzlariniza, sonra bebegin omuzlarina dokunun.", 1.0f, false, false);
-					// Line: 298
+					// Line: 292
 					iristk.flow.DialogFlow.wait waitState210 = new iristk.flow.DialogFlow.wait();
 					waitState210.setMsec(3000);
-					if (!flowThread.callState(waitState210, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 298, 23)))) {
+					if (!flowThread.callState(waitState210, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 292, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1623,16 +1616,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string212 = new StringCreator();
 					string212.append("These are your shoulders.");
 					state211.setText(string212.toString());
-					if (!flowThread.callState(state211, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state211, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 301
+					// Line: 295
 					tts.speak("Dizlerinize, daha sonra bebegin dizlerine dokunun.", 1.0f, false, false);
-					// Line: 302
+					// Line: 296
 					iristk.flow.DialogFlow.wait waitState213 = new iristk.flow.DialogFlow.wait();
 					waitState213.setMsec(3000);
-					if (!flowThread.callState(waitState213, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 302, 23)))) {
+					if (!flowThread.callState(waitState213, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 296, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1640,16 +1633,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string215 = new StringCreator();
 					string215.append("These are your knees.");
 					state214.setText(string215.toString());
-					if (!flowThread.callState(state214, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state214, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 305
+					// Line: 299
 					tts.speak("Ayaklariniza, daha sonra bebegin ayaklarina dokunun.", 1.0f, false, false);
-					// Line: 306
+					// Line: 300
 					iristk.flow.DialogFlow.wait waitState216 = new iristk.flow.DialogFlow.wait();
 					waitState216.setMsec(3000);
-					if (!flowThread.callState(waitState216, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 306, 23)))) {
+					if (!flowThread.callState(waitState216, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 300, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1657,16 +1650,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string218 = new StringCreator();
 					string218.append("These are your toes.");
 					state217.setText(string218.toString());
-					if (!flowThread.callState(state217, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state217, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 309
+					// Line: 303
 					tts.speak("Gozlerinizi, daha sonra bebegin gozlerini isaret edin.", 1.0f, false, false);
-					// Line: 310
+					// Line: 304
 					iristk.flow.DialogFlow.wait waitState219 = new iristk.flow.DialogFlow.wait();
 					waitState219.setMsec(3000);
-					if (!flowThread.callState(waitState219, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 310, 23)))) {
+					if (!flowThread.callState(waitState219, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 304, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1674,16 +1667,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string221 = new StringCreator();
 					string221.append("These are your eyes.");
 					state220.setText(string221.toString());
-					if (!flowThread.callState(state220, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state220, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 312
+					// Line: 306
 					tts.speak("Iki parmaginizi gosterin.", 1.0f, false, false);
-					// Line: 313
+					// Line: 307
 					iristk.flow.DialogFlow.wait waitState222 = new iristk.flow.DialogFlow.wait();
 					waitState222.setMsec(2000);
-					if (!flowThread.callState(waitState222, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 313, 23)))) {
+					if (!flowThread.callState(waitState222, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 307, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1691,16 +1684,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string224 = new StringCreator();
 					string224.append("We have two eyes. Two eyes.");
 					state223.setText(string224.toString());
-					if (!flowThread.callState(state223, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state223, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 316
+					// Line: 310
 					tts.speak("Kulaklariniza, daha sonra bebegin kulaklarina dokunun.", 1.0f, false, false);
-					// Line: 317
+					// Line: 311
 					iristk.flow.DialogFlow.wait waitState225 = new iristk.flow.DialogFlow.wait();
 					waitState225.setMsec(3000);
-					if (!flowThread.callState(waitState225, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 317, 23)))) {
+					if (!flowThread.callState(waitState225, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 311, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1708,16 +1701,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string227 = new StringCreator();
 					string227.append("These are your ears.");
 					state226.setText(string227.toString());
-					if (!flowThread.callState(state226, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state226, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 319
+					// Line: 313
 					tts.speak("Iki parmaginizi gosterin.", 1.0f, false, false);
-					// Line: 320
+					// Line: 314
 					iristk.flow.DialogFlow.wait waitState228 = new iristk.flow.DialogFlow.wait();
 					waitState228.setMsec(2000);
-					if (!flowThread.callState(waitState228, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 320, 23)))) {
+					if (!flowThread.callState(waitState228, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 314, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1725,16 +1718,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string230 = new StringCreator();
 					string230.append("We have two ears. Two ears.");
 					state229.setText(string230.toString());
-					if (!flowThread.callState(state229, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state229, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 323
+					// Line: 317
 					tts.speak("Bebege opucuk atin ve agizinizi gosterin.", 1.0f, false, false);
-					// Line: 324
+					// Line: 318
 					iristk.flow.DialogFlow.wait waitState231 = new iristk.flow.DialogFlow.wait();
 					waitState231.setMsec(3000);
-					if (!flowThread.callState(waitState231, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 324, 23)))) {
+					if (!flowThread.callState(waitState231, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 318, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1742,16 +1735,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string233 = new StringCreator();
 					string233.append("This is your mouth.");
 					state232.setText(string233.toString());
-					if (!flowThread.callState(state232, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state232, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 326
+					// Line: 320
 					tts.speak("Bir parmaginizi kaldirin.", 1.0f, false, false);
-					// Line: 327
+					// Line: 321
 					iristk.flow.DialogFlow.wait waitState234 = new iristk.flow.DialogFlow.wait();
 					waitState234.setMsec(2000);
-					if (!flowThread.callState(waitState234, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 327, 23)))) {
+					if (!flowThread.callState(waitState234, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 321, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1759,16 +1752,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string236 = new StringCreator();
 					string236.append("We have one mouth. One mouth.");
 					state235.setText(string236.toString());
-					if (!flowThread.callState(state235, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state235, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 330
+					// Line: 324
 					tts.speak("Burnunuza, sonra bebegin burnuna dokunun.", 1.0f, false, false);
-					// Line: 331
+					// Line: 325
 					iristk.flow.DialogFlow.wait waitState237 = new iristk.flow.DialogFlow.wait();
 					waitState237.setMsec(4000);
-					if (!flowThread.callState(waitState237, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 331, 23)))) {
+					if (!flowThread.callState(waitState237, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 325, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1776,16 +1769,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string239 = new StringCreator();
 					string239.append("This is your nose.");
 					state238.setText(string239.toString());
-					if (!flowThread.callState(state238, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state238, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 333
+					// Line: 327
 					tts.speak("Bir parmaginizi kaldirin.", 1.0f, false, false);
-					// Line: 334
+					// Line: 328
 					iristk.flow.DialogFlow.wait waitState240 = new iristk.flow.DialogFlow.wait();
 					waitState240.setMsec(2000);
-					if (!flowThread.callState(waitState240, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 334, 23)))) {
+					if (!flowThread.callState(waitState240, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 328, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1793,16 +1786,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string242 = new StringCreator();
 					string242.append("We have one nose. One nose.");
 					state241.setText(string242.toString());
-					if (!flowThread.callState(state241, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state241, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 337
+					// Line: 331
 					tts.speak("Iki elinizi bebege dogru sallayin.", 1.0f, false, false);
-					// Line: 338
+					// Line: 332
 					iristk.flow.DialogFlow.wait waitState243 = new iristk.flow.DialogFlow.wait();
 					waitState243.setMsec(4000);
-					if (!flowThread.callState(waitState243, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 338, 23)))) {
+					if (!flowThread.callState(waitState243, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 332, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1810,16 +1803,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string245 = new StringCreator();
 					string245.append("These are our hands.");
 					state244.setText(string245.toString());
-					if (!flowThread.callState(state244, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state244, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 340
+					// Line: 334
 					tts.speak("Iki elinizi gosterin.", 1.0f, false, false);
-					// Line: 341
+					// Line: 335
 					iristk.flow.DialogFlow.wait waitState246 = new iristk.flow.DialogFlow.wait();
 					waitState246.setMsec(2000);
-					if (!flowThread.callState(waitState246, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 341, 23)))) {
+					if (!flowThread.callState(waitState246, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 335, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1827,16 +1820,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string248 = new StringCreator();
 					string248.append("We have two hands. Two hands.");
 					state247.setText(string248.toString());
-					if (!flowThread.callState(state247, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state247, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 344
+					// Line: 338
 					tts.speak("Parmaklarinizi bebegin onunde hareket ettirin.", 1.0f, false, false);
-					// Line: 345
+					// Line: 339
 					iristk.flow.DialogFlow.wait waitState249 = new iristk.flow.DialogFlow.wait();
 					waitState249.setMsec(4000);
-					if (!flowThread.callState(waitState249, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 345, 23)))) {
+					if (!flowThread.callState(waitState249, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 339, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1844,16 +1837,16 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string251 = new StringCreator();
 					string251.append("These are our fingers.");
 					state250.setText(string251.toString());
-					if (!flowThread.callState(state250, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state250, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 347
+					// Line: 341
 					tts.speak("On parmaginizi gosterin.", 1.0f, false, false);
-					// Line: 348
+					// Line: 342
 					iristk.flow.DialogFlow.wait waitState252 = new iristk.flow.DialogFlow.wait();
 					waitState252.setMsec(2000);
-					if (!flowThread.callState(waitState252, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 348, 23)))) {
+					if (!flowThread.callState(waitState252, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 342, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1861,7 +1854,7 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string254 = new StringCreator();
 					string254.append("We have ten fingers. Ten fingers.");
 					state253.setText(string254.toString());
-					if (!flowThread.callState(state253, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state253, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -1869,13 +1862,13 @@ public class CardsFlow extends iristk.flow.Flow {
 					StringCreator string256 = new StringCreator();
 					string256.append("That was fun. Now, let's listen to the song again.");
 					state255.setText(string256.toString());
-					if (!flowThread.callState(state255, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12)))) {
+					if (!flowThread.callState(state255, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 287, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 281, 12));
 			}
 		}
 
@@ -1907,364 +1900,417 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 359
+			// Line: 353
 			try {
 				EXECUTION: {
-					int count = getCount(1359044626) + 1;
-					incrCount(1359044626);
-					// Line: 360
+					int count = getCount(1058025095) + 1;
+					incrCount(1058025095);
+					// Line: 354
 					lookChild state257 = new lookChild();
-					if (!flowThread.callState(state257, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 360, 29)))) {
+					if (!flowThread.callState(state257, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 354, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 361
-					tts.speak("Kopek kartini gosterin ve sallayin.", 1.0f, false, false);
-					// Line: 362
+					// Line: 355
+					audioplayer.playSound("audio/LearnAnimalsDog.wav");
+					// Line: 356
 					iristk.flow.DialogFlow.wait waitState258 = new iristk.flow.DialogFlow.wait();
 					waitState258.setMsec(3000);
-					if (!flowThread.callState(waitState258, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 362, 23)))) {
+					if (!flowThread.callState(waitState258, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 356, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					iristk.situated.SystemAgentFlow.say state259 = agent.new say();
 					StringCreator string260 = new StringCreator();
-					string260.append("This is a dog. The dog says woof.");
+					string260.append("This is a dog. Dogs are very friendly.");
 					state259.setText(string260.toString());
-					if (!flowThread.callState(state259, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					if (!flowThread.callState(state259, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 358
+					lookCaretaker state261 = new lookCaretaker();
+					if (!flowThread.callState(state261, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 358, 33)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 359
+					audioplayer.playSound("audio/LearnAnimalsDogAct.wav");
+					iristk.situated.SystemAgentFlow.say state262 = agent.new say();
+					StringCreator string263 = new StringCreator();
+					string263.append("The dog says woof.");
+					state262.setText(string263.toString());
+					if (!flowThread.callState(state262, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 361
+					iristk.flow.DialogFlow.wait waitState264 = new iristk.flow.DialogFlow.wait();
+					waitState264.setMsec(6000);
+					if (!flowThread.callState(waitState264, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 361, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state265 = agent.new say();
+					StringCreator string266 = new StringCreator();
+					string266.append("The dog has 4 legs.");
+					state265.setText(string266.toString());
+					if (!flowThread.callState(state265, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 364
-					lookCaretaker state261 = new lookCaretaker();
-					if (!flowThread.callState(state261, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 364, 33)))) {
+					lookChild state267 = new lookChild();
+					if (!flowThread.callState(state267, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 364, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 365
-					tts.speak("WUF WUF diyin bir kac kez ve sonraki sesle birlikte 4 parmak gosterin.", 1.0f, false, false);
+					audioplayer.playSound("audio/LearnAnimalsCat.wav");
 					// Line: 366
-					iristk.flow.DialogFlow.wait waitState262 = new iristk.flow.DialogFlow.wait();
-					waitState262.setMsec(3000);
-					if (!flowThread.callState(waitState262, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 366, 23)))) {
+					iristk.flow.DialogFlow.wait waitState268 = new iristk.flow.DialogFlow.wait();
+					waitState268.setMsec(3000);
+					if (!flowThread.callState(waitState268, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 366, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state263 = agent.new say();
-					StringCreator string264 = new StringCreator();
-					string264.append("The dog has 4 legs.");
-					state263.setText(string264.toString());
-					if (!flowThread.callState(state263, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					iristk.situated.SystemAgentFlow.say state269 = agent.new say();
+					StringCreator string270 = new StringCreator();
+					string270.append("This is a cat. Cats sleep a lot.");
+					state269.setText(string270.toString());
+					if (!flowThread.callState(state269, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 368
+					lookCaretaker state271 = new lookCaretaker();
+					if (!flowThread.callState(state271, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 368, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 369
-					lookChild state265 = new lookChild();
-					if (!flowThread.callState(state265, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 369, 29)))) {
+					audioplayer.playSound("audio/LearnAnimalsCatAct.wav");
+					iristk.situated.SystemAgentFlow.say state272 = agent.new say();
+					StringCreator string273 = new StringCreator();
+					string273.append("The cat says meow.");
+					state272.setText(string273.toString());
+					if (!flowThread.callState(state272, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 370
-					tts.speak("Kedi kartini gosterin ve sallayin.", 1.0f, false, false);
 					// Line: 371
-					iristk.flow.DialogFlow.wait waitState266 = new iristk.flow.DialogFlow.wait();
-					waitState266.setMsec(3000);
-					if (!flowThread.callState(waitState266, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 371, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state267 = agent.new say();
-					StringCreator string268 = new StringCreator();
-					string268.append("This is a cat. The cat says meow.");
-					state267.setText(string268.toString());
-					if (!flowThread.callState(state267, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 373
-					lookCaretaker state269 = new lookCaretaker();
-					if (!flowThread.callState(state269, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 373, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 374
-					tts.speak("MIAV MIAV diyin bir kac kez ve sonra elinizle 4 parmak gosterin.", 1.0f, false, false);
-					// Line: 375
-					iristk.flow.DialogFlow.wait waitState270 = new iristk.flow.DialogFlow.wait();
-					waitState270.setMsec(3000);
-					if (!flowThread.callState(waitState270, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 375, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state271 = agent.new say();
-					StringCreator string272 = new StringCreator();
-					string272.append("The cat also has 4 legs like dog.");
-					state271.setText(string272.toString());
-					if (!flowThread.callState(state271, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 378
-					lookChild state273 = new lookChild();
-					if (!flowThread.callState(state273, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 378, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 379
-					tts.speak("Balik kartini gosterin ve sallayin.", 1.0f, false, false);
-					// Line: 380
 					iristk.flow.DialogFlow.wait waitState274 = new iristk.flow.DialogFlow.wait();
-					waitState274.setMsec(3000);
-					if (!flowThread.callState(waitState274, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 380, 23)))) {
+					waitState274.setMsec(6000);
+					if (!flowThread.callState(waitState274, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 371, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					iristk.situated.SystemAgentFlow.say state275 = agent.new say();
 					StringCreator string276 = new StringCreator();
-					string276.append("This is a fish. The fish lives under the sea and swims.");
+					string276.append("The cat also has 4 legs like the dog.");
 					state275.setText(string276.toString());
-					if (!flowThread.callState(state275, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					if (!flowThread.callState(state275, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 382
-					lookCaretaker state277 = new lookCaretaker();
-					if (!flowThread.callState(state277, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 382, 33)))) {
+					// Line: 374
+					lookChild state277 = new lookChild();
+					if (!flowThread.callState(state277, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 374, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 383
-					tts.speak("Ellerinizi birlestirip balik gibi saga sola sallayin.", 1.0f, false, false);
-					// Line: 384
+					// Line: 375
+					audioplayer.playSound("audio/LearnAnimalsFish.wav");
+					// Line: 376
 					iristk.flow.DialogFlow.wait waitState278 = new iristk.flow.DialogFlow.wait();
 					waitState278.setMsec(3000);
-					if (!flowThread.callState(waitState278, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 384, 23)))) {
+					if (!flowThread.callState(waitState278, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 376, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					iristk.situated.SystemAgentFlow.say state279 = agent.new say();
 					StringCreator string280 = new StringCreator();
-					string280.append("The fish have fins and a tail.");
+					string280.append("This is a fish. The fish lives under the sea and swims.");
 					state279.setText(string280.toString());
-					if (!flowThread.callState(state279, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					if (!flowThread.callState(state279, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 387
-					lookChild state281 = new lookChild();
-					if (!flowThread.callState(state281, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 387, 29)))) {
+					// Line: 378
+					lookCaretaker state281 = new lookCaretaker();
+					if (!flowThread.callState(state281, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 378, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 388
-					tts.speak("Kus kartini gosterin.", 1.0f, false, false);
-					// Line: 389
+					// Line: 379
+					audioplayer.playSound("audio/LearnAnimalsFishAct.wav");
+					// Line: 380
 					iristk.flow.DialogFlow.wait waitState282 = new iristk.flow.DialogFlow.wait();
-					waitState282.setMsec(3000);
-					if (!flowThread.callState(waitState282, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 389, 23)))) {
+					waitState282.setMsec(4500);
+					if (!flowThread.callState(waitState282, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 380, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					iristk.situated.SystemAgentFlow.say state283 = agent.new say();
 					StringCreator string284 = new StringCreator();
-					string284.append("This is a bird. The bird flies in the sky.");
+					string284.append("The fish have fins and a tail.");
 					state283.setText(string284.toString());
-					if (!flowThread.callState(state283, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					if (!flowThread.callState(state283, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 391
-					lookCaretaker state285 = new lookCaretaker();
-					if (!flowThread.callState(state285, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 391, 33)))) {
+					// Line: 383
+					lookChild state285 = new lookChild();
+					if (!flowThread.callState(state285, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 383, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 392
-					tts.speak("Ucan kus gibi kollarinizi cirpin ve FILAY diyin bir kac kez.", 1.0f, false, false);
-					// Line: 393
+					// Line: 384
+					audioplayer.playSound("audio/LearnAnimalsBird.wav");
+					// Line: 385
 					iristk.flow.DialogFlow.wait waitState286 = new iristk.flow.DialogFlow.wait();
 					waitState286.setMsec(3000);
-					if (!flowThread.callState(waitState286, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 393, 23)))) {
+					if (!flowThread.callState(waitState286, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 385, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					iristk.situated.SystemAgentFlow.say state287 = agent.new say();
 					StringCreator string288 = new StringCreator();
-					string288.append("The bird lays eggs in its nest.");
+					string288.append("This is a bird. The bird flies in the sky.");
 					state287.setText(string288.toString());
-					if (!flowThread.callState(state287, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					if (!flowThread.callState(state287, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 396
-					lookChild state289 = new lookChild();
-					if (!flowThread.callState(state289, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 396, 29)))) {
+					// Line: 387
+					lookCaretaker state289 = new lookCaretaker();
+					if (!flowThread.callState(state289, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 387, 33)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 388
+					audioplayer.playSound("audio/LearnAnimalsBirdAct.wav");
+					iristk.situated.SystemAgentFlow.say state290 = agent.new say();
+					StringCreator string291 = new StringCreator();
+					string291.append("Let's see how a bird flies?");
+					state290.setText(string291.toString());
+					if (!flowThread.callState(state290, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 390
+					iristk.flow.DialogFlow.wait waitState292 = new iristk.flow.DialogFlow.wait();
+					waitState292.setMsec(6500);
+					if (!flowThread.callState(waitState292, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 390, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state293 = agent.new say();
+					StringCreator string294 = new StringCreator();
+					string294.append("The bird lays eggs in its nest.");
+					state293.setText(string294.toString());
+					if (!flowThread.callState(state293, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 393
+					lookChild state295 = new lookChild();
+					if (!flowThread.callState(state295, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 393, 29)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 394
+					audioplayer.playSound("audio/LearnAnimalsDuck.wav");
+					// Line: 395
+					iristk.flow.DialogFlow.wait waitState296 = new iristk.flow.DialogFlow.wait();
+					waitState296.setMsec(3000);
+					if (!flowThread.callState(waitState296, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 395, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state297 = agent.new say();
+					StringCreator string298 = new StringCreator();
+					string298.append("This is a duck. The duck says quack.");
+					state297.setText(string298.toString());
+					if (!flowThread.callState(state297, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 397
-					tts.speak("Ordek kartini gosterin ve sallayin.", 1.0f, false, false);
+					lookCaretaker state299 = new lookCaretaker();
+					if (!flowThread.callState(state299, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 397, 33)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 398
-					iristk.flow.DialogFlow.wait waitState290 = new iristk.flow.DialogFlow.wait();
-					waitState290.setMsec(3000);
-					if (!flowThread.callState(waitState290, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 398, 23)))) {
+					audioplayer.playSound("audio/LearnAnimalsDuckAct.wav");
+					// Line: 399
+					iristk.flow.DialogFlow.wait waitState300 = new iristk.flow.DialogFlow.wait();
+					waitState300.setMsec(5000);
+					if (!flowThread.callState(waitState300, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 399, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state291 = agent.new say();
-					StringCreator string292 = new StringCreator();
-					string292.append("This is a duck. The duck says quack.");
-					state291.setText(string292.toString());
-					if (!flowThread.callState(state291, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					iristk.situated.SystemAgentFlow.say state301 = agent.new say();
+					StringCreator string302 = new StringCreator();
+					string302.append("The duck can swim.");
+					state301.setText(string302.toString());
+					if (!flowThread.callState(state301, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 400
-					lookCaretaker state293 = new lookCaretaker();
-					if (!flowThread.callState(state293, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 400, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 401
-					tts.speak("VAK VAK diyin bir kac", 1.0f, false, false);
 					// Line: 402
-					iristk.flow.DialogFlow.wait waitState294 = new iristk.flow.DialogFlow.wait();
-					waitState294.setMsec(3000);
-					if (!flowThread.callState(waitState294, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 402, 23)))) {
+					lookChild state303 = new lookChild();
+					if (!flowThread.callState(state303, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 402, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state295 = agent.new say();
-					StringCreator string296 = new StringCreator();
-					string296.append("The duck can swim.");
-					state295.setText(string296.toString());
-					if (!flowThread.callState(state295, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					// Line: 403
+					audioplayer.playSound("audio/LearnAnimalsFrog.wav");
+					// Line: 404
+					iristk.flow.DialogFlow.wait waitState304 = new iristk.flow.DialogFlow.wait();
+					waitState304.setMsec(3000);
+					if (!flowThread.callState(waitState304, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 404, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 405
-					lookChild state297 = new lookChild();
-					if (!flowThread.callState(state297, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 405, 29)))) {
+					iristk.situated.SystemAgentFlow.say state305 = agent.new say();
+					StringCreator string306 = new StringCreator();
+					string306.append("This is a frog. The frog has a very long tongue.");
+					state305.setText(string306.toString());
+					if (!flowThread.callState(state305, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 406
-					tts.speak("Kurbaga kartini gosterin ve sallayin.", 1.0f, false, false);
+					lookCaretaker state307 = new lookCaretaker();
+					if (!flowThread.callState(state307, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 406, 33)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 407
-					iristk.flow.DialogFlow.wait waitState298 = new iristk.flow.DialogFlow.wait();
-					waitState298.setMsec(3000);
-					if (!flowThread.callState(waitState298, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 407, 23)))) {
+					audioplayer.playSound("audio/LearnAnimalsFrogAct.wav");
+					// Line: 408
+					iristk.flow.DialogFlow.wait waitState308 = new iristk.flow.DialogFlow.wait();
+					waitState308.setMsec(5000);
+					if (!flowThread.callState(waitState308, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 408, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state299 = agent.new say();
-					StringCreator string300 = new StringCreator();
-					string300.append("This is a frog. The frog has a very long tongue.");
-					state299.setText(string300.toString());
-					if (!flowThread.callState(state299, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					iristk.situated.SystemAgentFlow.say state309 = agent.new say();
+					StringCreator string310 = new StringCreator();
+					string310.append("The frog lives in both water and land.");
+					state309.setText(string310.toString());
+					if (!flowThread.callState(state309, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 409
-					lookCaretaker state301 = new lookCaretaker();
-					if (!flowThread.callState(state301, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 409, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 410
-					tts.speak("Dilinizi cikartin kisa bir sure.", 1.0f, false, false);
 					// Line: 411
-					iristk.flow.DialogFlow.wait waitState302 = new iristk.flow.DialogFlow.wait();
-					waitState302.setMsec(3000);
-					if (!flowThread.callState(waitState302, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 411, 23)))) {
+					lookChild state311 = new lookChild();
+					if (!flowThread.callState(state311, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 411, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state303 = agent.new say();
-					StringCreator string304 = new StringCreator();
-					string304.append("The frog lives in both water and land.");
-					state303.setText(string304.toString());
-					if (!flowThread.callState(state303, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					// Line: 412
+					audioplayer.playSound("audio/LearnAnimalsHorse.wav");
+					// Line: 413
+					iristk.flow.DialogFlow.wait waitState312 = new iristk.flow.DialogFlow.wait();
+					waitState312.setMsec(3000);
+					if (!flowThread.callState(waitState312, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 413, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 414
-					lookChild state305 = new lookChild();
-					if (!flowThread.callState(state305, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 414, 29)))) {
+					iristk.situated.SystemAgentFlow.say state313 = agent.new say();
+					StringCreator string314 = new StringCreator();
+					string314.append("This is a horse. The horse can run very fast.");
+					state313.setText(string314.toString());
+					if (!flowThread.callState(state313, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 415
-					tts.speak("At kartini gosterin ve sallayin.", 1.0f, false, false);
+					lookCaretaker state315 = new lookCaretaker();
+					if (!flowThread.callState(state315, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 415, 33)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 416
-					iristk.flow.DialogFlow.wait waitState306 = new iristk.flow.DialogFlow.wait();
-					waitState306.setMsec(3000);
-					if (!flowThread.callState(waitState306, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 416, 23)))) {
+					audioplayer.playSound("audio/LearnAnimalsHorseAct.wav");
+					// Line: 417
+					iristk.flow.DialogFlow.wait waitState316 = new iristk.flow.DialogFlow.wait();
+					waitState316.setMsec(5000);
+					if (!flowThread.callState(waitState316, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 417, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state307 = agent.new say();
-					StringCreator string308 = new StringCreator();
-					string308.append("This is a horse. The horse can run very fast.");
-					state307.setText(string308.toString());
-					if (!flowThread.callState(state307, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					iristk.situated.SystemAgentFlow.say state317 = agent.new say();
+					StringCreator string318 = new StringCreator();
+					string318.append("Horses eat carrot.");
+					state317.setText(string318.toString());
+					if (!flowThread.callState(state317, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 419
-					tts.speak("Ayi kartini gosterin ve sallayin.", 1.0f, false, false);
 					// Line: 420
-					iristk.flow.DialogFlow.wait waitState309 = new iristk.flow.DialogFlow.wait();
-					waitState309.setMsec(3000);
-					if (!flowThread.callState(waitState309, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 420, 23)))) {
+					lookChild state319 = new lookChild();
+					if (!flowThread.callState(state319, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 420, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state310 = agent.new say();
-					StringCreator string311 = new StringCreator();
-					string311.append("This is a bear. The bear is very big.");
-					state310.setText(string311.toString());
-					if (!flowThread.callState(state310, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
+					// Line: 421
+					audioplayer.playSound("audio/LearnAnimalsBear.wav");
 					// Line: 422
-					lookCaretaker state312 = new lookCaretaker();
-					if (!flowThread.callState(state312, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 422, 33)))) {
+					iristk.flow.DialogFlow.wait waitState320 = new iristk.flow.DialogFlow.wait();
+					waitState320.setMsec(3000);
+					if (!flowThread.callState(waitState320, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 422, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 423
-					tts.speak("Ellerinizi pence yapip, havaya kaldirin ve BIG BEIR diyin.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state321 = agent.new say();
+					StringCreator string322 = new StringCreator();
+					string322.append("This is a bear. The bear is very big.");
+					state321.setText(string322.toString());
+					if (!flowThread.callState(state321, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 424
-					iristk.flow.DialogFlow.wait waitState313 = new iristk.flow.DialogFlow.wait();
-					waitState313.setMsec(3000);
-					if (!flowThread.callState(waitState313, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 424, 23)))) {
+					lookCaretaker state323 = new lookCaretaker();
+					if (!flowThread.callState(state323, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 424, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
+					// Line: 425
+					audioplayer.playSound("audio/LearnAnimalsBearAct.wav");
 					// Line: 426
-					lookChild state314 = new lookChild();
-					if (!flowThread.callState(state314, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 426, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state315 = agent.new say();
-					StringCreator string316 = new StringCreator();
-					string316.append("Now you know your animals.");
-					state315.setText(string316.toString());
-					if (!flowThread.callState(state315, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12)))) {
+					iristk.flow.DialogFlow.wait waitState324 = new iristk.flow.DialogFlow.wait();
+					waitState324.setMsec(8500);
+					if (!flowThread.callState(waitState324, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 426, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 428
-					CheckAgain state317 = new CheckAgain();
-					flowThread.gotoState(state317, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 428, 30)));
+					lookChild state325 = new lookChild();
+					if (!flowThread.callState(state325, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 428, 29)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state326 = agent.new say();
+					StringCreator string327 = new StringCreator();
+					string327.append("Now you know your animals.");
+					state326.setText(string327.toString());
+					if (!flowThread.callState(state326, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 430
+					CheckAgain state328 = new CheckAgain();
+					flowThread.gotoState(state328, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 430, 30)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 359, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 353, 12));
 			}
 		}
 
@@ -2296,310 +2342,310 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 435
+			// Line: 437
 			try {
 				EXECUTION: {
 					int count = getCount(736709391) + 1;
 					incrCount(736709391);
-					// Line: 436
-					lookChild state318 = new lookChild();
-					if (!flowThread.callState(state318, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 436, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 437
-					tts.speak("Kirmizi renkli karti gosterin ve sallayin.", 1.0f, false, false);
 					// Line: 438
-					iristk.flow.DialogFlow.wait waitState319 = new iristk.flow.DialogFlow.wait();
-					waitState319.setMsec(3000);
-					if (!flowThread.callState(waitState319, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 438, 23)))) {
+					lookChild state329 = new lookChild();
+					if (!flowThread.callState(state329, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 438, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state320 = agent.new say();
-					StringCreator string321 = new StringCreator();
-					string321.append("This is red.");
-					state320.setText(string321.toString());
-					if (!flowThread.callState(state320, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 439
+					audioplayer.playSound("audio/LearnColorsRed.wav");
+					// Line: 440
+					iristk.flow.DialogFlow.wait waitState330 = new iristk.flow.DialogFlow.wait();
+					waitState330.setMsec(3000);
+					if (!flowThread.callState(waitState330, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 440, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 441
-					lookCaretaker state322 = new lookCaretaker();
-					if (!flowThread.callState(state322, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 441, 33)))) {
+					iristk.situated.SystemAgentFlow.say state331 = agent.new say();
+					StringCreator string332 = new StringCreator();
+					string332.append("This is red.");
+					state331.setText(string332.toString());
+					if (!flowThread.callState(state331, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 442
-					tts.speak("Kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve elma resimlerine isaret edin.", 1.0f, false, false);
 					// Line: 443
-					iristk.flow.DialogFlow.wait waitState323 = new iristk.flow.DialogFlow.wait();
-					waitState323.setMsec(3000);
-					if (!flowThread.callState(waitState323, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 443, 23)))) {
+					lookCaretaker state333 = new lookCaretaker();
+					if (!flowThread.callState(state333, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 443, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state324 = agent.new say();
-					StringCreator string325 = new StringCreator();
-					string325.append("The firetruck, the stop sign and the apple are all red. Red");
-					state324.setText(string325.toString());
-					if (!flowThread.callState(state324, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 444
+					audioplayer.playSound("audio/LearnColorsRedEx.wav");
+					// Line: 445
+					iristk.flow.DialogFlow.wait waitState334 = new iristk.flow.DialogFlow.wait();
+					waitState334.setMsec(3000);
+					if (!flowThread.callState(waitState334, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 445, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 446
-					lookChild state326 = new lookChild();
-					if (!flowThread.callState(state326, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 446, 29)))) {
+					iristk.situated.SystemAgentFlow.say state335 = agent.new say();
+					StringCreator string336 = new StringCreator();
+					string336.append("The firetruck, the stop sign and the apple are all red. Red");
+					state335.setText(string336.toString());
+					if (!flowThread.callState(state335, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 447
-					tts.speak("Mavi renkli karti gosterin ve sallayin.", 1.0f, false, false);
 					// Line: 448
-					iristk.flow.DialogFlow.wait waitState327 = new iristk.flow.DialogFlow.wait();
-					waitState327.setMsec(3000);
-					if (!flowThread.callState(waitState327, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 448, 23)))) {
+					lookChild state337 = new lookChild();
+					if (!flowThread.callState(state337, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 448, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state328 = agent.new say();
-					StringCreator string329 = new StringCreator();
-					string329.append("This is blue.");
-					state328.setText(string329.toString());
-					if (!flowThread.callState(state328, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 449
+					audioplayer.playSound("audio/LearnColorsBlue.wav");
+					// Line: 450
+					iristk.flow.DialogFlow.wait waitState338 = new iristk.flow.DialogFlow.wait();
+					waitState338.setMsec(3000);
+					if (!flowThread.callState(waitState338, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 450, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 451
-					lookCaretaker state330 = new lookCaretaker();
-					if (!flowThread.callState(state330, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 451, 33)))) {
+					iristk.situated.SystemAgentFlow.say state339 = agent.new say();
+					StringCreator string340 = new StringCreator();
+					string340.append("This is blue.");
+					state339.setText(string340.toString());
+					if (!flowThread.callState(state339, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 452
-					tts.speak("Mavi karti cevirip sirayla deniz, gokyuzu ve kelebek resimlerine isaret edin.", 1.0f, false, false);
 					// Line: 453
-					iristk.flow.DialogFlow.wait waitState331 = new iristk.flow.DialogFlow.wait();
-					waitState331.setMsec(3000);
-					if (!flowThread.callState(waitState331, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 453, 23)))) {
+					lookCaretaker state341 = new lookCaretaker();
+					if (!flowThread.callState(state341, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 453, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state332 = agent.new say();
-					StringCreator string333 = new StringCreator();
-					string333.append("The sea, the sky and the butterfly are all blue. Blue");
-					state332.setText(string333.toString());
-					if (!flowThread.callState(state332, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 454
+					audioplayer.playSound("audio/LearnColorsBlueEx.wav");
+					// Line: 455
+					iristk.flow.DialogFlow.wait waitState342 = new iristk.flow.DialogFlow.wait();
+					waitState342.setMsec(3000);
+					if (!flowThread.callState(waitState342, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 455, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 456
-					lookChild state334 = new lookChild();
-					if (!flowThread.callState(state334, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 456, 29)))) {
+					iristk.situated.SystemAgentFlow.say state343 = agent.new say();
+					StringCreator string344 = new StringCreator();
+					string344.append("The sea, the sky and the butterfly are all blue. Blue");
+					state343.setText(string344.toString());
+					if (!flowThread.callState(state343, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 457
-					tts.speak("Yesil renkli karti gosterin ve sallayin.", 1.0f, false, false);
 					// Line: 458
-					iristk.flow.DialogFlow.wait waitState335 = new iristk.flow.DialogFlow.wait();
-					waitState335.setMsec(3000);
-					if (!flowThread.callState(waitState335, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 458, 23)))) {
+					lookChild state345 = new lookChild();
+					if (!flowThread.callState(state345, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 458, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state336 = agent.new say();
-					StringCreator string337 = new StringCreator();
-					string337.append("This is green.");
-					state336.setText(string337.toString());
-					if (!flowThread.callState(state336, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 459
+					audioplayer.playSound("audio/LearnColorsGreen.wav");
+					// Line: 460
+					iristk.flow.DialogFlow.wait waitState346 = new iristk.flow.DialogFlow.wait();
+					waitState346.setMsec(3000);
+					if (!flowThread.callState(waitState346, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 460, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 461
-					lookCaretaker state338 = new lookCaretaker();
-					if (!flowThread.callState(state338, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 461, 33)))) {
+					iristk.situated.SystemAgentFlow.say state347 = agent.new say();
+					StringCreator string348 = new StringCreator();
+					string348.append("This is green.");
+					state347.setText(string348.toString());
+					if (!flowThread.callState(state347, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 462
-					tts.speak("Yesil karti cevirip sirayla cimen, agac ve armut resimlerine isaret edin.", 1.0f, false, false);
 					// Line: 463
-					iristk.flow.DialogFlow.wait waitState339 = new iristk.flow.DialogFlow.wait();
-					waitState339.setMsec(3000);
-					if (!flowThread.callState(waitState339, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 463, 23)))) {
+					lookCaretaker state349 = new lookCaretaker();
+					if (!flowThread.callState(state349, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 463, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state340 = agent.new say();
-					StringCreator string341 = new StringCreator();
-					string341.append("The grass, the tree and the pear are all green. Green");
-					state340.setText(string341.toString());
-					if (!flowThread.callState(state340, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 464
+					audioplayer.playSound("audio/LearnColorsGreenEx.wav");
+					// Line: 465
+					iristk.flow.DialogFlow.wait waitState350 = new iristk.flow.DialogFlow.wait();
+					waitState350.setMsec(3000);
+					if (!flowThread.callState(waitState350, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 465, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 466
-					lookChild state342 = new lookChild();
-					if (!flowThread.callState(state342, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 466, 29)))) {
+					iristk.situated.SystemAgentFlow.say state351 = agent.new say();
+					StringCreator string352 = new StringCreator();
+					string352.append("The grass, the tree and the pear are all green. Green");
+					state351.setText(string352.toString());
+					if (!flowThread.callState(state351, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 467
-					tts.speak("Sari renkli karti gosterin ve sallayin.", 1.0f, false, false);
 					// Line: 468
-					iristk.flow.DialogFlow.wait waitState343 = new iristk.flow.DialogFlow.wait();
-					waitState343.setMsec(3000);
-					if (!flowThread.callState(waitState343, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 468, 23)))) {
+					lookChild state353 = new lookChild();
+					if (!flowThread.callState(state353, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 468, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state344 = agent.new say();
-					StringCreator string345 = new StringCreator();
-					string345.append("This is yellow.");
-					state344.setText(string345.toString());
-					if (!flowThread.callState(state344, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 469
+					audioplayer.playSound("audio/LearnColorsYellow.wav");
+					// Line: 470
+					iristk.flow.DialogFlow.wait waitState354 = new iristk.flow.DialogFlow.wait();
+					waitState354.setMsec(3000);
+					if (!flowThread.callState(waitState354, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 470, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 471
-					lookCaretaker state346 = new lookCaretaker();
-					if (!flowThread.callState(state346, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 471, 33)))) {
+					iristk.situated.SystemAgentFlow.say state355 = agent.new say();
+					StringCreator string356 = new StringCreator();
+					string356.append("This is yellow.");
+					state355.setText(string356.toString());
+					if (!flowThread.callState(state355, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 472
-					tts.speak("Sari karti cevirip sirayla limon, ordek ve muz resimlerine isaret edin.", 1.0f, false, false);
 					// Line: 473
-					iristk.flow.DialogFlow.wait waitState347 = new iristk.flow.DialogFlow.wait();
-					waitState347.setMsec(3000);
-					if (!flowThread.callState(waitState347, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 473, 23)))) {
+					lookCaretaker state357 = new lookCaretaker();
+					if (!flowThread.callState(state357, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 473, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state348 = agent.new say();
-					StringCreator string349 = new StringCreator();
-					string349.append("The lemon, the duck and the banana are all yellow. Yellow");
-					state348.setText(string349.toString());
-					if (!flowThread.callState(state348, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 474
+					audioplayer.playSound("audio/LearnColorsYellowEx.wav");
+					// Line: 475
+					iristk.flow.DialogFlow.wait waitState358 = new iristk.flow.DialogFlow.wait();
+					waitState358.setMsec(3000);
+					if (!flowThread.callState(waitState358, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 475, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 476
-					lookChild state350 = new lookChild();
-					if (!flowThread.callState(state350, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 476, 29)))) {
+					iristk.situated.SystemAgentFlow.say state359 = agent.new say();
+					StringCreator string360 = new StringCreator();
+					string360.append("The lemon, the duck and the banana are all yellow. Yellow");
+					state359.setText(string360.toString());
+					if (!flowThread.callState(state359, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 477
-					tts.speak("Turuncu renkli karti gosterin ve sallayin.", 1.0f, false, false);
 					// Line: 478
-					iristk.flow.DialogFlow.wait waitState351 = new iristk.flow.DialogFlow.wait();
-					waitState351.setMsec(3000);
-					if (!flowThread.callState(waitState351, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 478, 23)))) {
+					lookChild state361 = new lookChild();
+					if (!flowThread.callState(state361, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 478, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state352 = agent.new say();
-					StringCreator string353 = new StringCreator();
-					string353.append("This is orange.");
-					state352.setText(string353.toString());
-					if (!flowThread.callState(state352, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					// Line: 479
+					audioplayer.playSound("audio/LearnColorsOrange.wav");
+					// Line: 480
+					iristk.flow.DialogFlow.wait waitState362 = new iristk.flow.DialogFlow.wait();
+					waitState362.setMsec(3000);
+					if (!flowThread.callState(waitState362, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 480, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 481
-					lookCaretaker state354 = new lookCaretaker();
-					if (!flowThread.callState(state354, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 481, 33)))) {
+					iristk.situated.SystemAgentFlow.say state363 = agent.new say();
+					StringCreator string364 = new StringCreator();
+					string364.append("This is orange.");
+					state363.setText(string364.toString());
+					if (!flowThread.callState(state363, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 482
-					tts.speak("Turunucu karti cevirip sirayla portakal, havuc ve top resimlerine isaret edin.", 1.0f, false, false);
 					// Line: 483
-					iristk.flow.DialogFlow.wait waitState355 = new iristk.flow.DialogFlow.wait();
-					waitState355.setMsec(3000);
-					if (!flowThread.callState(waitState355, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 483, 23)))) {
+					lookCaretaker state365 = new lookCaretaker();
+					if (!flowThread.callState(state365, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 483, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state356 = agent.new say();
-					StringCreator string357 = new StringCreator();
-					string357.append("The orange, the carrot and the basketball are all orange. Orange");
-					state356.setText(string357.toString());
-					if (!flowThread.callState(state356, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 486
-					lookChild state358 = new lookChild();
-					if (!flowThread.callState(state358, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 486, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 487
-					tts.speak("Mor renkli karti gosterin ve sallayin.", 1.0f, false, false);
-					// Line: 488
-					iristk.flow.DialogFlow.wait waitState359 = new iristk.flow.DialogFlow.wait();
-					waitState359.setMsec(3000);
-					if (!flowThread.callState(waitState359, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 488, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state360 = agent.new say();
-					StringCreator string361 = new StringCreator();
-					string361.append("This is purple.");
-					state360.setText(string361.toString());
-					if (!flowThread.callState(state360, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 491
-					lookCaretaker state362 = new lookCaretaker();
-					if (!flowThread.callState(state362, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 491, 33)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 492
-					tts.speak("Mor karti cevirip sirayla uzum, patlican ve bot resimlerine isaret edin.", 1.0f, false, false);
-					// Line: 493
-					iristk.flow.DialogFlow.wait waitState363 = new iristk.flow.DialogFlow.wait();
-					waitState363.setMsec(3000);
-					if (!flowThread.callState(waitState363, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 493, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					iristk.situated.SystemAgentFlow.say state364 = agent.new say();
-					StringCreator string365 = new StringCreator();
-					string365.append("The grapes, the eggplant and the boots are all purple. Purple");
-					state364.setText(string365.toString());
-					if (!flowThread.callState(state364, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 496
+					// Line: 484
+					audioplayer.playSound("audio/LearnColorsOrangeEx.wav");
+					// Line: 485
 					iristk.flow.DialogFlow.wait waitState366 = new iristk.flow.DialogFlow.wait();
-					waitState366.setMsec(2000);
-					if (!flowThread.callState(waitState366, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 496, 23)))) {
+					waitState366.setMsec(3000);
+					if (!flowThread.callState(waitState366, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 485, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					iristk.situated.SystemAgentFlow.say state367 = agent.new say();
 					StringCreator string368 = new StringCreator();
-					string368.append("Now you know your colors.");
+					string368.append("The orange, the carrot and the basketball are all orange. Orange");
 					state367.setText(string368.toString());
-					if (!flowThread.callState(state367, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12)))) {
+					if (!flowThread.callState(state367, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 488
+					lookChild state369 = new lookChild();
+					if (!flowThread.callState(state369, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 488, 29)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 489
+					audioplayer.playSound("audio/LearnColorsPurple.wav");
+					// Line: 490
+					iristk.flow.DialogFlow.wait waitState370 = new iristk.flow.DialogFlow.wait();
+					waitState370.setMsec(3000);
+					if (!flowThread.callState(waitState370, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 490, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state371 = agent.new say();
+					StringCreator string372 = new StringCreator();
+					string372.append("This is purple.");
+					state371.setText(string372.toString());
+					if (!flowThread.callState(state371, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 493
+					lookCaretaker state373 = new lookCaretaker();
+					if (!flowThread.callState(state373, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 493, 33)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 494
+					audioplayer.playSound("audio/LearnColorsPurpleEx.wav");
+					// Line: 495
+					iristk.flow.DialogFlow.wait waitState374 = new iristk.flow.DialogFlow.wait();
+					waitState374.setMsec(3000);
+					if (!flowThread.callState(waitState374, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 495, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state375 = agent.new say();
+					StringCreator string376 = new StringCreator();
+					string376.append("The grapes, the eggplant and the boots are all purple. Purple");
+					state375.setText(string376.toString());
+					if (!flowThread.callState(state375, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 498
-					CheckAgain state369 = new CheckAgain();
-					flowThread.gotoState(state369, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 498, 30)));
+					iristk.flow.DialogFlow.wait waitState377 = new iristk.flow.DialogFlow.wait();
+					waitState377.setMsec(2000);
+					if (!flowThread.callState(waitState377, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 498, 23)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state378 = agent.new say();
+					StringCreator string379 = new StringCreator();
+					string379.append("Now you know your colors.");
+					state378.setText(string379.toString());
+					if (!flowThread.callState(state378, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 500
+					CheckAgain state380 = new CheckAgain();
+					flowThread.gotoState(state380, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 500, 30)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 435, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 437, 12));
 			}
 		}
 
@@ -2631,35 +2677,35 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 508
+			// Line: 510
 			try {
 				EXECUTION: {
 					int count = getCount(1711574013) + 1;
 					incrCount(1711574013);
-					// Line: 509
-					lookChild state370 = new lookChild();
-					if (!flowThread.callState(state370, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 509, 29)))) {
+					// Line: 511
+					lookChild state381 = new lookChild();
+					if (!flowThread.callState(state381, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 511, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 510
+					// Line: 512
 					audioplayer.playSound("audio/PlaySubject.wav");
-					iristk.situated.SystemAgentFlow.say state371 = agent.new say();
-					StringCreator string372 = new StringCreator();
-					string372.append("Let's have some fun. Which subject would you like to play with?");
-					state371.setText(string372.toString());
-					if (!flowThread.callState(state371, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 508, 12)))) {
+					iristk.situated.SystemAgentFlow.say state382 = agent.new say();
+					StringCreator string383 = new StringCreator();
+					string383.append("Let's have some fun. We are going to play some games. Which subject would you like to play with?");
+					state382.setText(string383.toString());
+					if (!flowThread.callState(state382, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 510, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.listen state373 = agent.new listen();
-					if (!flowThread.callState(state373, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 508, 12)))) {
+					iristk.situated.SystemAgentFlow.listen state384 = agent.new listen();
+					if (!flowThread.callState(state384, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 510, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 508, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 510, 12));
 			}
 		}
 
@@ -2667,7 +2713,7 @@ public class CardsFlow extends iristk.flow.Flow {
 		public int onFlowEvent(Event event) throws Exception {
 			int eventResult;
 			int count;
-			// Line: 515
+			// Line: 517
 			try {
 				count = getCount(1638215613) + 1;
 				if (event.triggers("sense.user.speak")) {
@@ -2675,9 +2721,9 @@ public class CardsFlow extends iristk.flow.Flow {
 						incrCount(1638215613);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 516
-							PlayAnimals state374 = new PlayAnimals();
-							flowThread.gotoState(state374, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 516, 31)));
+							// Line: 518
+							PlayAnimals state385 = new PlayAnimals();
+							flowThread.gotoState(state385, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 518, 31)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2685,9 +2731,9 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 515, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 517, 61));
 			}
-			// Line: 518
+			// Line: 520
 			try {
 				count = getCount(1674896058) + 1;
 				if (event.triggers("sense.user.speak")) {
@@ -2695,9 +2741,9 @@ public class CardsFlow extends iristk.flow.Flow {
 						incrCount(1674896058);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 519
-							PlayColors state375 = new PlayColors();
-							flowThread.gotoState(state375, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 519, 30)));
+							// Line: 521
+							PlayColors state386 = new PlayColors();
+							flowThread.gotoState(state386, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 521, 30)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2705,9 +2751,9 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 518, 60));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 520, 60));
 			}
-			// Line: 521
+			// Line: 523
 			try {
 				count = getCount(866191240) + 1;
 				if (event.triggers("sense.user.speak")) {
@@ -2715,9 +2761,9 @@ public class CardsFlow extends iristk.flow.Flow {
 						incrCount(866191240);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							// Line: 522
-							PlayObjects state376 = new PlayObjects();
-							flowThread.gotoState(state376, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 522, 31)));
+							// Line: 524
+							PlayObjects state387 = new PlayObjects();
+							flowThread.gotoState(state387, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 524, 31)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -2725,7 +2771,7 @@ public class CardsFlow extends iristk.flow.Flow {
 					}
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 521, 61));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 523, 61));
 			}
 			eventResult = super.onFlowEvent(event);
 			if (eventResult != EVENT_IGNORED) return eventResult;
@@ -2751,231 +2797,229 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 527
+			// Line: 529
 			try {
 				EXECUTION: {
 					int count = getCount(1207769059) + 1;
 					incrCount(1207769059);
-					iristk.situated.SystemAgentFlow.say state377 = agent.new say();
-					StringCreator string378 = new StringCreator();
-					string378.append("Let's see if you have learned your colors.");
-					state377.setText(string378.toString());
-					if (!flowThread.callState(state377, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 529
-					iristk.flow.DialogFlow.wait waitState379 = new iristk.flow.DialogFlow.wait();
-					waitState379.setMsec(3000);
-					if (!flowThread.callState(waitState379, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 23)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 530
-					lookCaretaker state380 = new lookCaretaker();
-					if (!flowThread.callState(state380, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 530, 33)))) {
+					iristk.situated.SystemAgentFlow.say state388 = agent.new say();
+					StringCreator string389 = new StringCreator();
+					string389.append("Let's see if you have learned your colors.");
+					state388.setText(string389.toString());
+					if (!flowThread.callState(state388, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 531
-					PlayPrepare state381 = new PlayPrepare();
-					if (!flowThread.callState(state381, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 531, 31)))) {
+					iristk.flow.DialogFlow.wait waitState390 = new iristk.flow.DialogFlow.wait();
+					waitState390.setMsec(3000);
+					if (!flowThread.callState(waitState390, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 531, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state382 = agent.new say();
-					StringCreator string383 = new StringCreator();
-					string383.append("Let's start the game.");
-					state382.setText(string383.toString());
-					if (!flowThread.callState(state382, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12)))) {
+					// Line: 532
+					lookCaretaker state391 = new lookCaretaker();
+					if (!flowThread.callState(state391, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 532, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 534
-					tts.speak("Oyuna başlıyoruz.", 1.0f, false, false);
-					// Line: 536
-					lookChild state384 = new lookChild();
-					if (!flowThread.callState(state384, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 536, 29)))) {
+					// Line: 533
+					PlayPrepare state392 = new PlayPrepare();
+					if (!flowThread.callState(state392, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 533, 31)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state385 = agent.new say();
-					StringCreator string386 = new StringCreator();
-					string386.append("Can you show me the color red?");
-					state385.setText(string386.toString());
-					if (!flowThread.callState(state385, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12)))) {
+					iristk.situated.SystemAgentFlow.say state393 = agent.new say();
+					StringCreator string394 = new StringCreator();
+					string394.append("Let's start the game.");
+					state393.setText(string394.toString());
+					if (!flowThread.callState(state393, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 538
-					tts.speak("Cocuğa kırmızı rengini göstermesini istedim.", 1.0f, false, false);
+					// Line: 537
+					lookChild state395 = new lookChild();
+					if (!flowThread.callState(state395, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 537, 29)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					iristk.situated.SystemAgentFlow.say state396 = agent.new say();
+					StringCreator string397 = new StringCreator();
+					string397.append("Can you show me the color red?");
+					state396.setText(string397.toString());
+					if (!flowThread.callState(state396, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 539
-					lookBoard state387 = new lookBoard();
-					if (!flowThread.callState(state387, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 539, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
+					audioplayer.playSound("audio/PlayColorsRed.wav");
 					// Line: 540
-					iristk.flow.DialogFlow.wait waitState388 = new iristk.flow.DialogFlow.wait();
-					waitState388.setMsec(4000);
-					if (!flowThread.callState(waitState388, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 540, 23)))) {
+					lookBoard state398 = new lookBoard();
+					if (!flowThread.callState(state398, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 540, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 541
-					Showing state389 = new Showing();
-					if (!flowThread.callState(state389, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 541, 27)))) {
+					iristk.flow.DialogFlow.wait waitState399 = new iristk.flow.DialogFlow.wait();
+					waitState399.setMsec(4000);
+					if (!flowThread.callState(waitState399, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 541, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 543
-					lookChild state390 = new lookChild();
-					if (!flowThread.callState(state390, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 543, 29)))) {
+					// Line: 542
+					Showing state400 = new Showing();
+					if (!flowThread.callState(state400, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 542, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state391 = agent.new say();
-					StringCreator string392 = new StringCreator();
-					string392.append("Can you show me the color purple?");
-					state391.setText(string392.toString());
-					if (!flowThread.callState(state391, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12)))) {
+					// Line: 544
+					lookChild state401 = new lookChild();
+					if (!flowThread.callState(state401, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 544, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 545
-					tts.speak("Cocuğa mor rengini göstermesini istedim.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state402 = agent.new say();
+					StringCreator string403 = new StringCreator();
+					string403.append("Can you show me the color purple?");
+					state402.setText(string403.toString());
+					if (!flowThread.callState(state402, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 546
-					lookBoard state393 = new lookBoard();
-					if (!flowThread.callState(state393, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 546, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
+					audioplayer.playSound("audio/PlayColorsPurple.wav");
 					// Line: 547
-					iristk.flow.DialogFlow.wait waitState394 = new iristk.flow.DialogFlow.wait();
-					waitState394.setMsec(4000);
-					if (!flowThread.callState(waitState394, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 547, 23)))) {
+					lookBoard state404 = new lookBoard();
+					if (!flowThread.callState(state404, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 547, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 548
-					Showing state395 = new Showing();
-					if (!flowThread.callState(state395, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 548, 27)))) {
+					iristk.flow.DialogFlow.wait waitState405 = new iristk.flow.DialogFlow.wait();
+					waitState405.setMsec(4000);
+					if (!flowThread.callState(waitState405, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 548, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 550
-					lookChild state396 = new lookChild();
-					if (!flowThread.callState(state396, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 550, 29)))) {
+					// Line: 549
+					Showing state406 = new Showing();
+					if (!flowThread.callState(state406, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 549, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state397 = agent.new say();
-					StringCreator string398 = new StringCreator();
-					string398.append("Can you first show me the color orange then yellow?");
-					state397.setText(string398.toString());
-					if (!flowThread.callState(state397, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12)))) {
+					// Line: 551
+					lookChild state407 = new lookChild();
+					if (!flowThread.callState(state407, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 551, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 552
-					tts.speak("Cocuğa önce turuncu sonra sari rengini göstermesini istedim.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state408 = agent.new say();
+					StringCreator string409 = new StringCreator();
+					string409.append("Can you first show me the color orange then yellow?");
+					state408.setText(string409.toString());
+					if (!flowThread.callState(state408, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 553
-					lookBoard state399 = new lookBoard();
-					if (!flowThread.callState(state399, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 553, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
+					audioplayer.playSound("audio/PlayColorsOrangeYellow.wav");
 					// Line: 554
-					iristk.flow.DialogFlow.wait waitState400 = new iristk.flow.DialogFlow.wait();
-					waitState400.setMsec(4000);
-					if (!flowThread.callState(waitState400, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 554, 23)))) {
+					lookBoard state410 = new lookBoard();
+					if (!flowThread.callState(state410, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 554, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 555
-					Showing state401 = new Showing();
-					if (!flowThread.callState(state401, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 555, 27)))) {
+					iristk.flow.DialogFlow.wait waitState411 = new iristk.flow.DialogFlow.wait();
+					waitState411.setMsec(4000);
+					if (!flowThread.callState(waitState411, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 555, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 557
-					lookChild state402 = new lookChild();
-					if (!flowThread.callState(state402, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 557, 29)))) {
+					// Line: 556
+					Showing state412 = new Showing();
+					if (!flowThread.callState(state412, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 556, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state403 = agent.new say();
-					StringCreator string404 = new StringCreator();
-					string404.append("Can you show me the color of grass?");
-					state403.setText(string404.toString());
-					if (!flowThread.callState(state403, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12)))) {
+					// Line: 558
+					lookChild state413 = new lookChild();
+					if (!flowThread.callState(state413, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 558, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 559
-					tts.speak("Cocuğa yeşil rengini göstermesini istedim.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state414 = agent.new say();
+					StringCreator string415 = new StringCreator();
+					string415.append("Can you show me the color of grass?");
+					state414.setText(string415.toString());
+					if (!flowThread.callState(state414, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 560
-					lookBoard state405 = new lookBoard();
-					if (!flowThread.callState(state405, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 560, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
+					audioplayer.playSound("audio/PlayColorsGreen.wav");
 					// Line: 561
-					iristk.flow.DialogFlow.wait waitState406 = new iristk.flow.DialogFlow.wait();
-					waitState406.setMsec(4000);
-					if (!flowThread.callState(waitState406, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 561, 23)))) {
+					lookBoard state416 = new lookBoard();
+					if (!flowThread.callState(state416, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 561, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 562
-					Showing state407 = new Showing();
-					if (!flowThread.callState(state407, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 562, 27)))) {
+					iristk.flow.DialogFlow.wait waitState417 = new iristk.flow.DialogFlow.wait();
+					waitState417.setMsec(4000);
+					if (!flowThread.callState(waitState417, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 562, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 564
-					lookChild state408 = new lookChild();
-					if (!flowThread.callState(state408, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 564, 29)))) {
+					// Line: 563
+					Showing state418 = new Showing();
+					if (!flowThread.callState(state418, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 563, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state409 = agent.new say();
-					StringCreator string410 = new StringCreator();
-					string410.append("Can you show me the color of firetruck?");
-					state409.setText(string410.toString());
-					if (!flowThread.callState(state409, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12)))) {
+					// Line: 565
+					lookChild state419 = new lookChild();
+					if (!flowThread.callState(state419, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 565, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 566
-					tts.speak("Cocuğa kırmızı rengini göstermesini istedim.", 1.0f, false, false);
+					iristk.situated.SystemAgentFlow.say state420 = agent.new say();
+					StringCreator string421 = new StringCreator();
+					string421.append("Can you show me the color of firetruck?");
+					state420.setText(string421.toString());
+					if (!flowThread.callState(state420, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
 					// Line: 567
-					lookBoard state411 = new lookBoard();
-					if (!flowThread.callState(state411, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 567, 29)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
+					audioplayer.playSound("audio/PlayColorsRed.wav");
 					// Line: 568
-					iristk.flow.DialogFlow.wait waitState412 = new iristk.flow.DialogFlow.wait();
-					waitState412.setMsec(4000);
-					if (!flowThread.callState(waitState412, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 568, 23)))) {
+					lookBoard state422 = new lookBoard();
+					if (!flowThread.callState(state422, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 568, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 569
-					Showing state413 = new Showing();
-					if (!flowThread.callState(state413, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 569, 27)))) {
+					iristk.flow.DialogFlow.wait waitState423 = new iristk.flow.DialogFlow.wait();
+					waitState423.setMsec(4000);
+					if (!flowThread.callState(waitState423, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 569, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 571
-					CheckAgain state414 = new CheckAgain();
-					flowThread.gotoState(state414, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 571, 30)));
+					// Line: 570
+					Showing state424 = new Showing();
+					if (!flowThread.callState(state424, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 570, 27)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 572
+					CheckAgain state425 = new CheckAgain();
+					flowThread.gotoState(state425, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 572, 30)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 527, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 529, 12));
 			}
 		}
 
@@ -3007,231 +3051,231 @@ public class CardsFlow extends iristk.flow.Flow {
 		public void onentry() throws Exception {
 			int eventResult;
 			Event event = new Event("state.enter");
-			// Line: 577
+			// Line: 578
 			try {
 				EXECUTION: {
-					int count = getCount(1321640594) + 1;
-					incrCount(1321640594);
-					iristk.situated.SystemAgentFlow.say state415 = agent.new say();
-					StringCreator string416 = new StringCreator();
-					string416.append("Great choice. I love animals.");
-					state415.setText(string416.toString());
-					if (!flowThread.callState(state415, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 579
-					iristk.flow.DialogFlow.wait waitState417 = new iristk.flow.DialogFlow.wait();
-					waitState417.setMsec(3000);
-					if (!flowThread.callState(waitState417, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 579, 23)))) {
+					int count = getCount(381707837) + 1;
+					incrCount(381707837);
+					iristk.situated.SystemAgentFlow.say state426 = agent.new say();
+					StringCreator string427 = new StringCreator();
+					string427.append("Great choice. I love animals.");
+					state426.setText(string427.toString());
+					if (!flowThread.callState(state426, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 580
-					lookCaretaker state418 = new lookCaretaker();
-					if (!flowThread.callState(state418, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 580, 33)))) {
+					iristk.flow.DialogFlow.wait waitState428 = new iristk.flow.DialogFlow.wait();
+					waitState428.setMsec(3000);
+					if (!flowThread.callState(waitState428, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 580, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 581
-					PlayPrepare state419 = new PlayPrepare();
-					if (!flowThread.callState(state419, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 581, 31)))) {
+					lookCaretaker state429 = new lookCaretaker();
+					if (!flowThread.callState(state429, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 581, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 583
+					// Line: 582
+					PlayPrepare state430 = new PlayPrepare();
+					if (!flowThread.callState(state430, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 582, 31)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 584
 					audioplayer.playSound("audio/PlayAnimalStart.wav");
-					iristk.situated.SystemAgentFlow.say state420 = agent.new say();
-					StringCreator string421 = new StringCreator();
-					string421.append("Let's start the game.");
-					state420.setText(string421.toString());
-					if (!flowThread.callState(state420, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12)))) {
-						eventResult = EVENT_ABORTED;
-						break EXECUTION;
-					}
-					// Line: 586
-					lookChild state422 = new lookChild();
-					if (!flowThread.callState(state422, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 586, 29)))) {
+					iristk.situated.SystemAgentFlow.say state431 = agent.new say();
+					StringCreator string432 = new StringCreator();
+					string432.append("Let's start the game.");
+					state431.setText(string432.toString());
+					if (!flowThread.callState(state431, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 587
-					audioplayer.playSound("audio/PlayAnimalDog.wav");
-					iristk.situated.SystemAgentFlow.say state423 = agent.new say();
-					StringCreator string424 = new StringCreator();
-					string424.append("Can you show me the dog on the board?");
-					state423.setText(string424.toString());
-					if (!flowThread.callState(state423, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12)))) {
+					lookChild state433 = new lookChild();
+					if (!flowThread.callState(state433, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 587, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 589
-					lookBoard state425 = new lookBoard();
-					if (!flowThread.callState(state425, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 589, 29)))) {
+					// Line: 588
+					audioplayer.playSound("audio/PlayAnimalDog.wav");
+					iristk.situated.SystemAgentFlow.say state434 = agent.new say();
+					StringCreator string435 = new StringCreator();
+					string435.append("Can you show me the dog on the board?");
+					state434.setText(string435.toString());
+					if (!flowThread.callState(state434, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 590
-					iristk.flow.DialogFlow.wait waitState426 = new iristk.flow.DialogFlow.wait();
-					waitState426.setMsec(4000);
-					if (!flowThread.callState(waitState426, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 590, 23)))) {
+					lookBoard state436 = new lookBoard();
+					if (!flowThread.callState(state436, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 590, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 591
-					Showing state427 = new Showing();
-					if (!flowThread.callState(state427, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 591, 27)))) {
+					iristk.flow.DialogFlow.wait waitState437 = new iristk.flow.DialogFlow.wait();
+					waitState437.setMsec(4000);
+					if (!flowThread.callState(waitState437, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 591, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 593
-					lookChild state428 = new lookChild();
-					if (!flowThread.callState(state428, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 593, 29)))) {
+					// Line: 592
+					Showing state438 = new Showing();
+					if (!flowThread.callState(state438, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 592, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 594
-					audioplayer.playSound("audio/PlayAnimalFish.wav");
-					iristk.situated.SystemAgentFlow.say state429 = agent.new say();
-					StringCreator string430 = new StringCreator();
-					string430.append("Can you show me the fish on the board?");
-					state429.setText(string430.toString());
-					if (!flowThread.callState(state429, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12)))) {
+					lookChild state439 = new lookChild();
+					if (!flowThread.callState(state439, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 594, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 596
-					lookBoard state431 = new lookBoard();
-					if (!flowThread.callState(state431, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 596, 29)))) {
+					// Line: 595
+					audioplayer.playSound("audio/PlayAnimalFish.wav");
+					iristk.situated.SystemAgentFlow.say state440 = agent.new say();
+					StringCreator string441 = new StringCreator();
+					string441.append("Can you show me the fish on the board?");
+					state440.setText(string441.toString());
+					if (!flowThread.callState(state440, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 597
-					iristk.flow.DialogFlow.wait waitState432 = new iristk.flow.DialogFlow.wait();
-					waitState432.setMsec(4000);
-					if (!flowThread.callState(waitState432, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 597, 23)))) {
+					lookBoard state442 = new lookBoard();
+					if (!flowThread.callState(state442, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 597, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 598
-					Showing state433 = new Showing();
-					if (!flowThread.callState(state433, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 598, 27)))) {
+					iristk.flow.DialogFlow.wait waitState443 = new iristk.flow.DialogFlow.wait();
+					waitState443.setMsec(4000);
+					if (!flowThread.callState(waitState443, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 598, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 600
-					lookChild state434 = new lookChild();
-					if (!flowThread.callState(state434, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 600, 29)))) {
+					// Line: 599
+					Showing state444 = new Showing();
+					if (!flowThread.callState(state444, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 599, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 601
-					audioplayer.playSound("audio/PlayAnimalBird.wav");
-					iristk.situated.SystemAgentFlow.say state435 = agent.new say();
-					StringCreator string436 = new StringCreator();
-					string436.append("Can you show me the animal that flies on the board?");
-					state435.setText(string436.toString());
-					if (!flowThread.callState(state435, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12)))) {
+					lookChild state445 = new lookChild();
+					if (!flowThread.callState(state445, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 601, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 603
-					lookBoard state437 = new lookBoard();
-					if (!flowThread.callState(state437, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 603, 29)))) {
+					// Line: 602
+					audioplayer.playSound("audio/PlayAnimalBird.wav");
+					iristk.situated.SystemAgentFlow.say state446 = agent.new say();
+					StringCreator string447 = new StringCreator();
+					string447.append("Can you show me the animal that flies on the board?");
+					state446.setText(string447.toString());
+					if (!flowThread.callState(state446, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 604
-					iristk.flow.DialogFlow.wait waitState438 = new iristk.flow.DialogFlow.wait();
-					waitState438.setMsec(4000);
-					if (!flowThread.callState(waitState438, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 604, 23)))) {
+					lookBoard state448 = new lookBoard();
+					if (!flowThread.callState(state448, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 604, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 605
-					Showing state439 = new Showing();
-					if (!flowThread.callState(state439, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 605, 27)))) {
+					iristk.flow.DialogFlow.wait waitState449 = new iristk.flow.DialogFlow.wait();
+					waitState449.setMsec(4000);
+					if (!flowThread.callState(waitState449, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 605, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 607
-					lookChild state440 = new lookChild();
-					if (!flowThread.callState(state440, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 607, 29)))) {
+					// Line: 606
+					Showing state450 = new Showing();
+					if (!flowThread.callState(state450, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 606, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 608
-					audioplayer.playSound("audio/PlayAnimalCatDog.wav");
-					iristk.situated.SystemAgentFlow.say state441 = agent.new say();
-					StringCreator string442 = new StringCreator();
-					string442.append("Can you show me the animals that have four legs?");
-					state441.setText(string442.toString());
-					if (!flowThread.callState(state441, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12)))) {
+					lookChild state451 = new lookChild();
+					if (!flowThread.callState(state451, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 608, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 610
-					lookBoard state443 = new lookBoard();
-					if (!flowThread.callState(state443, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 610, 29)))) {
+					// Line: 609
+					audioplayer.playSound("audio/PlayAnimalCatDog.wav");
+					iristk.situated.SystemAgentFlow.say state452 = agent.new say();
+					StringCreator string453 = new StringCreator();
+					string453.append("Can you show me the animals that have four legs?");
+					state452.setText(string453.toString());
+					if (!flowThread.callState(state452, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 611
-					iristk.flow.DialogFlow.wait waitState444 = new iristk.flow.DialogFlow.wait();
-					waitState444.setMsec(4000);
-					if (!flowThread.callState(waitState444, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 611, 23)))) {
+					lookBoard state454 = new lookBoard();
+					if (!flowThread.callState(state454, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 611, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 612
-					Showing state445 = new Showing();
-					if (!flowThread.callState(state445, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 612, 27)))) {
+					iristk.flow.DialogFlow.wait waitState455 = new iristk.flow.DialogFlow.wait();
+					waitState455.setMsec(4000);
+					if (!flowThread.callState(waitState455, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 612, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 614
-					lookChild state446 = new lookChild();
-					if (!flowThread.callState(state446, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 614, 29)))) {
+					// Line: 613
+					Showing state456 = new Showing();
+					if (!flowThread.callState(state456, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 613, 27)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 615
-					audioplayer.playSound("audio/PlayAnimalCat.wav");
-					iristk.situated.SystemAgentFlow.say state447 = agent.new say();
-					StringCreator string448 = new StringCreator();
-					string448.append("Can you show me the animal that says meow?");
-					state447.setText(string448.toString());
-					if (!flowThread.callState(state447, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12)))) {
+					lookChild state457 = new lookChild();
+					if (!flowThread.callState(state457, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 615, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 617
-					lookBoard state449 = new lookBoard();
-					if (!flowThread.callState(state449, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 617, 29)))) {
+					// Line: 616
+					audioplayer.playSound("audio/PlayAnimalCat.wav");
+					iristk.situated.SystemAgentFlow.say state458 = agent.new say();
+					StringCreator string459 = new StringCreator();
+					string459.append("Can you show me the animal that says meow?");
+					state458.setText(string459.toString());
+					if (!flowThread.callState(state458, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 618
-					iristk.flow.DialogFlow.wait waitState450 = new iristk.flow.DialogFlow.wait();
-					waitState450.setMsec(4000);
-					if (!flowThread.callState(waitState450, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 618, 23)))) {
+					lookBoard state460 = new lookBoard();
+					if (!flowThread.callState(state460, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 618, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 619
-					Showing state451 = new Showing();
-					if (!flowThread.callState(state451, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 619, 27)))) {
+					iristk.flow.DialogFlow.wait waitState461 = new iristk.flow.DialogFlow.wait();
+					waitState461.setMsec(4000);
+					if (!flowThread.callState(waitState461, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 619, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					// Line: 621
-					CheckAgain state452 = new CheckAgain();
-					flowThread.gotoState(state452, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 621, 30)));
+					// Line: 620
+					Showing state462 = new Showing();
+					if (!flowThread.callState(state462, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 620, 27)))) {
+						eventResult = EVENT_ABORTED;
+						break EXECUTION;
+					}
+					// Line: 622
+					CheckAgain state463 = new CheckAgain();
+					flowThread.gotoState(state463, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 622, 30)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
 			} catch (Exception e) {
-				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 577, 12));
+				throw new FlowException(e, currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 578, 12));
 			}
 		}
 
@@ -3266,27 +3310,27 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 630
 			try {
 				EXECUTION: {
-					int count = getCount(312116338) + 1;
-					incrCount(312116338);
+					int count = getCount(13648335) + 1;
+					incrCount(13648335);
 					// Line: 631
 					audioplayer.playSound("audio/PlayPrepareDistribute.wav");
-					iristk.situated.SystemAgentFlow.say state453 = agent.new say();
-					StringCreator string454 = new StringCreator();
-					string454.append("Would you please distribute the cards to the board?");
-					state453.setText(string454.toString());
-					if (!flowThread.callState(state453, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 630, 12)))) {
+					iristk.situated.SystemAgentFlow.say state464 = agent.new say();
+					StringCreator string465 = new StringCreator();
+					string465.append("Would you please distribute the cards to the board?");
+					state464.setText(string465.toString());
+					if (!flowThread.callState(state464, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 630, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 633
-					iristk.flow.DialogFlow.wait waitState455 = new iristk.flow.DialogFlow.wait();
-					waitState455.setMsec(2000);
-					if (!flowThread.callState(waitState455, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 633, 23)))) {
+					iristk.flow.DialogFlow.wait waitState466 = new iristk.flow.DialogFlow.wait();
+					waitState466.setMsec(2000);
+					if (!flowThread.callState(waitState466, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 633, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.listen state456 = agent.new listen();
-					if (!flowThread.callState(state456, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 630, 12)))) {
+					iristk.situated.SystemAgentFlow.listen state467 = agent.new listen();
+					if (!flowThread.callState(state467, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 630, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -3302,10 +3346,10 @@ public class CardsFlow extends iristk.flow.Flow {
 			int count;
 			// Line: 636
 			try {
-				count = getCount(757108857) + 1;
+				count = getCount(796684896) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:okay")) {
-						incrCount(757108857);
+						incrCount(796684896);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 637
@@ -3346,40 +3390,40 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 642
 			try {
 				EXECUTION: {
-					int count = getCount(659748578) + 1;
-					incrCount(659748578);
+					int count = getCount(1802598046) + 1;
+					incrCount(1802598046);
 					// Line: 643
-					lookCaretaker state457 = new lookCaretaker();
-					if (!flowThread.callState(state457, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 643, 33)))) {
+					lookCaretaker state468 = new lookCaretaker();
+					if (!flowThread.callState(state468, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 643, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 644
 					audioplayer.playSound("audio/ShowingCheck.wav");
 					// Line: 645
-					iristk.flow.DialogFlow.wait waitState458 = new iristk.flow.DialogFlow.wait();
-					waitState458.setMsec(1000);
-					if (!flowThread.callState(waitState458, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 645, 23)))) {
+					iristk.flow.DialogFlow.wait waitState469 = new iristk.flow.DialogFlow.wait();
+					waitState469.setMsec(1000);
+					if (!flowThread.callState(waitState469, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 645, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state459 = agent.new say();
-					StringCreator string460 = new StringCreator();
-					string460.append("Is that correct?");
-					state459.setText(string460.toString());
-					if (!flowThread.callState(state459, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 642, 12)))) {
+					iristk.situated.SystemAgentFlow.say state470 = agent.new say();
+					StringCreator string471 = new StringCreator();
+					string471.append("Is that correct?");
+					state470.setText(string471.toString());
+					if (!flowThread.callState(state470, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 642, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 647
-					iristk.flow.DialogFlow.wait waitState461 = new iristk.flow.DialogFlow.wait();
-					waitState461.setMsec(3000);
-					if (!flowThread.callState(waitState461, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 647, 23)))) {
+					iristk.flow.DialogFlow.wait waitState472 = new iristk.flow.DialogFlow.wait();
+					waitState472.setMsec(3000);
+					if (!flowThread.callState(waitState472, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 647, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.listen state462 = agent.new listen();
-					if (!flowThread.callState(state462, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 642, 12)))) {
+					iristk.situated.SystemAgentFlow.listen state473 = agent.new listen();
+					if (!flowThread.callState(state473, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 642, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -3395,30 +3439,30 @@ public class CardsFlow extends iristk.flow.Flow {
 			int count;
 			// Line: 650
 			try {
-				count = getCount(41903949) + 1;
+				count = getCount(1277181601) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(41903949);
+						incrCount(1277181601);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 651
-							lookChild state463 = new lookChild();
-							if (!flowThread.callState(state463, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 651, 29)))) {
+							lookChild state474 = new lookChild();
+							if (!flowThread.callState(state474, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 651, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state464 = agent.new say();
-							StringCreator string465 = new StringCreator();
-							string465.append("Good Job. You are doing great.");
-							state464.setText(string465.toString());
-							if (!flowThread.callState(state464, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 650, 58)))) {
+							iristk.situated.SystemAgentFlow.say state475 = agent.new say();
+							StringCreator string476 = new StringCreator();
+							string476.append("Good Job. You are doing great.");
+							state475.setText(string476.toString());
+							if (!flowThread.callState(state475, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 650, 58)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 653
-							iristk.flow.DialogFlow.wait waitState466 = new iristk.flow.DialogFlow.wait();
-							waitState466.setMsec(3000);
-							if (!flowThread.callState(waitState466, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 653, 23)))) {
+							iristk.flow.DialogFlow.wait waitState477 = new iristk.flow.DialogFlow.wait();
+							waitState477.setMsec(3000);
+							if (!flowThread.callState(waitState477, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 653, 23)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -3435,54 +3479,54 @@ public class CardsFlow extends iristk.flow.Flow {
 			}
 			// Line: 657
 			try {
-				count = getCount(2083562754) + 1;
+				count = getCount(93122545) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(2083562754);
+						incrCount(93122545);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 658
-							lookChild state467 = new lookChild();
-							if (!flowThread.callState(state467, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 658, 29)))) {
+							lookChild state478 = new lookChild();
+							if (!flowThread.callState(state478, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 658, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 659
 							audioplayer.playSound("audio/ShowingCorrect.wav");
-							iristk.situated.SystemAgentFlow.say state468 = agent.new say();
-							StringCreator string469 = new StringCreator();
-							string469.append("It's alright. Let's see which one is the correct answer.");
-							state468.setText(string469.toString());
-							if (!flowThread.callState(state468, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 657, 57)))) {
+							iristk.situated.SystemAgentFlow.say state479 = agent.new say();
+							StringCreator string480 = new StringCreator();
+							string480.append("It's alright. Let's see which one is the correct answer.");
+							state479.setText(string480.toString());
+							if (!flowThread.callState(state479, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 657, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 661
-							lookCaretaker state470 = new lookCaretaker();
-							if (!flowThread.callState(state470, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 661, 33)))) {
+							lookCaretaker state481 = new lookCaretaker();
+							if (!flowThread.callState(state481, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 661, 33)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state471 = agent.new say();
-							StringCreator string472 = new StringCreator();
-							string472.append("Can you show me the correct answer please?");
-							state471.setText(string472.toString());
-							if (!flowThread.callState(state471, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 657, 57)))) {
+							iristk.situated.SystemAgentFlow.say state482 = agent.new say();
+							StringCreator string483 = new StringCreator();
+							string483.append("Can you show me the correct answer please?");
+							state482.setText(string483.toString());
+							if (!flowThread.callState(state482, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 657, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 663
-							iristk.flow.DialogFlow.wait waitState473 = new iristk.flow.DialogFlow.wait();
-							waitState473.setMsec(4000);
-							if (!flowThread.callState(waitState473, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 663, 23)))) {
+							iristk.flow.DialogFlow.wait waitState484 = new iristk.flow.DialogFlow.wait();
+							waitState484.setMsec(4000);
+							if (!flowThread.callState(waitState484, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 663, 23)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state474 = agent.new say();
-							StringCreator string475 = new StringCreator();
-							string475.append("Let's continue.");
-							state474.setText(string475.toString());
-							if (!flowThread.callState(state474, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 657, 57)))) {
+							iristk.situated.SystemAgentFlow.say state485 = agent.new say();
+							StringCreator string486 = new StringCreator();
+							string486.append("Let's continue.");
+							state485.setText(string486.toString());
+							if (!flowThread.callState(state485, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 657, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -3524,85 +3568,85 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 670
 			try {
 				EXECUTION: {
-					int count = getCount(997110508) + 1;
-					incrCount(997110508);
-					iristk.situated.SystemAgentFlow.say state476 = agent.new say();
-					StringCreator string477 = new StringCreator();
-					string477.append("Great choice. This is going to be fun!");
-					state476.setText(string477.toString());
-					if (!flowThread.callState(state476, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 670, 12)))) {
+					int count = getCount(1784662007) + 1;
+					incrCount(1784662007);
+					iristk.situated.SystemAgentFlow.say state487 = agent.new say();
+					StringCreator string488 = new StringCreator();
+					string488.append("Great choice. This is going to be fun!");
+					state487.setText(string488.toString());
+					if (!flowThread.callState(state487, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 670, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 672
-					iristk.flow.DialogFlow.wait waitState478 = new iristk.flow.DialogFlow.wait();
-					waitState478.setMsec(1000);
-					if (!flowThread.callState(waitState478, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 672, 23)))) {
+					iristk.flow.DialogFlow.wait waitState489 = new iristk.flow.DialogFlow.wait();
+					waitState489.setMsec(1000);
+					if (!flowThread.callState(waitState489, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 672, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 673
-					lookCaretaker state479 = new lookCaretaker();
-					if (!flowThread.callState(state479, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 673, 33)))) {
+					lookCaretaker state490 = new lookCaretaker();
+					if (!flowThread.callState(state490, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 673, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state480 = agent.new say();
-					StringCreator string481 = new StringCreator();
-					string481.append("Let's start the game.");
-					state480.setText(string481.toString());
-					if (!flowThread.callState(state480, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 670, 12)))) {
+					iristk.situated.SystemAgentFlow.say state491 = agent.new say();
+					StringCreator string492 = new StringCreator();
+					string492.append("Let's start the game.");
+					state491.setText(string492.toString());
+					if (!flowThread.callState(state491, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 670, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 676
 					audioplayer.playSound("audio/PlayObjectsHat.wav");
 					// Line: 677
-					FindObject state482 = new FindObject();
-					state482.setObject("hat");
-					if (!flowThread.callState(state482, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 677, 47)))) {
+					FindObject state493 = new FindObject();
+					state493.setObject("hat");
+					if (!flowThread.callState(state493, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 677, 47)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 678
 					audioplayer.playSound("audio/PlayObjectsChair.wav");
 					// Line: 679
-					FindObject state483 = new FindObject();
-					state483.setObject("chair");
-					if (!flowThread.callState(state483, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 679, 49)))) {
+					FindObject state494 = new FindObject();
+					state494.setObject("chair");
+					if (!flowThread.callState(state494, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 679, 49)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 680
 					audioplayer.playSound("audio/PlayObjectsTomato.wav");
 					// Line: 681
-					FindObject state484 = new FindObject();
-					state484.setObject("tomato");
-					if (!flowThread.callState(state484, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 681, 50)))) {
+					FindObject state495 = new FindObject();
+					state495.setObject("tomato");
+					if (!flowThread.callState(state495, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 681, 50)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 682
 					audioplayer.playSound("audio/PlayObjectsCar.wav");
 					// Line: 683
-					FindObject state485 = new FindObject();
-					state485.setObject("car");
-					if (!flowThread.callState(state485, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 683, 47)))) {
+					FindObject state496 = new FindObject();
+					state496.setObject("car");
+					if (!flowThread.callState(state496, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 683, 47)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 684
 					audioplayer.playSound("audio/PlayObjectsButterfly.wav");
 					// Line: 685
-					FindObject state486 = new FindObject();
-					state486.setObject("butterfly");
-					if (!flowThread.callState(state486, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 685, 53)))) {
+					FindObject state497 = new FindObject();
+					state497.setObject("butterfly");
+					if (!flowThread.callState(state497, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 685, 53)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 687
-					CheckAgain state487 = new CheckAgain();
-					flowThread.gotoState(state487, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 687, 30)));
+					CheckAgain state498 = new CheckAgain();
+					flowThread.gotoState(state498, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 687, 30)));
 					eventResult = EVENT_ABORTED;
 					break EXECUTION;
 				}
@@ -3650,83 +3694,83 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 694
 			try {
 				EXECUTION: {
-					int count = getCount(2114889273) + 1;
-					incrCount(2114889273);
+					int count = getCount(398887205) + 1;
+					incrCount(398887205);
 					// Line: 695
-					lookChild state488 = new lookChild();
-					if (!flowThread.callState(state488, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 695, 29)))) {
+					lookChild state499 = new lookChild();
+					if (!flowThread.callState(state499, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 695, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 696
-					iristk.flow.DialogFlow.wait waitState489 = new iristk.flow.DialogFlow.wait();
-					waitState489.setMsec(1000);
-					if (!flowThread.callState(waitState489, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 696, 23)))) {
+					iristk.flow.DialogFlow.wait waitState500 = new iristk.flow.DialogFlow.wait();
+					waitState500.setMsec(1000);
+					if (!flowThread.callState(waitState500, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 696, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state490 = agent.new say();
-					StringCreator string491 = new StringCreator();
-					string491.append("Look around you and try to find a");
+					iristk.situated.SystemAgentFlow.say state501 = agent.new say();
+					StringCreator string502 = new StringCreator();
+					string502.append("Look around you and try to find a");
 					// Line: 696
-					string491.append(object);
-					string491.append(".");
-					state490.setText(string491.toString());
-					if (!flowThread.callState(state490, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 694, 12)))) {
+					string502.append(object);
+					string502.append(".");
+					state501.setText(string502.toString());
+					if (!flowThread.callState(state501, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 694, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 698
-					lookUp state492 = new lookUp();
-					if (!flowThread.callState(state492, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 698, 26)))) {
+					lookUp state503 = new lookUp();
+					if (!flowThread.callState(state503, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 698, 26)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 699
-					iristk.flow.DialogFlow.wait waitState493 = new iristk.flow.DialogFlow.wait();
-					waitState493.setMsec(1000);
-					if (!flowThread.callState(waitState493, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 699, 23)))) {
+					iristk.flow.DialogFlow.wait waitState504 = new iristk.flow.DialogFlow.wait();
+					waitState504.setMsec(1000);
+					if (!flowThread.callState(waitState504, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 699, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 700
 					audioplayer.playSound("audio/FindObjectExplain.wav");
 					// Line: 701
-					lookCaretaker state494 = new lookCaretaker();
-					if (!flowThread.callState(state494, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 701, 33)))) {
+					lookCaretaker state505 = new lookCaretaker();
+					if (!flowThread.callState(state505, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 701, 33)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 702
-					iristk.flow.DialogFlow.wait waitState495 = new iristk.flow.DialogFlow.wait();
-					waitState495.setMsec(1500);
-					if (!flowThread.callState(waitState495, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 702, 23)))) {
+					iristk.flow.DialogFlow.wait waitState506 = new iristk.flow.DialogFlow.wait();
+					waitState506.setMsec(1500);
+					if (!flowThread.callState(waitState506, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 702, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 703
-					lookChild state496 = new lookChild();
-					if (!flowThread.callState(state496, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 703, 29)))) {
+					lookChild state507 = new lookChild();
+					if (!flowThread.callState(state507, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 703, 29)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
 					// Line: 704
-					iristk.flow.DialogFlow.wait waitState497 = new iristk.flow.DialogFlow.wait();
-					waitState497.setMsec(1500);
-					if (!flowThread.callState(waitState497, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 704, 23)))) {
+					iristk.flow.DialogFlow.wait waitState508 = new iristk.flow.DialogFlow.wait();
+					waitState508.setMsec(1500);
+					if (!flowThread.callState(waitState508, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 704, 23)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.say state498 = agent.new say();
-					StringCreator string499 = new StringCreator();
-					string499.append("Could you find it?");
-					state498.setText(string499.toString());
-					if (!flowThread.callState(state498, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 694, 12)))) {
+					iristk.situated.SystemAgentFlow.say state509 = agent.new say();
+					StringCreator string510 = new StringCreator();
+					string510.append("Could you find it?");
+					state509.setText(string510.toString());
+					if (!flowThread.callState(state509, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 694, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.listen state500 = agent.new listen();
-					if (!flowThread.callState(state500, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 694, 12)))) {
+					iristk.situated.SystemAgentFlow.listen state511 = agent.new listen();
+					if (!flowThread.callState(state511, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 694, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -3742,30 +3786,30 @@ public class CardsFlow extends iristk.flow.Flow {
 			int count;
 			// Line: 710
 			try {
-				count = getCount(157627094) + 1;
+				count = getCount(1349414238) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(157627094);
+						incrCount(1349414238);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 711
-							lookChild state501 = new lookChild();
-							if (!flowThread.callState(state501, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 711, 29)))) {
+							lookChild state512 = new lookChild();
+							if (!flowThread.callState(state512, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 711, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state502 = agent.new say();
-							StringCreator string503 = new StringCreator();
-							string503.append("Great job! You found it.");
-							state502.setText(string503.toString());
-							if (!flowThread.callState(state502, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 710, 58)))) {
+							iristk.situated.SystemAgentFlow.say state513 = agent.new say();
+							StringCreator string514 = new StringCreator();
+							string514.append("Great job! You found it.");
+							state513.setText(string514.toString());
+							if (!flowThread.callState(state513, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 710, 58)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 713
-							iristk.flow.DialogFlow.wait waitState504 = new iristk.flow.DialogFlow.wait();
-							waitState504.setMsec(1000);
-							if (!flowThread.callState(waitState504, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 713, 23)))) {
+							iristk.flow.DialogFlow.wait waitState515 = new iristk.flow.DialogFlow.wait();
+							waitState515.setMsec(1000);
+							if (!flowThread.callState(waitState515, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 713, 23)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -3782,62 +3826,62 @@ public class CardsFlow extends iristk.flow.Flow {
 			}
 			// Line: 717
 			try {
-				count = getCount(1682092198) + 1;
+				count = getCount(1142020464) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(1682092198);
+						incrCount(1142020464);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 718
-							lookChild state505 = new lookChild();
-							if (!flowThread.callState(state505, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 718, 29)))) {
+							lookChild state516 = new lookChild();
+							if (!flowThread.callState(state516, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 718, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state506 = agent.new say();
-							StringCreator string507 = new StringCreator();
-							string507.append("Where could it be?");
-							state506.setText(string507.toString());
-							if (!flowThread.callState(state506, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 717, 57)))) {
+							iristk.situated.SystemAgentFlow.say state517 = agent.new say();
+							StringCreator string518 = new StringCreator();
+							string518.append("Where could it be?");
+							state517.setText(string518.toString());
+							if (!flowThread.callState(state517, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 717, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 720
-							iristk.flow.DialogFlow.wait waitState508 = new iristk.flow.DialogFlow.wait();
-							waitState508.setMsec(2000);
-							if (!flowThread.callState(waitState508, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 720, 23)))) {
+							iristk.flow.DialogFlow.wait waitState519 = new iristk.flow.DialogFlow.wait();
+							waitState519.setMsec(2000);
+							if (!flowThread.callState(waitState519, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 720, 23)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 721
-							lookCaretaker state509 = new lookCaretaker();
-							if (!flowThread.callState(state509, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 721, 33)))) {
+							lookCaretaker state520 = new lookCaretaker();
+							if (!flowThread.callState(state520, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 721, 33)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 722
 							audioplayer.playSound("audio/FindObjectCaretakerQuestion.wav");
-							iristk.situated.SystemAgentFlow.say state510 = agent.new say();
-							StringCreator string511 = new StringCreator();
-							string511.append("Hmmm... Do you see the");
+							iristk.situated.SystemAgentFlow.say state521 = agent.new say();
+							StringCreator string522 = new StringCreator();
+							string522.append("Hmmm... Do you see the");
 							// Line: 722
-							string511.append( object );
-							state510.setText(string511.toString());
-							if (!flowThread.callState(state510, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 717, 57)))) {
+							string522.append( object );
+							state521.setText(string522.toString());
+							if (!flowThread.callState(state521, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 717, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 724
-							iristk.flow.DialogFlow.wait waitState512 = new iristk.flow.DialogFlow.wait();
-							waitState512.setMsec(2000);
-							if (!flowThread.callState(waitState512, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 724, 23)))) {
+							iristk.flow.DialogFlow.wait waitState523 = new iristk.flow.DialogFlow.wait();
+							waitState523.setMsec(2000);
+							if (!flowThread.callState(waitState523, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 724, 23)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 725
-							ShowObject state513 = new ShowObject();
-							state513.setObject(object);
-							if (!flowThread.callState(state513, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 725, 48)))) {
+							ShowObject state524 = new ShowObject();
+							state524.setObject(object);
+							if (!flowThread.callState(state524, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 725, 48)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -3887,10 +3931,10 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 732
 			try {
 				EXECUTION: {
-					int count = getCount(114132791) + 1;
-					incrCount(114132791);
-					iristk.situated.SystemAgentFlow.listen state514 = agent.new listen();
-					if (!flowThread.callState(state514, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 732, 12)))) {
+					int count = getCount(1811044090) + 1;
+					incrCount(1811044090);
+					iristk.situated.SystemAgentFlow.listen state525 = agent.new listen();
+					if (!flowThread.callState(state525, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 732, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -3906,32 +3950,32 @@ public class CardsFlow extends iristk.flow.Flow {
 			int count;
 			// Line: 735
 			try {
-				count = getCount(586617651) + 1;
+				count = getCount(114132791) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(586617651);
+						incrCount(114132791);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 736
-							lookChild state515 = new lookChild();
-							if (!flowThread.callState(state515, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 736, 29)))) {
+							lookChild state526 = new lookChild();
+							if (!flowThread.callState(state526, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 736, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state516 = agent.new say();
-							StringCreator string517 = new StringCreator();
-							string517.append("Ahhh... There it is. That's a");
+							iristk.situated.SystemAgentFlow.say state527 = agent.new say();
+							StringCreator string528 = new StringCreator();
+							string528.append("Ahhh... There it is. That's a");
 							// Line: 736
-							string517.append( object );
-							state516.setText(string517.toString());
-							if (!flowThread.callState(state516, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 735, 58)))) {
+							string528.append( object );
+							state527.setText(string528.toString());
+							if (!flowThread.callState(state527, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 735, 58)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 738
-							iristk.flow.DialogFlow.wait waitState518 = new iristk.flow.DialogFlow.wait();
-							waitState518.setMsec(1000);
-							if (!flowThread.callState(waitState518, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 738, 23)))) {
+							iristk.flow.DialogFlow.wait waitState529 = new iristk.flow.DialogFlow.wait();
+							waitState529.setMsec(1000);
+							if (!flowThread.callState(waitState529, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 738, 23)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -3948,40 +3992,40 @@ public class CardsFlow extends iristk.flow.Flow {
 			}
 			// Line: 742
 			try {
-				count = getCount(440434003) + 1;
+				count = getCount(3447021) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(440434003);
+						incrCount(3447021);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
 							// Line: 743
-							lookChild state519 = new lookChild();
-							if (!flowThread.callState(state519, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 743, 29)))) {
+							lookChild state530 = new lookChild();
+							if (!flowThread.callState(state530, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 743, 29)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state520 = agent.new say();
-							StringCreator string521 = new StringCreator();
-							string521.append("I can't see a");
+							iristk.situated.SystemAgentFlow.say state531 = agent.new say();
+							StringCreator string532 = new StringCreator();
+							string532.append("I can't see a");
 							// Line: 743
-							string521.append( object );
-							state520.setText(string521.toString());
-							if (!flowThread.callState(state520, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 742, 57)))) {
+							string532.append( object );
+							state531.setText(string532.toString());
+							if (!flowThread.callState(state531, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 742, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
-							iristk.situated.SystemAgentFlow.say state522 = agent.new say();
-							StringCreator string523 = new StringCreator();
-							string523.append("Let's find something else.");
-							state522.setText(string523.toString());
-							if (!flowThread.callState(state522, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 742, 57)))) {
+							iristk.situated.SystemAgentFlow.say state533 = agent.new say();
+							StringCreator string534 = new StringCreator();
+							string534.append("Let's find something else.");
+							state533.setText(string534.toString());
+							if (!flowThread.callState(state533, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 742, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 746
-							iristk.flow.DialogFlow.wait waitState524 = new iristk.flow.DialogFlow.wait();
-							waitState524.setMsec(2000);
-							if (!flowThread.callState(waitState524, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 746, 23)))) {
+							iristk.flow.DialogFlow.wait waitState535 = new iristk.flow.DialogFlow.wait();
+							waitState535.setMsec(2000);
+							if (!flowThread.callState(waitState535, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 746, 23)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -4023,18 +4067,18 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 755
 			try {
 				EXECUTION: {
-					int count = getCount(1720435669) + 1;
-					incrCount(1720435669);
-					iristk.situated.SystemAgentFlow.say state525 = agent.new say();
-					StringCreator string526 = new StringCreator();
-					string526.append("Do you want to continue?");
-					state525.setText(string526.toString());
-					if (!flowThread.callState(state525, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 755, 12)))) {
+					int count = getCount(940553268) + 1;
+					incrCount(940553268);
+					iristk.situated.SystemAgentFlow.say state536 = agent.new say();
+					StringCreator string537 = new StringCreator();
+					string537.append("Do you want to continue?");
+					state536.setText(string537.toString());
+					if (!flowThread.callState(state536, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 755, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
-					iristk.situated.SystemAgentFlow.listen state527 = agent.new listen();
-					if (!flowThread.callState(state527, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 755, 12)))) {
+					iristk.situated.SystemAgentFlow.listen state538 = agent.new listen();
+					if (!flowThread.callState(state538, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 755, 12)))) {
 						eventResult = EVENT_ABORTED;
 						break EXECUTION;
 					}
@@ -4050,23 +4094,23 @@ public class CardsFlow extends iristk.flow.Flow {
 			int count;
 			// Line: 759
 			try {
-				count = getCount(1020923989) + 1;
+				count = getCount(1720435669) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:yes")) {
-						incrCount(1020923989);
+						incrCount(1720435669);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state528 = agent.new say();
-							StringCreator string529 = new StringCreator();
-							string529.append("Okay, let's play again.");
-							state528.setText(string529.toString());
-							if (!flowThread.callState(state528, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 759, 58)))) {
+							iristk.situated.SystemAgentFlow.say state539 = agent.new say();
+							StringCreator string540 = new StringCreator();
+							string540.append("Okay, let's play again.");
+							state539.setText(string540.toString());
+							if (!flowThread.callState(state539, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 759, 58)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
 							// Line: 761
-							Start state530 = new Start();
-							flowThread.gotoState(state530, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 761, 25)));
+							Start state541 = new Start();
+							flowThread.gotoState(state541, currentState, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 761, 25)));
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -4078,17 +4122,17 @@ public class CardsFlow extends iristk.flow.Flow {
 			}
 			// Line: 763
 			try {
-				count = getCount(1068934215) + 1;
+				count = getCount(2052915500) + 1;
 				if (event.triggers("sense.user.speak")) {
 					if (event.has("sem:no")) {
-						incrCount(1068934215);
+						incrCount(2052915500);
 						eventResult = EVENT_CONSUMED;
 						EXECUTION: {
-							iristk.situated.SystemAgentFlow.say state531 = agent.new say();
-							StringCreator string532 = new StringCreator();
-							string532.append("Okay, goodbye");
-							state531.setText(string532.toString());
-							if (!flowThread.callState(state531, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 763, 57)))) {
+							iristk.situated.SystemAgentFlow.say state542 = agent.new say();
+							StringCreator string543 = new StringCreator();
+							string543.append("Okay, goodbye");
+							state542.setText(string543.toString());
+							if (!flowThread.callState(state542, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 763, 57)))) {
 								eventResult = EVENT_ABORTED;
 								break EXECUTION;
 							}
@@ -4133,16 +4177,16 @@ public class CardsFlow extends iristk.flow.Flow {
 			int count;
 			// Line: 770
 			try {
-				count = getCount(2036958521) + 1;
+				count = getCount(1798286609) + 1;
 				if (event.triggers("sense.user.silence")) {
-					incrCount(2036958521);
+					incrCount(1798286609);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						iristk.situated.SystemAgentFlow.say state533 = agent.new say();
-						StringCreator string534 = new StringCreator();
-						string534.append("I am sorry, I didn't hear anything.");
-						state533.setText(string534.toString());
-						if (!flowThread.callState(state533, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 770, 38)))) {
+						iristk.situated.SystemAgentFlow.say state544 = agent.new say();
+						StringCreator string545 = new StringCreator();
+						string545.append("I am sorry, I didn't hear anything.");
+						state544.setText(string545.toString());
+						if (!flowThread.callState(state544, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 770, 38)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -4158,16 +4202,16 @@ public class CardsFlow extends iristk.flow.Flow {
 			}
 			// Line: 774
 			try {
-				count = getCount(785992331) + 1;
+				count = getCount(1945604815) + 1;
 				if (event.triggers("sense.user.speak")) {
-					incrCount(785992331);
+					incrCount(1945604815);
 					eventResult = EVENT_CONSUMED;
 					EXECUTION: {
-						iristk.situated.SystemAgentFlow.say state535 = agent.new say();
-						StringCreator string536 = new StringCreator();
-						string536.append("I am sorry, I didn't get that.");
-						state535.setText(string536.toString());
-						if (!flowThread.callState(state535, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 774, 36)))) {
+						iristk.situated.SystemAgentFlow.say state546 = agent.new say();
+						StringCreator string547 = new StringCreator();
+						string547.append("I am sorry, I didn't get that.");
+						state546.setText(string547.toString());
+						if (!flowThread.callState(state546, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 774, 36)))) {
 							eventResult = EVENT_ABORTED;
 							break EXECUTION;
 						}
@@ -4232,12 +4276,12 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 785
 			try {
 				EXECUTION: {
-					int count = getCount(998351292) + 1;
-					incrCount(998351292);
+					int count = getCount(1595953398) + 1;
+					incrCount(1595953398);
 					// Line: 786
-					Event sendEvent537 = new Event("action.gaze");
-					sendEvent537.putIfNotNull("location", new Location(degx, degy, degz));
-					flowRunner.sendEvent(sendEvent537, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 786, 76)));
+					Event sendEvent548 = new Event("action.gaze");
+					sendEvent548.putIfNotNull("location", new Location(degx, degy, degz));
+					flowRunner.sendEvent(sendEvent548, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 786, 76)));
 					// Line: 787
 					flowThread.returnFromCall(this, null, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 787, 14)));
 					eventResult = EVENT_ABORTED;
@@ -4279,12 +4323,12 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 792
 			try {
 				EXECUTION: {
-					int count = getCount(2017354584) + 1;
-					incrCount(2017354584);
+					int count = getCount(1308927845) + 1;
+					incrCount(1308927845);
 					// Line: 793
-					Event sendEvent538 = new Event("action.gaze");
-					sendEvent538.putIfNotNull("location", new Location(-1, 0, 1));
-					flowRunner.sendEvent(sendEvent538, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 793, 68)));
+					Event sendEvent549 = new Event("action.gaze");
+					sendEvent549.putIfNotNull("location", new Location(-1, 0, 1));
+					flowRunner.sendEvent(sendEvent549, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 793, 68)));
 					// Line: 794
 					flowThread.returnFromCall(this, null, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 794, 14)));
 					eventResult = EVENT_ABORTED;
@@ -4326,12 +4370,12 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 799
 			try {
 				EXECUTION: {
-					int count = getCount(321142942) + 1;
-					incrCount(321142942);
+					int count = getCount(403424356) + 1;
+					incrCount(403424356);
 					// Line: 800
-					Event sendEvent539 = new Event("action.gaze");
-					sendEvent539.putIfNotNull("location", new Location(1, 0, 1));
-					flowRunner.sendEvent(sendEvent539, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 800, 67)));
+					Event sendEvent550 = new Event("action.gaze");
+					sendEvent550.putIfNotNull("location", new Location(1, 0, 1));
+					flowRunner.sendEvent(sendEvent550, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 800, 67)));
 					// Line: 801
 					flowThread.returnFromCall(this, null, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 801, 14)));
 					eventResult = EVENT_ABORTED;
@@ -4373,12 +4417,12 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 806
 			try {
 				EXECUTION: {
-					int count = getCount(1393931310) + 1;
-					incrCount(1393931310);
+					int count = getCount(1644443712) + 1;
+					incrCount(1644443712);
 					// Line: 807
-					Event sendEvent540 = new Event("action.gaze");
-					sendEvent540.putIfNotNull("location", new Location(0, -1, 1));
-					flowRunner.sendEvent(sendEvent540, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 807, 68)));
+					Event sendEvent551 = new Event("action.gaze");
+					sendEvent551.putIfNotNull("location", new Location(0, -1, 1));
+					flowRunner.sendEvent(sendEvent551, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 807, 68)));
 					// Line: 808
 					flowThread.returnFromCall(this, null, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 808, 14)));
 					eventResult = EVENT_ABORTED;
@@ -4420,12 +4464,12 @@ public class CardsFlow extends iristk.flow.Flow {
 			// Line: 813
 			try {
 				EXECUTION: {
-					int count = getCount(1622006612) + 1;
-					incrCount(1622006612);
+					int count = getCount(510113906) + 1;
+					incrCount(510113906);
 					// Line: 814
-					Event sendEvent541 = new Event("action.gaze");
-					sendEvent541.putIfNotNull("location", new Location(0, 1, 1));
-					flowRunner.sendEvent(sendEvent541, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 814, 67)));
+					Event sendEvent552 = new Event("action.gaze");
+					sendEvent552.putIfNotNull("location", new Location(0, 1, 1));
+					flowRunner.sendEvent(sendEvent552, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 814, 67)));
 					// Line: 815
 					flowThread.returnFromCall(this, null, new FlowEventInfo(currentState, event, new XMLLocation(new File("C:\\Users\\ASEN14\\Desktop\\bitirme\\IrisTK\\app\\cards\\src\\iristk\\app\\cards\\CardsFlow.xml"), 815, 14)));
 					eventResult = EVENT_ABORTED;

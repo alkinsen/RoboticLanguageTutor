@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="QuizgameFlow" package="iristk.app.quizgame" 
+	initial="Start" xmlns:this="iristk.app.quizgame.QuizgameFlow" xmlns="iristk.flow" 
+	xmlns:p="iristk.flow.param" xmlns:agent="iristk.situated.SystemAgentFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.situated.SystemAgentFlow SystemAgentFlow.xsd">
+	
+	<import class="iristk.situated.Location"/>
+	
+	<param name="agent" type="iristk.situated.SystemAgentFlow"/>
+	
+	<var name="system" type="iristk.situated.SystemAgent" value="agent.getSystemAgent()"/> 
+	 
+	<var name="audioplayer" type="AudioPlayer" value="new AudioPlayer()"/>
+
+	<state id="Start" extends="Dialog">
+		<onentry>
+			<exec>audioplayer.playSound("audio/StartDemoInfo.wav");</exec>
+			<call state="lookCaretaker"/>
+			<agent:say>Hello there, I am a robotic language tutor that helps children acquire the English language
+			 with the help of a non English speaking caretaker.</agent:say> 
+			<call state="lookChild"/>
+			<wait msec="1000"/>
+			<agent:say>Normally I have been designed to target children between
+			zero to three years but for this demo I am going to ask you harder questions.</agent:say>
+			<goto state="PlayAnimals"/>
+
+		</onentry>
+		
+	</state>
+	
+	<state id="PlayAnimals">
+		<onentry>
+			<agent:say> Let's see if you know these interesting facts. </agent:say>
+			<wait msec="3000"/>
+			<call state="lookCaretaker"/>
+			
+			<exec>audioplayer.playSound("audio/PlayAnimalStart.wav");</exec>
+			<agent:say>Let's start the game.</agent:say>
+		
+			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalsCat.wav");</exec>
+			<agent:say>Can you show me the animal that sleeps 70 percent of the day?</agent:say>
+			<call state="lookBoard"/>
+			<wait msec="6000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalsDuck.wav");</exec>
+			<agent:say>Can you show me the animal that can sleep with one eye open?</agent:say>
+			<call state="lookBoard"/>
+			<wait msec="6000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalsBird.wav");</exec>
+			<agent:say>Can you show me the animal that is the closest relative of crocodiles?</agent:say>
+			<call state="lookBoard"/>
+			<wait msec="6000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalsFish.wav");</exec>
+			<agent:say>Can you show me the animal that has growth rings like trees?</agent:say>
+			<call state="lookBoard"/>
+			<wait msec="6000"/>
+			<call state="Showing"/>
+			
+			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/PlayAnimalsMultiple.wav");</exec>
+			<agent:say>Can you show me the animals that have better eyesight than humans?</agent:say>
+			<call state="lookBoard"/>
+			<wait msec="6000"/>
+			<call state="Showing"/>
+			
+			<goto state="CheckAgain"/>			
+		</onentry>
+	
+	</state>
+		
+	<!-- CHECK TO CONTINUE OR EXIT -->
+	<state id="CheckAgain" extends="Dialog">
+		<onentry>
+			<agent:say>Do you want to continue?</agent:say>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<agent:say>Okay, let's play again.</agent:say>
+			<goto state="Start"/>
+		</onevent>
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<agent:say>Okay, goodbye</agent:say>
+			<exec>System.exit(0)</exec>
+		</onevent>		
+	</state>
+	
+	<state id="Dialog">
+		<onevent name="sense.user.silence">
+			<agent:say>I am sorry, I didn't hear anything.</agent:say>
+			<reentry/>
+		</onevent>
+		<onevent name="sense.user.speak">
+			<agent:say>I am sorry, I didn't get that.</agent:say>
+			<reentry/>
+		</onevent>
+	</state>
+	<state id="Showing" extends="Dialog">
+		<onentry>
+			<call state="lookCaretaker"/>
+			<exec>audioplayer.playSound("audio/ShowingCheck.wav");</exec>
+			<wait msec="1000"/>
+			<agent:say>Is that correct?</agent:say>
+			<wait msec="3000"/>
+			<agent:listen/>
+		</onentry>
+		<onevent name="sense.user.speak" cond="event?:sem:yes">
+			<call state="lookChild"/>
+			<agent:say>Good Job. You are doing great.</agent:say>
+			<wait msec="3000"/>
+			<return/>
+		</onevent>
+		
+		<onevent name="sense.user.speak" cond="event?:sem:no">
+			<call state="lookChild"/>
+			<exec>audioplayer.playSound("audio/ShowingCorrect.wav");</exec>
+			<agent:say>It's alright. Let's see which one is the correct answer.</agent:say>
+			<call state="lookCaretaker"/>
+			<agent:say>Can you show me the correct answer please?</agent:say>
+			<wait msec="4000"/>
+			<agent:say>Let's continue.</agent:say>
+			<return/>
+		</onevent>
+	</state>
+	<!-- CONTROLLING FURHAT GAZE -->
+	<state id="lookAround">
+		<param name="degx" type="float" default="0.0" />
+		<param name="degy" type="float" default="0.0" />
+		<param name="degz" type="float" default="0.0" />
+		<onentry>
+			<send event="action.gaze" p:location="new Location(degx, degy, degz)" />
+			<return />
+		</onentry>
+	</state>
+
+	<state id="lookCaretaker">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(-1, 1, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
+	<state id="lookChild">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(1, 1, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
+	<state id="lookBoard">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(0, -1, 1)" />
+			<return />
+		</onentry>
+	</state>
+	
+	<state id="lookUp">
+		<onentry>
+			<send event="action.gaze" p:location="new Location(0, 1, 1)" />
+			<return />
+		</onentry>
+	</state>
+</flow>

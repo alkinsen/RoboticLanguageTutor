@@ -17,15 +17,12 @@
 	<state id="Start" extends="Dialog">
 		<onentry>
 			<call state="lookCaretaker"/>
-			<exec>tts.setVoice("dfki-ot-hsmm");</exec>
 			<exec>audioplayer.playSound("audio/StartLevel.wav");</exec>
 			<call state="lookChild"/>
 			<wait msec="3000"/>
 			<agent:say>Hello there I am Furhat, which level do you want to play?</agent:say>
-			<goto state="Play"/>
-			
-			<!--  call state="lookCaretaker"/>
-			< gent:listen/-->
+			<call state="lookCaretaker"/>
+			<agent:listen/>
 		</onentry>
 		
 		<onevent name="sense.user.speak" cond="event?:sem:one">
@@ -262,16 +259,14 @@
 	<state id="Learn" extends="Dialog">
 		<onentry>
 			<agent:say>Let's start learning. What do you want to learn about?</agent:say>
+			<exec>audioplayer.playSound("audio/PlaySubject.wav");</exec>
 			<agent:listen/>
 		</onentry>
 		<onevent name="sense.user.speak" cond="event?:sem:color">
-			<exec>tts.speak("Renk kartlarının olduğu desteyi alınız.", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
 			<agent:say>Okay, let's learn about colors.</agent:say>
 			<goto state="LearnColors"/>
 		</onevent>
 		<onevent name="sense.user.speak" cond="event?:sem:animal">
-			<exec>tts.speak("Hayvan kartlarının olduğu desteyi alınız.", 1.0f, false, false);</exec>
 			<agent:say>Okay, let's learn about animals.</agent:say>
 			<goto state="LearnAnimals"/>
 		</onevent>
@@ -358,70 +353,78 @@
 	<state id="LearnAnimals">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>tts.speak("Kopek kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnAnimalsDog.wav");</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a dog. The dog says woof. </agent:say>
+			<agent:say>This is a dog. Dogs are very friendly.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("WUF WUF diyin bir kac kez ve sonraki sesle birlikte 4 parmak gosterin.", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
+			<exec>audioplayer.playSound("audio/LearnAnimalsDogAct.wav");</exec>
+			<agent:say>The dog says woof.</agent:say>
+			<wait msec="6000"/>
 			<agent:say>The dog has 4 legs.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Kedi kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnAnimalsCat.wav");</exec>
 			<wait msec="3000"/>
-			<agent:say>This is a cat. The cat says meow. </agent:say>
+			<agent:say>This is a cat. Cats sleep a lot.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("MIAV MIAV diyin bir kac kez ve sonra elinizle 4 parmak gosterin.", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
-			<agent:say>The cat also has 4 legs like dog.</agent:say>
+			<exec>audioplayer.playSound("audio/LearnAnimalsCatAct.wav");</exec>
+			<agent:say>The cat says meow.</agent:say>
+			<wait msec="6000"/>
+			<agent:say>The cat also has 4 legs like the dog.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Balik kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnAnimalsFish.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a fish. The fish lives under the sea and swims. </agent:say>
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Ellerinizi birlestirip balik gibi saga sola sallayin.", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
+			<exec>audioplayer.playSound("audio/LearnAnimalsFishAct.wav");</exec>
+			<wait msec="4500"/>
 			<agent:say>The fish have fins and a tail.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Kus kartini gosterin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnAnimalsBird.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a bird. The bird flies in the sky.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Ucan kus gibi kollarinizi cirpin ve FILAY diyin bir kac kez.", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
+			<exec>audioplayer.playSound("audio/LearnAnimalsBirdAct.wav");</exec>
+			<agent:say>Let's see how a bird flies?</agent:say>
+			<wait msec="6500"/>
 			<agent:say>The bird lays eggs in its nest.</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Ordek kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnAnimalsDuck.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a duck. The duck says quack.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("VAK VAK diyin bir kac", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
+			<exec>audioplayer.playSound("audio/LearnAnimalsDuckAct.wav");</exec>
+			<wait msec="5000"/>
 			<agent:say>The duck can swim.</agent:say>
 			
 			<call state="lookChild"/>	
-			<exec>tts.speak("Kurbaga kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnAnimalsFrog.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a frog. The frog has a very long tongue.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Dilinizi cikartin kisa bir sure.", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
+			<exec>audioplayer.playSound("audio/LearnAnimalsFrogAct.wav");</exec>
+			<wait msec="5000"/>
 			<agent:say>The frog lives in both water and land.</agent:say>
 
 			<call state="lookChild"/>	
-			<exec>tts.speak("At kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnAnimalsHorse.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a horse. The horse can run very fast.</agent:say>
-
-			<exec>tts.speak("Ayi kartini gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<call state="lookCaretaker"/>
+			<exec>audioplayer.playSound("audio/LearnAnimalsHorseAct.wav");</exec>
+			<wait msec="5000"/>
+			<agent:say>Horses eat carrot.</agent:say>
+					
+			<call state="lookChild"/>		
+			<exec>audioplayer.playSound("audio/LearnAnimalsBear.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is a bear. The bear is very big.</agent:say>
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Ellerinizi pence yapip, havaya kaldirin ve BIG BEIR diyin.", 1.0f, false, false);</exec>
-			<wait msec="3000"/>
+			<exec>audioplayer.playSound("audio/LearnAnimalsBearAct.wav");</exec>
+			<wait msec="8500"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Now you know your animals.</agent:say>
@@ -434,62 +437,62 @@
 	<state id="LearnColors">
 		<onentry>
 			<call state="lookChild"/>
-			<exec>tts.speak("Kirmizi renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsRed.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is red.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Kirmizi karti cevirip sirayla itfaiye araci, trafik levhasi ve elma resimlerine isaret edin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsRedEx.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>The firetruck, the stop sign and the apple are all red. Red</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Mavi renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsBlue.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is blue. </agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Mavi karti cevirip sirayla deniz, gokyuzu ve kelebek resimlerine isaret edin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsBlueEx.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>The sea, the sky and the butterfly are all blue. Blue</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Yesil renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsGreen.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is green.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Yesil karti cevirip sirayla cimen, agac ve armut resimlerine isaret edin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsGreenEx.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>The grass, the tree and the pear are all green. Green</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Sari renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsYellow.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is yellow.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Sari karti cevirip sirayla limon, ordek ve muz resimlerine isaret edin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsYellowEx.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>The lemon, the duck and the banana are all yellow. Yellow</agent:say>
 			
 			<call state="lookChild"/>
-			<exec>tts.speak("Turuncu renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsOrange.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is orange.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Turunucu karti cevirip sirayla portakal, havuc ve top resimlerine isaret edin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsOrangeEx.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>The orange, the carrot and the basketball are all orange. Orange</agent:say>
 		
 			<call state="lookChild"/>
-			<exec>tts.speak("Mor renkli karti gosterin ve sallayin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsPurple.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>This is purple.</agent:say>
 			
 			<call state="lookCaretaker"/>
-			<exec>tts.speak("Mor karti cevirip sirayla uzum, patlican ve bot resimlerine isaret edin.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/LearnColorsPurpleEx.wav");</exec>
 			<wait msec="3000"/>
 			<agent:say>The grapes, the eggplant and the boots are all purple. Purple</agent:say>
 			
@@ -508,7 +511,7 @@
 		<onentry>
 			<call state="lookChild"/>
 			<exec>audioplayer.playSound("audio/PlaySubject.wav");</exec>
-			<agent:say>Let's have some fun. Which subject would you like to play with?</agent:say>
+			<agent:say>Let's have some fun. We are going to play some games. Which subject would you like to play with?</agent:say>
 			<agent:listen/>
 		</onentry>
 		
@@ -531,39 +534,38 @@
 			<call state="PlayPrepare"/>
 			
 			<agent:say>Let's start the game.</agent:say>
-			<exec>tts.speak("Oyuna başlıyoruz.", 1.0f, false, false);</exec>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color red?</agent:say>
-			<exec>tts.speak("Cocuğa kırmızı rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/PlayColorsRed.wav");</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 		
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color purple?</agent:say>
-			<exec>tts.speak("Cocuğa mor rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/PlayColorsPurple.wav");</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you first show me the color orange then yellow?</agent:say>
-			<exec>tts.speak("Cocuğa önce turuncu sonra sari rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/PlayColorsOrangeYellow.wav");</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color of grass?</agent:say>
-			<exec>tts.speak("Cocuğa yeşil rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/PlayColorsGreen.wav");</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
 			
 			<call state="lookChild"/>
 			<agent:say>Can you show me the color of firetruck?</agent:say>
-			<exec>tts.speak("Cocuğa kırmızı rengini göstermesini istedim.", 1.0f, false, false);</exec>
+			<exec>audioplayer.playSound("audio/PlayColorsRed.wav");</exec>
 			<call state="lookBoard"/>
 			<wait msec="4000"/>
 			<call state="Showing"/>
@@ -619,7 +621,6 @@
 			<call state="Showing"/>
 			
 			<goto state="CheckAgain"/>			
-			
 		</onentry>
 	
 		

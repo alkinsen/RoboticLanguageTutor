@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://C:\Users\ASEN14\Desktop\bitirme\IrisTK\addon\Face\bin" />
+    <libelement value="jar://$MODULE_DIR$/addon/Google/lib/google-speech.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/addon/Microsoft/lib/jni4net.j-0.8.8.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/addon/Microsoft/lib/IrisTK.Net.Speech.j4n.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/addon/Microsoft/lib/IrisTK.Net.Kinect.j4n.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/addon/Microsoft/lib/IrisTK.Net.Kinect2.j4n.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/commons.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/platform.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/jnaerator-0.9.5.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/jportaudio.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/json.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/jetty.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/js-14.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/JNativeHook.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/docking-frames-core.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/docking-frames-common.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/freemarker.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/hat.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/turbojpeg.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/batik-gui-util-1.8.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/xuggle-xuggler-5.4.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/webcam-capture-0.3.10.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/bridj-0.6.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/core/lib/furhat-skill.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/resources/libraries/marytts-builder-5.2-jar-with-dependencies.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/resources/libraries/marytts-lang-en-5.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/resources/libraries/voice-cmu-rms-hsmm-5.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/resources/libraries/voice-cmu-slt-hsmm-5.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/resources/libraries/voice-dfki-poppy-hsmm-5.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/resources/libraries/voice-dfki-ot-hsmm-5.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/resources/libraries/marytts-lang-tr-5.2.jar!/" />
+    <src_description expected_position="7">
+      <src_folder value="file://$MODULE_DIR$/addon/Google/src" expected_position="2" />
+      <src_folder value="file://$MODULE_DIR$/resources" expected_position="3" />
+      <src_folder value="file://$MODULE_DIR$/addon/Microsoft/src" expected_position="5" />
+      <src_folder value="file://$MODULE_DIR$/addon/NuanceCloud/src" expected_position="10" />
+      <src_folder value="file://$MODULE_DIR$/app/cards/src" expected_position="11" />
+      <src_folder value="file://$MODULE_DIR$/app/read/src" expected_position="12" />
+      <src_folder value="file://$MODULE_DIR$/core/src" expected_position="13" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/addon/Google/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/addon/Microsoft/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/addon/NuanceCloud/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/cards/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/read/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="bin">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/addon/Face/bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="google-speech.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/addon/Google/lib/google-speech.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jni4net.j-0.8.8.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/addon/Microsoft/lib/jni4net.j-0.8.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="IrisTK.Net.Speech.j4n.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/addon/Microsoft/lib/IrisTK.Net.Speech.j4n.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="IrisTK.Net.Kinect.j4n.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/addon/Microsoft/lib/IrisTK.Net.Kinect.j4n.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="IrisTK.Net.Kinect2.j4n.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/addon/Microsoft/lib/IrisTK.Net.Kinect2.j4n.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library name="commons.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/commons.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="platform.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/platform.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jnaerator-0.9.5.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/jnaerator-0.9.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jportaudio.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/jportaudio.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="json.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/json.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jetty.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/jetty.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="js-14.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/js-14.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="JNativeHook.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/JNativeHook.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="docking-frames-core.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/docking-frames-core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="docking-frames-common.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/docking-frames-common.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="freemarker.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/freemarker.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="hat.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/hat.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="turbojpeg.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/turbojpeg.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="batik-gui-util-1.8.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/batik-gui-util-1.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="xuggle-xuggler-5.4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/xuggle-xuggler-5.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="webcam-capture-0.3.10.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/webcam-capture-0.3.10.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="bridj-0.6.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/bridj-0.6.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="furhat-skill.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/core/lib/furhat-skill.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="marytts-builder-5.2-jar-with-dependencies.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/resources/libraries/marytts-builder-5.2-jar-with-dependencies.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="marytts-lang-en-5.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/resources/libraries/marytts-lang-en-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="voice-cmu-rms-hsmm-5.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/resources/libraries/voice-cmu-rms-hsmm-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="voice-cmu-slt-hsmm-5.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/resources/libraries/voice-cmu-slt-hsmm-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="voice-dfki-poppy-hsmm-5.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/resources/libraries/voice-dfki-poppy-hsmm-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="voice-dfki-ot-hsmm-5.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/resources/libraries/voice-dfki-ot-hsmm-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="marytts-lang-tr-5.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/resources/libraries/marytts-lang-tr-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
